@@ -48,7 +48,7 @@ import org.openapitools.client.JSON;
 /**
  * StructsGroupUpdateNamePayload
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-02T13:11:18.612358500+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-02T13:13:40.502456600+05:30[Asia/Calcutta]")
 public class StructsGroupUpdateNamePayload {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
