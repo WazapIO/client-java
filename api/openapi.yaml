@@ -1,0 +1,2765 @@
+openapi: 3.0.1
+info:
+  contact:
+    email: manjit@sponsorbook.io
+    name: Manjit Pardeshi
+  description: The V2 of WhatsAPI Go
+  title: WhatsAPI Go
+  version: "2.0"
+servers:
+- url: /api
+paths:
+  /instances/create:
+    get:
+      description: This endpoint is used to create a new WhatsApp Web instance.
+      parameters:
+      - description: Insert instance key if you want to provide custom key
+        in: query
+        name: instance_key
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Creates a new instance key.
+      tags:
+      - Instance
+      x-accepts: '*/*'
+  /instances/list:
+    get:
+      description: Fetches the list of all Instances with login status.
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get all instances.
+      tags:
+      - Instance
+      x-accepts: '*/*'
+  /instances/{instance_key}/:
+    get:
+      description: Returns the instance data of single instance with connection status.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get Instance.
+      tags:
+      - Instance
+      x-accepts: '*/*'
+  /instances/{instance_key}/business/catalog:
+    get:
+      description: Gets list of all products registered by you.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Fetches the catlog.
+      tags:
+      - Message Sending
+      x-accepts: '*/*'
+  /instances/{instance_key}/contacts:
+    get:
+      description: Fetches the list of contacts in the instance.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get contacts.
+      tags:
+      - Instance
+      x-accepts: '*/*'
+  /instances/{instance_key}/delete:
+    delete:
+      description: Deletes the instance with the provided key.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Delete Instance.
+      tags:
+      - Instance
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/:
+    get:
+      description: Returns list of all groups with participants data. Set include_participants
+        to false to exclude participants data.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Include participants data
+        in: query
+        name: include_participants
+        schema:
+          default: "true"
+          enum:
+          - "false"
+          - "true"
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get all groups.
+      tags:
+      - Group Management
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/admin:
+    get:
+      description: Returns list of all groups in which you are admin.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get admin groupss.
+      tags:
+      - Group Management
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/create:
+    post:
+      description: Creates a group with the participant data. The creator is automatically
+        added to the group.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.GroupCreatePayload'
+        description: Group create payload
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Create group.
+      tags:
+      - Group Management
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/invite-info:
+    get:
+      description: "Gets a group info from an invite link. An invite link is a link\
+        \ that can be used to join a group. It is usually in the format https://chat.whatsapp.com/{invitecode}"
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: The invite link to check
+        in: query
+        name: invite_link
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get group from invite link.
+      tags:
+      - Group Management
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/{group_id}:
+    get:
+      description: Fetches the group data.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Group id of the group
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get group.
+      tags:
+      - Group Management
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/{group_id}/:
+    delete:
+      description: Leaves the specified group.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Group id of the group
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Leaves the group.
+      tags:
+      - Group Management
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/{group_id}/announce:
+    put:
+      description: Set if non-admins are allowed to send messages in groups
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Announce status
+        in: path
+        name: announce
+        required: true
+        schema:
+          default: false
+          enum:
+          - true
+          - false
+          type: boolean
+      - description: Group id of the group
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Set group announce.
+      tags:
+      - Group Management
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/{group_id}/description:
+    put:
+      description: Changes the group description
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Group id of the group
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.GroupUpdateDescriptionPayload'
+        description: Group description data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Set group description.
+      tags:
+      - Group Management
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/{group_id}/invite-code:
+    get:
+      description: Gets the invite code of the group.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Group id of the group
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get group invite code.
+      tags:
+      - Group Management
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/{group_id}/lock:
+    put:
+      description: Set if non-admins are allowed to change the group dp and other
+        stuff
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Locked status
+        in: path
+        name: locked
+        required: true
+        schema:
+          default: false
+          enum:
+          - true
+          - false
+          type: boolean
+      - description: Group id of the group
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Set group locked.
+      tags:
+      - Group Management
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/{group_id}/name:
+    put:
+      description: Changes the group name. The max limit is 22 chars
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Group id of the group
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.GroupUpdateNamePayload'
+        description: Group name data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Set group name.
+      tags:
+      - Group Management
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/{group_id}/participants/add:
+    post:
+      description: Handles adding participants to a group. You must be admin in the
+        group or the query will fail.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Group id of the group
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.GroupUpdateParticipantsPayload'
+        description: Group update payload
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Add participant.
+      tags:
+      - Group Management
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/{group_id}/participants/demote:
+    put:
+      description: Demotes admins in groups. You must be admin in the group or the
+        query will fail.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Group id of the group
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.GroupUpdateParticipantsPayload'
+        description: Group update payload
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Demote participant.
+      tags:
+      - Group Management
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/{group_id}/participants/promote:
+    put:
+      description: Promotes participants to admin. You must be admin in the group
+        or the query will fail.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Group id of the group
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.GroupUpdateParticipantsPayload'
+        description: Group update payload
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Promote participant.
+      tags:
+      - Group Management
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/{group_id}/participants/remove:
+    delete:
+      description: Handles removing participants from a group. You must be admin in
+        the group or the query will fail.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Group id of the group
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.GroupUpdateParticipantsPayload'
+        description: Group update payload
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Remove participant.
+      tags:
+      - Group Management
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/groups/{group_id}/profile-pic:
+    put:
+      description: Changes the group profile picture. Currently it only seems to accept
+        JPEG images only
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Group id of the group
+        in: path
+        name: group_id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/_instances__instance_key__groups__group_id__profile_pic_put_request'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Set group picture.
+      tags:
+      - Group Management
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/logout:
+    delete:
+      description: Logouts of the instance with the provided key.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Logout Instance.
+      tags:
+      - Instance
+      x-accepts: '*/*'
+  /instances/{instance_key}/misc/profile-pic:
+    get:
+      description: Returns the profile pic of the given user.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: JID
+        in: query
+        name: jid
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get profile pic.
+      tags:
+      - Miscellaneous
+      x-accepts: '*/*'
+  /instances/{instance_key}/misc/user-info:
+    post:
+      description: Gets the user info for the given user ids. This does not checks
+        if user is registered or not
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.UserInfoPayload'
+        description: Data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Fetches the users info.
+      tags:
+      - Miscellaneous
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/qrcode:
+    get:
+      description: Returns the qrcode in the base64 format.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Get QrCode.
+      tags:
+      - Instance
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/audio:
+    post:
+      description: |-
+        Sends a audio message by uploading to the WhatsApp servers every time.
+        This is not recommended for bulk sending.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: The recipient's number
+        in: query
+        name: to
+        required: true
+        schema:
+          type: string
+      - description: Attached caption
+        in: query
+        name: caption
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/_instances__instance_key__send_audio_post_request'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Send raw audio.
+      tags:
+      - Message Sending
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/button-media:
+    post:
+      description: |-
+        Sends an interactive button message to the given user. This message also has media header with it.
+        Make sure that all the button ids are unique
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.ButtonMessageWithMediaPayload'
+        description: Message data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Send a button message with a media header.
+      tags:
+      - Message Sending
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/buttons:
+    post:
+      description: Sends an interactive button message to the given user. Make sure
+        that all the button ids are unique
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.ButtonMessagePayload'
+        description: Message data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Send a button message.
+      tags:
+      - Message Sending
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/contact:
+    post:
+      description: Sends a contact (vcard) message to the given user.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.ContactMessagePayload'
+        description: Message data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Send a contact message.
+      tags:
+      - Message Sending
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/document:
+    post:
+      description: |-
+        Sends a document message by uploading to the WhatsApp servers every time.
+        This is not recommended for bulk sending.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: The recipient's number
+        in: query
+        name: to
+        required: true
+        schema:
+          type: string
+      - description: Attached caption
+        in: query
+        name: caption
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/_instances__instance_key__send_document_post_request'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Send raw document.
+      tags:
+      - Message Sending
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/image:
+    post:
+      description: |-
+        Sends a image message by uploading to the WhatsApp servers every time.
+        This is not recommended for bulk sending.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: The recipient's number
+        in: query
+        name: to
+        required: true
+        schema:
+          type: string
+      - description: Attached caption
+        in: query
+        name: caption
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/_instances__instance_key__send_image_post_request'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Send raw image.
+      tags:
+      - Message Sending
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/list:
+    post:
+      description: Sends an interactive List message to the given user.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.ListMessagePayload'
+        description: Message data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Send a List message.
+      tags:
+      - Message Sending
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/location:
+    post:
+      description: |-
+        Sends a location message to the given user. This is static location and does not update
+        Note: The Address and Url fields are optional
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.LocationMessagePayload'
+        description: Message data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Send a location message.
+      tags:
+      - Message Sending
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/media:
+    post:
+      description: Sends a media message to the given user.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.SendMediaPayload'
+        description: Message data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Send a media message.
+      tags:
+      - Message Sending
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/poll:
+    post:
+      description: |-
+        Sends an interactive poll message with a media header to the given user.
+        The poll message is a new feature that is currently in beta.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.PollMessagePayload'
+        description: Message data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Send a Poll message with media.
+      tags:
+      - Message Sending
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/template:
+    post:
+      description: |-
+        Sends an interactive template message to the given user.
+        Note: The valid button types are "replyButton", "urlButton", "callButton"
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.TemplateButtonPayload'
+        description: Message data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Send a template message.
+      tags:
+      - Message Sending
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/template-media:
+    post:
+      description: |-
+        Sends an interactive template message with a media header to the given user.
+        Note: The valid button types are "replyButton", "urlButton", "callButton"
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.TemplateButtonWithMediaPayload'
+        description: Message data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Send a template message with media.
+      tags:
+      - Message Sending
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/text:
+    post:
+      description: Sends a text message to the given user.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.TextMessage'
+        description: Message data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Send a text message.
+      tags:
+      - Message Sending
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/upload:
+    post:
+      description: |-
+        Uploads media to WhatsApp servers and returns the media keys.
+        Store the returned media keys, as you will need them to send media messages
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Media type
+        in: query
+        name: type
+        required: true
+        schema:
+          enum:
+          - image
+          - video
+          - audio
+          - document
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/_instances__instance_key__send_upload_post_request'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Upload media.
+      tags:
+      - Message Sending
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/send/video:
+    post:
+      description: |-
+        Sends a video message by uploading to the WhatsApp servers every time.
+        This is not recommended for bulk sending.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: The recipient's number
+        in: query
+        name: to
+        required: true
+        schema:
+          type: string
+      - description: Attached caption
+        in: query
+        name: caption
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/_instances__instance_key__send_video_post_request'
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Send raw video.
+      tags:
+      - Message Sending
+      x-content-type: application/json
+      x-accepts: '*/*'
+  /instances/{instance_key}/webhook:
+    put:
+      description: Changes the webhook url of an instance.
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/structs.WebhookPayload'
+        description: Message data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/main.APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Change Webhook url.
+      tags:
+      - Instance
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
+components:
+  schemas:
+    main.APIResponse:
+      example:
+        data: "{}"
+        error: true
+        message: message
+        status: 0
+      properties:
+        data:
+          type: object
+        error:
+          type: boolean
+        message:
+          type: string
+        status:
+          type: integer
+      type: object
+    structs.ButtonMessagePayload:
+      properties:
+        buttons:
+          items:
+            $ref: '#/components/schemas/structs.ReplyButton'
+          type: array
+        footer_text:
+          type: string
+        header_text:
+          type: string
+        text:
+          type: string
+        to:
+          type: string
+      type: object
+    structs.ButtonMessageWithMediaPayload:
+      properties:
+        buttons:
+          items:
+            $ref: '#/components/schemas/structs.ReplyButton'
+          type: array
+        footer_text:
+          type: string
+        media_data:
+          $ref: '#/components/schemas/structs.FileUpload'
+        text:
+          type: string
+        to:
+          type: string
+      type: object
+    structs.ContactMessagePayload:
+      properties:
+        to:
+          type: string
+        vcard:
+          $ref: '#/components/schemas/structs_ContactMessagePayload_vcard'
+      required:
+      - to
+      - vcard
+      type: object
+    structs.FileUpload:
+      properties:
+        direct_path:
+          type: string
+        file_enc_sha256:
+          items:
+            type: integer
+          type: array
+        file_length:
+          type: integer
+        file_sha256:
+          items:
+            type: integer
+          type: array
+        media_key:
+          items:
+            type: integer
+          type: array
+        mime_type:
+          type: string
+        url:
+          type: string
+      required:
+      - direct_path
+      - file_enc_sha256
+      - file_length
+      - file_sha256
+      - media_key
+      - mime_type
+      - url
+      type: object
+    structs.GroupCreatePayload:
+      properties:
+        group_name:
+          type: string
+        participants:
+          items:
+            type: string
+          type: array
+      type: object
+    structs.GroupUpdateDescriptionPayload:
+      properties:
+        description:
+          type: string
+      type: object
+    structs.GroupUpdateNamePayload:
+      properties:
+        name:
+          type: string
+      type: object
+    structs.GroupUpdateParticipantsPayload:
+      properties:
+        participants:
+          items:
+            type: string
+          type: array
+      type: object
+    structs.ListItem:
+      properties:
+        description:
+          type: string
+        row_id:
+          type: string
+        title:
+          type: string
+      required:
+      - title
+      type: object
+    structs.ListMessagePayload:
+      properties:
+        button_text:
+          type: string
+        description:
+          type: string
+        multi_select:
+          type: boolean
+        sections:
+          items:
+            $ref: '#/components/schemas/structs.ListSection'
+          type: array
+        text:
+          type: string
+        title:
+          type: string
+        to:
+          type: string
+      required:
+      - sections
+      - to
+      type: object
+    structs.ListSection:
+      properties:
+        rows:
+          items:
+            $ref: '#/components/schemas/structs.ListItem'
+          type: array
+        title:
+          type: string
+      required:
+      - rows
+      - title
+      type: object
+    structs.LocationMessagePayload:
+      properties:
+        location:
+          $ref: '#/components/schemas/structs_LocationMessagePayload_location'
+        to:
+          type: string
+        url:
+          type: string
+      required:
+      - location
+      - to
+      type: object
+    structs.PollMessagePayload:
+      properties:
+        options:
+          items:
+            type: string
+          type: array
+        selectable_options_count:
+          type: integer
+        title:
+          type: string
+        to:
+          type: string
+      required:
+      - options
+      - selectable_options_count
+      - title
+      - to
+      type: object
+    structs.ReplyButton:
+      properties:
+        button_id:
+          type: string
+        button_text:
+          type: string
+      type: object
+    structs.SendMediaPayload:
+      properties:
+        caption:
+          type: string
+        filename:
+          type: string
+        media_data:
+          $ref: '#/components/schemas/structs.FileUpload'
+        media_type:
+          type: string
+        to:
+          type: string
+      required:
+      - media_data
+      - media_type
+      - to
+      type: object
+    structs.TemplateButton:
+      properties:
+        button_id:
+          description: Make sure this is unique
+          type: string
+        payload:
+          type: string
+        title:
+          type: string
+        type:
+          description: "Valid types are replyButton, urlButton & callButton"
+          type: string
+      required:
+      - title
+      - type
+      type: object
+    structs.TemplateButtonPayload:
+      properties:
+        buttons:
+          items:
+            $ref: '#/components/schemas/structs.TemplateButton'
+          type: array
+        content_text:
+          type: string
+        footer:
+          type: string
+        header:
+          type: string
+        to:
+          type: string
+      required:
+      - buttons
+      - to
+      type: object
+    structs.TemplateButtonWithMediaPayload:
+      properties:
+        buttons:
+          items:
+            $ref: '#/components/schemas/structs.TemplateButton'
+          type: array
+        content_text:
+          type: string
+        footer:
+          type: string
+        media:
+          $ref: '#/components/schemas/structs.FileUpload'
+        to:
+          type: string
+      required:
+      - buttons
+      - media
+      - to
+      type: object
+    structs.TextMessage:
+      properties:
+        text:
+          type: string
+        to:
+          type: string
+      required:
+      - text
+      - to
+      type: object
+    structs.UserInfoPayload:
+      properties:
+        user_ids:
+          items:
+            type: string
+          type: array
+      required:
+      - user_ids
+      type: object
+    structs.WebhookPayload:
+      properties:
+        webhook_url:
+          type: string
+      type: object
+    _instances__instance_key__groups__group_id__profile_pic_put_request:
+      properties:
+        file:
+          description: Group picture in JPEG
+          format: binary
+          type: string
+      required:
+      - file
+      type: object
+    _instances__instance_key__send_audio_post_request:
+      properties:
+        file:
+          description: Audio file
+          format: binary
+          type: string
+      required:
+      - file
+      type: object
+    _instances__instance_key__send_document_post_request:
+      properties:
+        file:
+          description: Document file
+          format: binary
+          type: string
+      required:
+      - file
+      type: object
+    _instances__instance_key__send_image_post_request:
+      properties:
+        file:
+          description: Image file
+          format: binary
+          type: string
+      required:
+      - file
+      type: object
+    _instances__instance_key__send_upload_post_request:
+      properties:
+        file:
+          description: Media file
+          format: binary
+          type: string
+      required:
+      - file
+      type: object
+    _instances__instance_key__send_video_post_request:
+      properties:
+        file:
+          description: Video file
+          format: binary
+          type: string
+      required:
+      - file
+      type: object
+    structs_ContactMessagePayload_vcard:
+      properties:
+        full_name:
+          type: string
+        organization:
+          type: string
+        phone:
+          type: string
+      type: object
+    structs_LocationMessagePayload_location:
+      properties:
+        address:
+          type: string
+        latitude:
+          type: number
+        longitude:
+          type: number
+        name:
+          type: string
+      required:
+      - latitude
+      - longitude
+      - name
+      type: object
+  securitySchemes:
+    ApiKeyAuth:
+      in: header
+      name: Authorization
+      type: apiKey
+x-original-swagger-version: "2.0"
+
