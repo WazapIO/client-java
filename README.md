@@ -2,7 +2,7 @@
 
 WhatsAPI Go
 - API version: 2.0
-  - Build date: 2022-11-02T13:00:57.891953300+05:30[Asia/Calcutta]
+  - Build date: 2022-11-02T13:11:18.612358500+05:30[Asia/Calcutta]
 
 The V2 of WhatsAPI Go
 
