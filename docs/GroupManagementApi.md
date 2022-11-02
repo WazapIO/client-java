@@ -33,12 +33,12 @@ Returns list of all groups in which you are admin.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -106,12 +106,12 @@ Creates a group with the participant data. The creator is automatically added to
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -181,12 +181,12 @@ Returns list of all groups with participants data. Set include_participants to f
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -256,12 +256,12 @@ Set if non-admins are allowed to send messages in groups
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -333,12 +333,12 @@ Leaves the specified group.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -408,12 +408,12 @@ Changes the group description
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -485,12 +485,12 @@ Fetches the group data.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -560,12 +560,12 @@ Gets the invite code of the group.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -635,12 +635,12 @@ Set if non-admins are allowed to change the group dp and other stuff
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -712,12 +712,12 @@ Changes the group name. The max limit is 22 chars
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -789,12 +789,12 @@ Handles adding participants to a group. You must be admin in the group or the qu
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -866,12 +866,12 @@ Demotes admins in groups. You must be admin in the group or the query will fail.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -943,12 +943,12 @@ Promotes participants to admin. You must be admin in the group or the query will
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1020,12 +1020,12 @@ Handles removing participants from a group. You must be admin in the group or th
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1097,12 +1097,12 @@ Changes the group profile picture. Currently it only seems to accept JPEG images
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1174,12 +1174,12 @@ Gets a group info from an invite link. An invite link is a link that can be used
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {

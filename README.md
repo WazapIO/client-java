@@ -2,7 +2,7 @@
 
 WhatsAPI Go
 - API version: 2.0
-  - Build date: 2022-11-02T13:13:40.502456600+05:30[Asia/Calcutta]
+  - Build date: 2022-11-02T13:24:11.691029500+05:30[Asia/Calcutta]
 
 The V2 of WhatsAPI Go
 
@@ -80,12 +80,12 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.GroupManagementApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
 
 public class Example {
   public static void main(String[] args) {

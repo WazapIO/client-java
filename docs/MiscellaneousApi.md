@@ -19,12 +19,12 @@ Returns the profile pic of the given user.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MiscellaneousApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MiscellaneousApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -94,12 +94,12 @@ Gets the user info for the given user ids. This does not checks if user is regis
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MiscellaneousApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MiscellaneousApi;
 
 public class Example {
   public static void main(String[] args) {

@@ -25,12 +25,12 @@ This endpoint is used to create a new WhatsApp Web instance.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InstanceApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.InstanceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -98,12 +98,12 @@ Fetches the list of contacts in the instance.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InstanceApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.InstanceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -171,12 +171,12 @@ Deletes the instance with the provided key.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InstanceApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.InstanceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -244,12 +244,12 @@ Returns the instance data of single instance with connection status.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InstanceApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.InstanceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -317,12 +317,12 @@ Logouts of the instance with the provided key.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InstanceApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.InstanceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -390,12 +390,12 @@ Returns the qrcode in the base64 format.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InstanceApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.InstanceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -463,12 +463,12 @@ Changes the webhook url of an instance.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InstanceApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.InstanceApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -538,12 +538,12 @@ Fetches the list of all Instances with login status.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.InstanceApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.InstanceApi;
 
 public class Example {
   public static void main(String[] args) {

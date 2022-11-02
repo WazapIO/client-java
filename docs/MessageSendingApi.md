@@ -33,12 +33,12 @@ Gets list of all products registered by you.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -106,12 +106,12 @@ Sends a audio message by uploading to the WhatsApp servers every time. This is n
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -185,12 +185,12 @@ Sends an interactive button message to the given user. This message also has med
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -260,12 +260,12 @@ Sends an interactive button message to the given user. Make sure that all the bu
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -335,12 +335,12 @@ Sends a contact (vcard) message to the given user.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -410,12 +410,12 @@ Sends a document message by uploading to the WhatsApp servers every time. This i
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -489,12 +489,12 @@ Sends a image message by uploading to the WhatsApp servers every time. This is n
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -568,12 +568,12 @@ Sends an interactive List message to the given user.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -643,12 +643,12 @@ Sends a location message to the given user. This is static location and does not
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -718,12 +718,12 @@ Sends a media message to the given user.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -793,12 +793,12 @@ Sends an interactive poll message with a media header to the given user. The pol
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -868,12 +868,12 @@ Sends an interactive template message with a media header to the given user. Not
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -943,12 +943,12 @@ Sends an interactive template message to the given user. Note: The valid button 
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1018,12 +1018,12 @@ Sends a text message to the given user.
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1093,12 +1093,12 @@ Uploads media to WhatsApp servers and returns the media keys. Store the returned
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
@@ -1170,12 +1170,12 @@ Sends a video message by uploading to the WhatsApp servers every time. This is n
 ### Example
 ```java
 // Import classes:
-import org.openapitools.client.ApiClient;
-import org.openapitools.client.ApiException;
-import org.openapitools.client.Configuration;
-import org.openapitools.client.auth.*;
-import org.openapitools.client.models.*;
-import org.openapitools.client.api.MessageSendingApi;
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
 
 public class Example {
   public static void main(String[] args) {
