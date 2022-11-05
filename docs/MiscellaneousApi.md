@@ -10,7 +10,7 @@ All URIs are relative to */api*
 
 <a name="instancesInstanceKeyMiscProfilePicGet"></a>
 # **instancesInstanceKeyMiscProfilePicGet**
-> MainAPIResponse instancesInstanceKeyMiscProfilePicGet(instanceKey, jid)
+> ModelAPIResponse instancesInstanceKeyMiscProfilePicGet(instanceKey, jid)
 
 Get profile pic.
 
@@ -41,7 +41,7 @@ public class Example {
     String instanceKey = "instanceKey_example"; // String | Instance key
     String jid = "jid_example"; // String | JID
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyMiscProfilePicGet(instanceKey, jid);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyMiscProfilePicGet(instanceKey, jid);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MiscellaneousApi#instancesInstanceKeyMiscProfilePicGet");
@@ -63,7 +63,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -85,7 +85,7 @@ public class Example {
 
 <a name="instancesInstanceKeyMiscUserInfoPost"></a>
 # **instancesInstanceKeyMiscUserInfoPost**
-> MainAPIResponse instancesInstanceKeyMiscUserInfoPost(instanceKey, data)
+> ModelAPIResponse instancesInstanceKeyMiscUserInfoPost(instanceKey, data)
 
 Fetches the users info.
 
@@ -114,9 +114,9 @@ public class Example {
 
     MiscellaneousApi apiInstance = new MiscellaneousApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
-    StructsUserInfoPayload data = new StructsUserInfoPayload(); // StructsUserInfoPayload | Data
+    UserInfoPayload data = new UserInfoPayload(); // UserInfoPayload | Data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyMiscUserInfoPost(instanceKey, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyMiscUserInfoPost(instanceKey, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MiscellaneousApi#instancesInstanceKeyMiscUserInfoPost");
@@ -134,11 +134,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
-| **data** | [**StructsUserInfoPayload**](StructsUserInfoPayload.md)| Data | |
+| **data** | [**UserInfoPayload**](UserInfoPayload.md)| Data | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 

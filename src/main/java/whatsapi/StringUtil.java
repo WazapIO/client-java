@@ -16,7 +16,7 @@ package WhatsAPI;
 import java.util.Collection;
 import java.util.Iterator;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-02T13:24:11.691029500+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-05T18:11:35.787596300+05:30[Asia/Calcutta]")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).

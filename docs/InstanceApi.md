@@ -16,7 +16,7 @@ All URIs are relative to */api*
 
 <a name="instancesCreateGet"></a>
 # **instancesCreateGet**
-> MainAPIResponse instancesCreateGet(instanceKey)
+> ModelAPIResponse instancesCreateGet(instanceKey)
 
 Creates a new instance key.
 
@@ -46,7 +46,7 @@ public class Example {
     InstanceApi apiInstance = new InstanceApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Insert instance key if you want to provide custom key
     try {
-      MainAPIResponse result = apiInstance.instancesCreateGet(instanceKey);
+      ModelAPIResponse result = apiInstance.instancesCreateGet(instanceKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InstanceApi#instancesCreateGet");
@@ -67,7 +67,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -89,7 +89,7 @@ public class Example {
 
 <a name="instancesInstanceKeyContactsGet"></a>
 # **instancesInstanceKeyContactsGet**
-> MainAPIResponse instancesInstanceKeyContactsGet(instanceKey)
+> ModelAPIResponse instancesInstanceKeyContactsGet(instanceKey)
 
 Get contacts.
 
@@ -119,7 +119,7 @@ public class Example {
     InstanceApi apiInstance = new InstanceApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyContactsGet(instanceKey);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyContactsGet(instanceKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InstanceApi#instancesInstanceKeyContactsGet");
@@ -140,7 +140,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -162,7 +162,7 @@ public class Example {
 
 <a name="instancesInstanceKeyDeleteDelete"></a>
 # **instancesInstanceKeyDeleteDelete**
-> MainAPIResponse instancesInstanceKeyDeleteDelete(instanceKey)
+> ModelAPIResponse instancesInstanceKeyDeleteDelete(instanceKey)
 
 Delete Instance.
 
@@ -192,7 +192,7 @@ public class Example {
     InstanceApi apiInstance = new InstanceApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyDeleteDelete(instanceKey);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyDeleteDelete(instanceKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InstanceApi#instancesInstanceKeyDeleteDelete");
@@ -213,7 +213,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -235,7 +235,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGet"></a>
 # **instancesInstanceKeyGet**
-> MainAPIResponse instancesInstanceKeyGet(instanceKey)
+> ModelAPIResponse instancesInstanceKeyGet(instanceKey)
 
 Get Instance.
 
@@ -265,7 +265,7 @@ public class Example {
     InstanceApi apiInstance = new InstanceApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGet(instanceKey);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGet(instanceKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InstanceApi#instancesInstanceKeyGet");
@@ -286,7 +286,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -308,7 +308,7 @@ public class Example {
 
 <a name="instancesInstanceKeyLogoutDelete"></a>
 # **instancesInstanceKeyLogoutDelete**
-> MainAPIResponse instancesInstanceKeyLogoutDelete(instanceKey)
+> ModelAPIResponse instancesInstanceKeyLogoutDelete(instanceKey)
 
 Logout Instance.
 
@@ -338,7 +338,7 @@ public class Example {
     InstanceApi apiInstance = new InstanceApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyLogoutDelete(instanceKey);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyLogoutDelete(instanceKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InstanceApi#instancesInstanceKeyLogoutDelete");
@@ -359,7 +359,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -381,7 +381,7 @@ public class Example {
 
 <a name="instancesInstanceKeyQrcodeGet"></a>
 # **instancesInstanceKeyQrcodeGet**
-> MainAPIResponse instancesInstanceKeyQrcodeGet(instanceKey)
+> ModelAPIResponse instancesInstanceKeyQrcodeGet(instanceKey)
 
 Get QrCode.
 
@@ -411,7 +411,7 @@ public class Example {
     InstanceApi apiInstance = new InstanceApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyQrcodeGet(instanceKey);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyQrcodeGet(instanceKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InstanceApi#instancesInstanceKeyQrcodeGet");
@@ -432,7 +432,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -454,7 +454,7 @@ public class Example {
 
 <a name="instancesInstanceKeyWebhookPut"></a>
 # **instancesInstanceKeyWebhookPut**
-> MainAPIResponse instancesInstanceKeyWebhookPut(instanceKey, data)
+> ModelAPIResponse instancesInstanceKeyWebhookPut(instanceKey, data)
 
 Change Webhook url.
 
@@ -483,9 +483,9 @@ public class Example {
 
     InstanceApi apiInstance = new InstanceApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
-    StructsWebhookPayload data = new StructsWebhookPayload(); // StructsWebhookPayload | Message data
+    WebhookPayload data = new WebhookPayload(); // WebhookPayload | Message data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyWebhookPut(instanceKey, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyWebhookPut(instanceKey, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InstanceApi#instancesInstanceKeyWebhookPut");
@@ -503,11 +503,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
-| **data** | [**StructsWebhookPayload**](StructsWebhookPayload.md)| Message data | |
+| **data** | [**WebhookPayload**](WebhookPayload.md)| Message data | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -529,7 +529,7 @@ public class Example {
 
 <a name="instancesListGet"></a>
 # **instancesListGet**
-> MainAPIResponse instancesListGet()
+> ModelAPIResponse instancesListGet()
 
 Get all instances.
 
@@ -558,7 +558,7 @@ public class Example {
 
     InstanceApi apiInstance = new InstanceApi(defaultClient);
     try {
-      MainAPIResponse result = apiInstance.instancesListGet();
+      ModelAPIResponse result = apiInstance.instancesListGet();
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InstanceApi#instancesListGet");
@@ -576,7 +576,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 

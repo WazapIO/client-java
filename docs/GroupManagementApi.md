@@ -24,7 +24,7 @@ All URIs are relative to */api*
 
 <a name="instancesInstanceKeyGroupsAdminGet"></a>
 # **instancesInstanceKeyGroupsAdminGet**
-> MainAPIResponse instancesInstanceKeyGroupsAdminGet(instanceKey)
+> ModelAPIResponse instancesInstanceKeyGroupsAdminGet(instanceKey)
 
 Get admin groupss.
 
@@ -54,7 +54,7 @@ public class Example {
     GroupManagementApi apiInstance = new GroupManagementApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsAdminGet(instanceKey);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsAdminGet(instanceKey);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsAdminGet");
@@ -75,7 +75,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -97,7 +97,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsCreatePost"></a>
 # **instancesInstanceKeyGroupsCreatePost**
-> MainAPIResponse instancesInstanceKeyGroupsCreatePost(instanceKey, data)
+> ModelAPIResponse instancesInstanceKeyGroupsCreatePost(instanceKey, data)
 
 Create group.
 
@@ -126,9 +126,9 @@ public class Example {
 
     GroupManagementApi apiInstance = new GroupManagementApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
-    StructsGroupCreatePayload data = new StructsGroupCreatePayload(); // StructsGroupCreatePayload | Group create payload
+    GroupCreatePayload data = new GroupCreatePayload(); // GroupCreatePayload | Group create payload
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsCreatePost(instanceKey, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsCreatePost(instanceKey, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsCreatePost");
@@ -146,11 +146,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
-| **data** | [**StructsGroupCreatePayload**](StructsGroupCreatePayload.md)| Group create payload | |
+| **data** | [**GroupCreatePayload**](GroupCreatePayload.md)| Group create payload | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -172,7 +172,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsGet"></a>
 # **instancesInstanceKeyGroupsGet**
-> MainAPIResponse instancesInstanceKeyGroupsGet(instanceKey, includeParticipants)
+> ModelAPIResponse instancesInstanceKeyGroupsGet(instanceKey, includeParticipants)
 
 Get all groups.
 
@@ -203,7 +203,7 @@ public class Example {
     String instanceKey = "instanceKey_example"; // String | Instance key
     String includeParticipants = "false"; // String | Include participants data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsGet(instanceKey, includeParticipants);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsGet(instanceKey, includeParticipants);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsGet");
@@ -225,7 +225,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -247,7 +247,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsGroupIdAnnouncePut"></a>
 # **instancesInstanceKeyGroupsGroupIdAnnouncePut**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdAnnouncePut(instanceKey, announce, groupId)
+> ModelAPIResponse instancesInstanceKeyGroupsGroupIdAnnouncePut(instanceKey, announce, groupId)
 
 Set group announce.
 
@@ -279,7 +279,7 @@ public class Example {
     Boolean announce = true; // Boolean | Announce status
     String groupId = "groupId_example"; // String | Group id of the group
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdAnnouncePut(instanceKey, announce, groupId);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdAnnouncePut(instanceKey, announce, groupId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsGroupIdAnnouncePut");
@@ -302,7 +302,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -324,7 +324,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsGroupIdDelete"></a>
 # **instancesInstanceKeyGroupsGroupIdDelete**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdDelete(instanceKey, groupId)
+> ModelAPIResponse instancesInstanceKeyGroupsGroupIdDelete(instanceKey, groupId)
 
 Leaves the group.
 
@@ -355,7 +355,7 @@ public class Example {
     String instanceKey = "instanceKey_example"; // String | Instance key
     String groupId = "groupId_example"; // String | Group id of the group
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdDelete(instanceKey, groupId);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdDelete(instanceKey, groupId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsGroupIdDelete");
@@ -377,7 +377,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -399,7 +399,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsGroupIdDescriptionPut"></a>
 # **instancesInstanceKeyGroupsGroupIdDescriptionPut**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdDescriptionPut(instanceKey, groupId, data)
+> ModelAPIResponse instancesInstanceKeyGroupsGroupIdDescriptionPut(instanceKey, groupId, data)
 
 Set group description.
 
@@ -429,9 +429,9 @@ public class Example {
     GroupManagementApi apiInstance = new GroupManagementApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
     String groupId = "groupId_example"; // String | Group id of the group
-    StructsGroupUpdateDescriptionPayload data = new StructsGroupUpdateDescriptionPayload(); // StructsGroupUpdateDescriptionPayload | Group description data
+    GroupUpdateDescriptionPayload data = new GroupUpdateDescriptionPayload(); // GroupUpdateDescriptionPayload | Group description data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdDescriptionPut(instanceKey, groupId, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdDescriptionPut(instanceKey, groupId, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsGroupIdDescriptionPut");
@@ -450,11 +450,11 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
 | **groupId** | **String**| Group id of the group | |
-| **data** | [**StructsGroupUpdateDescriptionPayload**](StructsGroupUpdateDescriptionPayload.md)| Group description data | |
+| **data** | [**GroupUpdateDescriptionPayload**](GroupUpdateDescriptionPayload.md)| Group description data | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -476,7 +476,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsGroupIdGet"></a>
 # **instancesInstanceKeyGroupsGroupIdGet**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdGet(instanceKey, groupId)
+> ModelAPIResponse instancesInstanceKeyGroupsGroupIdGet(instanceKey, groupId)
 
 Get group.
 
@@ -507,7 +507,7 @@ public class Example {
     String instanceKey = "instanceKey_example"; // String | Instance key
     String groupId = "groupId_example"; // String | Group id of the group
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdGet(instanceKey, groupId);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdGet(instanceKey, groupId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsGroupIdGet");
@@ -529,7 +529,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -551,7 +551,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsGroupIdInviteCodeGet"></a>
 # **instancesInstanceKeyGroupsGroupIdInviteCodeGet**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdInviteCodeGet(instanceKey, groupId)
+> ModelAPIResponse instancesInstanceKeyGroupsGroupIdInviteCodeGet(instanceKey, groupId)
 
 Get group invite code.
 
@@ -582,7 +582,7 @@ public class Example {
     String instanceKey = "instanceKey_example"; // String | Instance key
     String groupId = "groupId_example"; // String | Group id of the group
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdInviteCodeGet(instanceKey, groupId);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdInviteCodeGet(instanceKey, groupId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsGroupIdInviteCodeGet");
@@ -604,7 +604,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -626,7 +626,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsGroupIdLockPut"></a>
 # **instancesInstanceKeyGroupsGroupIdLockPut**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdLockPut(instanceKey, locked, groupId)
+> ModelAPIResponse instancesInstanceKeyGroupsGroupIdLockPut(instanceKey, locked, groupId)
 
 Set group locked.
 
@@ -658,7 +658,7 @@ public class Example {
     Boolean locked = true; // Boolean | Locked status
     String groupId = "groupId_example"; // String | Group id of the group
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdLockPut(instanceKey, locked, groupId);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdLockPut(instanceKey, locked, groupId);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsGroupIdLockPut");
@@ -681,7 +681,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -703,7 +703,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsGroupIdNamePut"></a>
 # **instancesInstanceKeyGroupsGroupIdNamePut**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdNamePut(instanceKey, groupId, data)
+> ModelAPIResponse instancesInstanceKeyGroupsGroupIdNamePut(instanceKey, groupId, data)
 
 Set group name.
 
@@ -733,9 +733,9 @@ public class Example {
     GroupManagementApi apiInstance = new GroupManagementApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
     String groupId = "groupId_example"; // String | Group id of the group
-    StructsGroupUpdateNamePayload data = new StructsGroupUpdateNamePayload(); // StructsGroupUpdateNamePayload | Group name data
+    GroupUpdateNamePayload data = new GroupUpdateNamePayload(); // GroupUpdateNamePayload | Group name data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdNamePut(instanceKey, groupId, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdNamePut(instanceKey, groupId, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsGroupIdNamePut");
@@ -754,11 +754,11 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
 | **groupId** | **String**| Group id of the group | |
-| **data** | [**StructsGroupUpdateNamePayload**](StructsGroupUpdateNamePayload.md)| Group name data | |
+| **data** | [**GroupUpdateNamePayload**](GroupUpdateNamePayload.md)| Group name data | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -780,7 +780,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsGroupIdParticipantsAddPost"></a>
 # **instancesInstanceKeyGroupsGroupIdParticipantsAddPost**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsAddPost(instanceKey, groupId, data)
+> ModelAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsAddPost(instanceKey, groupId, data)
 
 Add participant.
 
@@ -810,9 +810,9 @@ public class Example {
     GroupManagementApi apiInstance = new GroupManagementApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
     String groupId = "groupId_example"; // String | Group id of the group
-    StructsGroupUpdateParticipantsPayload data = new StructsGroupUpdateParticipantsPayload(); // StructsGroupUpdateParticipantsPayload | Group update payload
+    GroupUpdateParticipantsPayload data = new GroupUpdateParticipantsPayload(); // GroupUpdateParticipantsPayload | Group update payload
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdParticipantsAddPost(instanceKey, groupId, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdParticipantsAddPost(instanceKey, groupId, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsGroupIdParticipantsAddPost");
@@ -831,11 +831,11 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
 | **groupId** | **String**| Group id of the group | |
-| **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
+| **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -857,7 +857,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsGroupIdParticipantsDemotePut"></a>
 # **instancesInstanceKeyGroupsGroupIdParticipantsDemotePut**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsDemotePut(instanceKey, groupId, data)
+> ModelAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsDemotePut(instanceKey, groupId, data)
 
 Demote participant.
 
@@ -887,9 +887,9 @@ public class Example {
     GroupManagementApi apiInstance = new GroupManagementApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
     String groupId = "groupId_example"; // String | Group id of the group
-    StructsGroupUpdateParticipantsPayload data = new StructsGroupUpdateParticipantsPayload(); // StructsGroupUpdateParticipantsPayload | Group update payload
+    GroupUpdateParticipantsPayload data = new GroupUpdateParticipantsPayload(); // GroupUpdateParticipantsPayload | Group update payload
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdParticipantsDemotePut(instanceKey, groupId, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdParticipantsDemotePut(instanceKey, groupId, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsGroupIdParticipantsDemotePut");
@@ -908,11 +908,11 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
 | **groupId** | **String**| Group id of the group | |
-| **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
+| **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -934,7 +934,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsGroupIdParticipantsPromotePut"></a>
 # **instancesInstanceKeyGroupsGroupIdParticipantsPromotePut**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsPromotePut(instanceKey, groupId, data)
+> ModelAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsPromotePut(instanceKey, groupId, data)
 
 Promote participant.
 
@@ -964,9 +964,9 @@ public class Example {
     GroupManagementApi apiInstance = new GroupManagementApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
     String groupId = "groupId_example"; // String | Group id of the group
-    StructsGroupUpdateParticipantsPayload data = new StructsGroupUpdateParticipantsPayload(); // StructsGroupUpdateParticipantsPayload | Group update payload
+    GroupUpdateParticipantsPayload data = new GroupUpdateParticipantsPayload(); // GroupUpdateParticipantsPayload | Group update payload
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdParticipantsPromotePut(instanceKey, groupId, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdParticipantsPromotePut(instanceKey, groupId, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsGroupIdParticipantsPromotePut");
@@ -985,11 +985,11 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
 | **groupId** | **String**| Group id of the group | |
-| **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
+| **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -1011,7 +1011,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete"></a>
 # **instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(instanceKey, groupId, data)
+> ModelAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(instanceKey, groupId, data)
 
 Remove participant.
 
@@ -1041,9 +1041,9 @@ public class Example {
     GroupManagementApi apiInstance = new GroupManagementApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
     String groupId = "groupId_example"; // String | Group id of the group
-    StructsGroupUpdateParticipantsPayload data = new StructsGroupUpdateParticipantsPayload(); // StructsGroupUpdateParticipantsPayload | Group update payload
+    GroupUpdateParticipantsPayload data = new GroupUpdateParticipantsPayload(); // GroupUpdateParticipantsPayload | Group update payload
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(instanceKey, groupId, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(instanceKey, groupId, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete");
@@ -1062,11 +1062,11 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
 | **groupId** | **String**| Group id of the group | |
-| **data** | [**StructsGroupUpdateParticipantsPayload**](StructsGroupUpdateParticipantsPayload.md)| Group update payload | |
+| **data** | [**GroupUpdateParticipantsPayload**](GroupUpdateParticipantsPayload.md)| Group update payload | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -1088,7 +1088,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsGroupIdProfilePicPut"></a>
 # **instancesInstanceKeyGroupsGroupIdProfilePicPut**
-> MainAPIResponse instancesInstanceKeyGroupsGroupIdProfilePicPut(instanceKey, groupId, instancesInstanceKeyGroupsGroupIdProfilePicPutRequest)
+> ModelAPIResponse instancesInstanceKeyGroupsGroupIdProfilePicPut(instanceKey, groupId, instancesInstanceKeyGroupsGroupIdProfilePicPutRequest)
 
 Set group picture.
 
@@ -1120,7 +1120,7 @@ public class Example {
     String groupId = "groupId_example"; // String | Group id of the group
     InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest instancesInstanceKeyGroupsGroupIdProfilePicPutRequest = new InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest(); // InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest | 
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdProfilePicPut(instanceKey, groupId, instancesInstanceKeyGroupsGroupIdProfilePicPutRequest);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsGroupIdProfilePicPut(instanceKey, groupId, instancesInstanceKeyGroupsGroupIdProfilePicPutRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsGroupIdProfilePicPut");
@@ -1143,7 +1143,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -1165,7 +1165,7 @@ public class Example {
 
 <a name="instancesInstanceKeyGroupsInviteInfoGet"></a>
 # **instancesInstanceKeyGroupsInviteInfoGet**
-> MainAPIResponse instancesInstanceKeyGroupsInviteInfoGet(instanceKey, inviteLink)
+> ModelAPIResponse instancesInstanceKeyGroupsInviteInfoGet(instanceKey, inviteLink)
 
 Get group from invite link.
 
@@ -1196,7 +1196,7 @@ public class Example {
     String instanceKey = "instanceKey_example"; // String | Instance key
     String inviteLink = "inviteLink_example"; // String | The invite link to check
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyGroupsInviteInfoGet(instanceKey, inviteLink);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeyGroupsInviteInfoGet(instanceKey, inviteLink);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling GroupManagementApi#instancesInstanceKeyGroupsInviteInfoGet");
@@ -1218,7 +1218,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 

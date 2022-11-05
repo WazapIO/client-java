@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import models.MainAPIResponse;
-import models.StructsUserInfoPayload;
+import models.ModelAPIResponse;
+import models.UserInfoPayload;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -161,7 +161,7 @@ public class MiscellaneousApi {
      * Returns the profile pic of the given user.
      * @param instanceKey Instance key (required)
      * @param jid JID (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -173,8 +173,8 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyMiscProfilePicGet(String instanceKey, String jid) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyMiscProfilePicGetWithHttpInfo(instanceKey, jid);
+    public ModelAPIResponse instancesInstanceKeyMiscProfilePicGet(String instanceKey, String jid) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyMiscProfilePicGetWithHttpInfo(instanceKey, jid);
         return localVarResp.getData();
     }
 
@@ -183,7 +183,7 @@ public class MiscellaneousApi {
      * Returns the profile pic of the given user.
      * @param instanceKey Instance key (required)
      * @param jid JID (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -195,9 +195,9 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyMiscProfilePicGetWithHttpInfo(String instanceKey, String jid) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyMiscProfilePicGetWithHttpInfo(String instanceKey, String jid) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyMiscProfilePicGetValidateBeforeCall(instanceKey, jid, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -219,10 +219,10 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyMiscProfilePicGetAsync(String instanceKey, String jid, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyMiscProfilePicGetAsync(String instanceKey, String jid, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyMiscProfilePicGetValidateBeforeCall(instanceKey, jid, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -243,7 +243,7 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyMiscUserInfoPostCall(String instanceKey, StructsUserInfoPayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyMiscUserInfoPostCall(String instanceKey, UserInfoPayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -290,7 +290,7 @@ public class MiscellaneousApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeyMiscUserInfoPostValidateBeforeCall(String instanceKey, StructsUserInfoPayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call instancesInstanceKeyMiscUserInfoPostValidateBeforeCall(String instanceKey, UserInfoPayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
             throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeyMiscUserInfoPost(Async)");
@@ -310,7 +310,7 @@ public class MiscellaneousApi {
      * Gets the user info for the given user ids. This does not checks if user is registered or not
      * @param instanceKey Instance key (required)
      * @param data Data (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -322,8 +322,8 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyMiscUserInfoPost(String instanceKey, StructsUserInfoPayload data) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyMiscUserInfoPostWithHttpInfo(instanceKey, data);
+    public ModelAPIResponse instancesInstanceKeyMiscUserInfoPost(String instanceKey, UserInfoPayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyMiscUserInfoPostWithHttpInfo(instanceKey, data);
         return localVarResp.getData();
     }
 
@@ -332,7 +332,7 @@ public class MiscellaneousApi {
      * Gets the user info for the given user ids. This does not checks if user is registered or not
      * @param instanceKey Instance key (required)
      * @param data Data (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -344,9 +344,9 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyMiscUserInfoPostWithHttpInfo(String instanceKey, StructsUserInfoPayload data) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyMiscUserInfoPostWithHttpInfo(String instanceKey, UserInfoPayload data) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyMiscUserInfoPostValidateBeforeCall(instanceKey, data, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -368,10 +368,10 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyMiscUserInfoPostAsync(String instanceKey, StructsUserInfoPayload data, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyMiscUserInfoPostAsync(String instanceKey, UserInfoPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyMiscUserInfoPostValidateBeforeCall(instanceKey, data, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

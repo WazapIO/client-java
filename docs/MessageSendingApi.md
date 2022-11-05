@@ -4,7 +4,6 @@ All URIs are relative to */api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**instancesInstanceKeyBusinessCatalogGet**](MessageSendingApi.md#instancesInstanceKeyBusinessCatalogGet) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog. |
 | [**instancesInstanceKeySendAudioPost**](MessageSendingApi.md#instancesInstanceKeySendAudioPost) | **POST** /instances/{instance_key}/send/audio | Send raw audio. |
 | [**instancesInstanceKeySendButtonMediaPost**](MessageSendingApi.md#instancesInstanceKeySendButtonMediaPost) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header. |
 | [**instancesInstanceKeySendButtonsPost**](MessageSendingApi.md#instancesInstanceKeySendButtonsPost) | **POST** /instances/{instance_key}/send/buttons | Send a button message. |
@@ -14,7 +13,7 @@ All URIs are relative to */api*
 | [**instancesInstanceKeySendListPost**](MessageSendingApi.md#instancesInstanceKeySendListPost) | **POST** /instances/{instance_key}/send/list | Send a List message. |
 | [**instancesInstanceKeySendLocationPost**](MessageSendingApi.md#instancesInstanceKeySendLocationPost) | **POST** /instances/{instance_key}/send/location | Send a location message. |
 | [**instancesInstanceKeySendMediaPost**](MessageSendingApi.md#instancesInstanceKeySendMediaPost) | **POST** /instances/{instance_key}/send/media | Send a media message. |
-| [**instancesInstanceKeySendPollPost**](MessageSendingApi.md#instancesInstanceKeySendPollPost) | **POST** /instances/{instance_key}/send/poll | Send a Poll message with media. |
+| [**instancesInstanceKeySendPollPost**](MessageSendingApi.md#instancesInstanceKeySendPollPost) | **POST** /instances/{instance_key}/send/poll | Send a Poll message. |
 | [**instancesInstanceKeySendTemplateMediaPost**](MessageSendingApi.md#instancesInstanceKeySendTemplateMediaPost) | **POST** /instances/{instance_key}/send/template-media | Send a template message with media. |
 | [**instancesInstanceKeySendTemplatePost**](MessageSendingApi.md#instancesInstanceKeySendTemplatePost) | **POST** /instances/{instance_key}/send/template | Send a template message. |
 | [**instancesInstanceKeySendTextPost**](MessageSendingApi.md#instancesInstanceKeySendTextPost) | **POST** /instances/{instance_key}/send/text | Send a text message. |
@@ -22,82 +21,9 @@ All URIs are relative to */api*
 | [**instancesInstanceKeySendVideoPost**](MessageSendingApi.md#instancesInstanceKeySendVideoPost) | **POST** /instances/{instance_key}/send/video | Send raw video. |
 
 
-<a name="instancesInstanceKeyBusinessCatalogGet"></a>
-# **instancesInstanceKeyBusinessCatalogGet**
-> MainAPIResponse instancesInstanceKeyBusinessCatalogGet(instanceKey)
-
-Fetches the catlog.
-
-Gets list of all products registered by you.
-
-### Example
-```java
-// Import classes:
-import WhatsAPI.ApiClient;
-import WhatsAPI.ApiException;
-import WhatsAPI.Configuration;
-import WhatsAPI.auth.*;
-import WhatsAPI.models.*;
-import whatsapi.MessageSendingApi;
-
-public class Example {
-  public static void main(String[] args) {
-    ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("/api");
-    
-    // Configure API key authorization: ApiKeyAuth
-    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
-    ApiKeyAuth.setApiKey("YOUR API KEY");
-    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
-    //ApiKeyAuth.setApiKeyPrefix("Token");
-
-    MessageSendingApi apiInstance = new MessageSendingApi(defaultClient);
-    String instanceKey = "instanceKey_example"; // String | Instance key
-    try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeyBusinessCatalogGet(instanceKey);
-      System.out.println(result);
-    } catch (ApiException e) {
-      System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeyBusinessCatalogGet");
-      System.err.println("Status code: " + e.getCode());
-      System.err.println("Reason: " + e.getResponseBody());
-      System.err.println("Response headers: " + e.getResponseHeaders());
-      e.printStackTrace();
-    }
-  }
-}
-```
-
-### Parameters
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **instanceKey** | **String**| Instance key | |
-
-### Return type
-
-[**MainAPIResponse**](MainAPIResponse.md)
-
-### Authorization
-
-[ApiKeyAuth](../README.md#ApiKeyAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **200** | Success |  -  |
-| **400** | Bad Request |  -  |
-| **401** | Unauthorized |  -  |
-| **404** | Instance not found |  -  |
-| **500** | Internal Server Error |  -  |
-
 <a name="instancesInstanceKeySendAudioPost"></a>
 # **instancesInstanceKeySendAudioPost**
-> MainAPIResponse instancesInstanceKeySendAudioPost(instanceKey, to, instancesInstanceKeySendAudioPostRequest, caption)
+> ModelAPIResponse instancesInstanceKeySendAudioPost(instanceKey, to, instancesInstanceKeySendAudioPostRequest, caption)
 
 Send raw audio.
 
@@ -130,7 +56,7 @@ public class Example {
     InstancesInstanceKeySendAudioPostRequest instancesInstanceKeySendAudioPostRequest = new InstancesInstanceKeySendAudioPostRequest(); // InstancesInstanceKeySendAudioPostRequest | 
     String caption = "caption_example"; // String | Attached caption
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendAudioPost(instanceKey, to, instancesInstanceKeySendAudioPostRequest, caption);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendAudioPost(instanceKey, to, instancesInstanceKeySendAudioPostRequest, caption);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendAudioPost");
@@ -154,7 +80,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -176,7 +102,7 @@ public class Example {
 
 <a name="instancesInstanceKeySendButtonMediaPost"></a>
 # **instancesInstanceKeySendButtonMediaPost**
-> MainAPIResponse instancesInstanceKeySendButtonMediaPost(instanceKey, data)
+> ModelAPIResponse instancesInstanceKeySendButtonMediaPost(instanceKey, data)
 
 Send a button message with a media header.
 
@@ -205,9 +131,9 @@ public class Example {
 
     MessageSendingApi apiInstance = new MessageSendingApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
-    StructsButtonMessageWithMediaPayload data = new StructsButtonMessageWithMediaPayload(); // StructsButtonMessageWithMediaPayload | Message data
+    ButtonMessageWithMediaPayload data = new ButtonMessageWithMediaPayload(); // ButtonMessageWithMediaPayload | Message data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendButtonMediaPost(instanceKey, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendButtonMediaPost(instanceKey, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendButtonMediaPost");
@@ -225,11 +151,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
-| **data** | [**StructsButtonMessageWithMediaPayload**](StructsButtonMessageWithMediaPayload.md)| Message data | |
+| **data** | [**ButtonMessageWithMediaPayload**](ButtonMessageWithMediaPayload.md)| Message data | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -251,7 +177,7 @@ public class Example {
 
 <a name="instancesInstanceKeySendButtonsPost"></a>
 # **instancesInstanceKeySendButtonsPost**
-> MainAPIResponse instancesInstanceKeySendButtonsPost(instanceKey, data)
+> ModelAPIResponse instancesInstanceKeySendButtonsPost(instanceKey, data)
 
 Send a button message.
 
@@ -280,9 +206,9 @@ public class Example {
 
     MessageSendingApi apiInstance = new MessageSendingApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
-    StructsButtonMessagePayload data = new StructsButtonMessagePayload(); // StructsButtonMessagePayload | Message data
+    ButtonMessagePayload data = new ButtonMessagePayload(); // ButtonMessagePayload | Message data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendButtonsPost(instanceKey, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendButtonsPost(instanceKey, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendButtonsPost");
@@ -300,11 +226,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
-| **data** | [**StructsButtonMessagePayload**](StructsButtonMessagePayload.md)| Message data | |
+| **data** | [**ButtonMessagePayload**](ButtonMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -326,7 +252,7 @@ public class Example {
 
 <a name="instancesInstanceKeySendContactPost"></a>
 # **instancesInstanceKeySendContactPost**
-> MainAPIResponse instancesInstanceKeySendContactPost(instanceKey, data)
+> ModelAPIResponse instancesInstanceKeySendContactPost(instanceKey, data)
 
 Send a contact message.
 
@@ -355,9 +281,9 @@ public class Example {
 
     MessageSendingApi apiInstance = new MessageSendingApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
-    StructsContactMessagePayload data = new StructsContactMessagePayload(); // StructsContactMessagePayload | Message data
+    ContactMessagePayload data = new ContactMessagePayload(); // ContactMessagePayload | Message data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendContactPost(instanceKey, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendContactPost(instanceKey, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendContactPost");
@@ -375,11 +301,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
-| **data** | [**StructsContactMessagePayload**](StructsContactMessagePayload.md)| Message data | |
+| **data** | [**ContactMessagePayload**](ContactMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -401,7 +327,7 @@ public class Example {
 
 <a name="instancesInstanceKeySendDocumentPost"></a>
 # **instancesInstanceKeySendDocumentPost**
-> MainAPIResponse instancesInstanceKeySendDocumentPost(instanceKey, to, instancesInstanceKeySendDocumentPostRequest, caption)
+> ModelAPIResponse instancesInstanceKeySendDocumentPost(instanceKey, to, instancesInstanceKeySendDocumentPostRequest, caption)
 
 Send raw document.
 
@@ -434,7 +360,7 @@ public class Example {
     InstancesInstanceKeySendDocumentPostRequest instancesInstanceKeySendDocumentPostRequest = new InstancesInstanceKeySendDocumentPostRequest(); // InstancesInstanceKeySendDocumentPostRequest | 
     String caption = "caption_example"; // String | Attached caption
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendDocumentPost(instanceKey, to, instancesInstanceKeySendDocumentPostRequest, caption);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendDocumentPost(instanceKey, to, instancesInstanceKeySendDocumentPostRequest, caption);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendDocumentPost");
@@ -458,7 +384,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -480,7 +406,7 @@ public class Example {
 
 <a name="instancesInstanceKeySendImagePost"></a>
 # **instancesInstanceKeySendImagePost**
-> MainAPIResponse instancesInstanceKeySendImagePost(instanceKey, to, instancesInstanceKeySendImagePostRequest, caption)
+> ModelAPIResponse instancesInstanceKeySendImagePost(instanceKey, to, instancesInstanceKeySendImagePostRequest, caption)
 
 Send raw image.
 
@@ -513,7 +439,7 @@ public class Example {
     InstancesInstanceKeySendImagePostRequest instancesInstanceKeySendImagePostRequest = new InstancesInstanceKeySendImagePostRequest(); // InstancesInstanceKeySendImagePostRequest | 
     String caption = "caption_example"; // String | Attached caption
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendImagePost(instanceKey, to, instancesInstanceKeySendImagePostRequest, caption);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendImagePost(instanceKey, to, instancesInstanceKeySendImagePostRequest, caption);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendImagePost");
@@ -537,7 +463,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -559,7 +485,7 @@ public class Example {
 
 <a name="instancesInstanceKeySendListPost"></a>
 # **instancesInstanceKeySendListPost**
-> MainAPIResponse instancesInstanceKeySendListPost(instanceKey, data)
+> ModelAPIResponse instancesInstanceKeySendListPost(instanceKey, data)
 
 Send a List message.
 
@@ -588,9 +514,9 @@ public class Example {
 
     MessageSendingApi apiInstance = new MessageSendingApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
-    StructsListMessagePayload data = new StructsListMessagePayload(); // StructsListMessagePayload | Message data
+    ListMessagePayload data = new ListMessagePayload(); // ListMessagePayload | Message data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendListPost(instanceKey, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendListPost(instanceKey, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendListPost");
@@ -608,11 +534,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
-| **data** | [**StructsListMessagePayload**](StructsListMessagePayload.md)| Message data | |
+| **data** | [**ListMessagePayload**](ListMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -634,7 +560,7 @@ public class Example {
 
 <a name="instancesInstanceKeySendLocationPost"></a>
 # **instancesInstanceKeySendLocationPost**
-> MainAPIResponse instancesInstanceKeySendLocationPost(instanceKey, data)
+> ModelAPIResponse instancesInstanceKeySendLocationPost(instanceKey, data)
 
 Send a location message.
 
@@ -663,9 +589,9 @@ public class Example {
 
     MessageSendingApi apiInstance = new MessageSendingApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
-    StructsLocationMessagePayload data = new StructsLocationMessagePayload(); // StructsLocationMessagePayload | Message data
+    LocationMessagePayload data = new LocationMessagePayload(); // LocationMessagePayload | Message data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendLocationPost(instanceKey, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendLocationPost(instanceKey, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendLocationPost");
@@ -683,11 +609,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
-| **data** | [**StructsLocationMessagePayload**](StructsLocationMessagePayload.md)| Message data | |
+| **data** | [**LocationMessagePayload**](LocationMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -709,7 +635,7 @@ public class Example {
 
 <a name="instancesInstanceKeySendMediaPost"></a>
 # **instancesInstanceKeySendMediaPost**
-> MainAPIResponse instancesInstanceKeySendMediaPost(instanceKey, data)
+> ModelAPIResponse instancesInstanceKeySendMediaPost(instanceKey, data)
 
 Send a media message.
 
@@ -738,9 +664,9 @@ public class Example {
 
     MessageSendingApi apiInstance = new MessageSendingApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
-    StructsSendMediaPayload data = new StructsSendMediaPayload(); // StructsSendMediaPayload | Message data
+    SendMediaPayload data = new SendMediaPayload(); // SendMediaPayload | Message data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendMediaPost(instanceKey, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendMediaPost(instanceKey, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendMediaPost");
@@ -758,11 +684,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
-| **data** | [**StructsSendMediaPayload**](StructsSendMediaPayload.md)| Message data | |
+| **data** | [**SendMediaPayload**](SendMediaPayload.md)| Message data | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -784,11 +710,11 @@ public class Example {
 
 <a name="instancesInstanceKeySendPollPost"></a>
 # **instancesInstanceKeySendPollPost**
-> MainAPIResponse instancesInstanceKeySendPollPost(instanceKey, data)
+> ModelAPIResponse instancesInstanceKeySendPollPost(instanceKey, data)
 
-Send a Poll message with media.
+Send a Poll message.
 
-Sends an interactive poll message with a media header to the given user. The poll message is a new feature that is currently in beta.
+Sends an interactive poll message to the given user. The poll message is a new feature that is currently in beta.
 
 ### Example
 ```java
@@ -813,9 +739,9 @@ public class Example {
 
     MessageSendingApi apiInstance = new MessageSendingApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
-    StructsPollMessagePayload data = new StructsPollMessagePayload(); // StructsPollMessagePayload | Message data
+    PollMessagePayload data = new PollMessagePayload(); // PollMessagePayload | Message data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendPollPost(instanceKey, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendPollPost(instanceKey, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendPollPost");
@@ -833,11 +759,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
-| **data** | [**StructsPollMessagePayload**](StructsPollMessagePayload.md)| Message data | |
+| **data** | [**PollMessagePayload**](PollMessagePayload.md)| Message data | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -859,7 +785,7 @@ public class Example {
 
 <a name="instancesInstanceKeySendTemplateMediaPost"></a>
 # **instancesInstanceKeySendTemplateMediaPost**
-> MainAPIResponse instancesInstanceKeySendTemplateMediaPost(instanceKey, data)
+> ModelAPIResponse instancesInstanceKeySendTemplateMediaPost(instanceKey, data)
 
 Send a template message with media.
 
@@ -888,9 +814,9 @@ public class Example {
 
     MessageSendingApi apiInstance = new MessageSendingApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
-    StructsTemplateButtonWithMediaPayload data = new StructsTemplateButtonWithMediaPayload(); // StructsTemplateButtonWithMediaPayload | Message data
+    TemplateButtonWithMediaPayload data = new TemplateButtonWithMediaPayload(); // TemplateButtonWithMediaPayload | Message data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendTemplateMediaPost(instanceKey, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendTemplateMediaPost(instanceKey, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendTemplateMediaPost");
@@ -908,11 +834,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
-| **data** | [**StructsTemplateButtonWithMediaPayload**](StructsTemplateButtonWithMediaPayload.md)| Message data | |
+| **data** | [**TemplateButtonWithMediaPayload**](TemplateButtonWithMediaPayload.md)| Message data | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -934,7 +860,7 @@ public class Example {
 
 <a name="instancesInstanceKeySendTemplatePost"></a>
 # **instancesInstanceKeySendTemplatePost**
-> MainAPIResponse instancesInstanceKeySendTemplatePost(instanceKey, data)
+> ModelAPIResponse instancesInstanceKeySendTemplatePost(instanceKey, data)
 
 Send a template message.
 
@@ -963,9 +889,9 @@ public class Example {
 
     MessageSendingApi apiInstance = new MessageSendingApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
-    StructsTemplateButtonPayload data = new StructsTemplateButtonPayload(); // StructsTemplateButtonPayload | Message data
+    TemplateButtonPayload data = new TemplateButtonPayload(); // TemplateButtonPayload | Message data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendTemplatePost(instanceKey, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendTemplatePost(instanceKey, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendTemplatePost");
@@ -983,11 +909,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
-| **data** | [**StructsTemplateButtonPayload**](StructsTemplateButtonPayload.md)| Message data | |
+| **data** | [**TemplateButtonPayload**](TemplateButtonPayload.md)| Message data | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -1009,7 +935,7 @@ public class Example {
 
 <a name="instancesInstanceKeySendTextPost"></a>
 # **instancesInstanceKeySendTextPost**
-> MainAPIResponse instancesInstanceKeySendTextPost(instanceKey, data)
+> ModelAPIResponse instancesInstanceKeySendTextPost(instanceKey, data)
 
 Send a text message.
 
@@ -1038,9 +964,9 @@ public class Example {
 
     MessageSendingApi apiInstance = new MessageSendingApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
-    StructsTextMessage data = new StructsTextMessage(); // StructsTextMessage | Message data
+    TextMessage data = new TextMessage(); // TextMessage | Message data
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendTextPost(instanceKey, data);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendTextPost(instanceKey, data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendTextPost");
@@ -1058,11 +984,11 @@ public class Example {
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
-| **data** | [**StructsTextMessage**](StructsTextMessage.md)| Message data | |
+| **data** | [**TextMessage**](TextMessage.md)| Message data | |
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -1084,7 +1010,7 @@ public class Example {
 
 <a name="instancesInstanceKeySendUploadPost"></a>
 # **instancesInstanceKeySendUploadPost**
-> MainAPIResponse instancesInstanceKeySendUploadPost(instanceKey, type, instancesInstanceKeySendUploadPostRequest)
+> ModelAPIResponse instancesInstanceKeySendUploadPost(instanceKey, type, instancesInstanceKeySendUploadPostRequest)
 
 Upload media.
 
@@ -1116,7 +1042,7 @@ public class Example {
     String type = "image"; // String | Media type
     InstancesInstanceKeySendUploadPostRequest instancesInstanceKeySendUploadPostRequest = new InstancesInstanceKeySendUploadPostRequest(); // InstancesInstanceKeySendUploadPostRequest | 
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendUploadPost(instanceKey, type, instancesInstanceKeySendUploadPostRequest);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendUploadPost(instanceKey, type, instancesInstanceKeySendUploadPostRequest);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendUploadPost");
@@ -1139,7 +1065,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 
@@ -1161,7 +1087,7 @@ public class Example {
 
 <a name="instancesInstanceKeySendVideoPost"></a>
 # **instancesInstanceKeySendVideoPost**
-> MainAPIResponse instancesInstanceKeySendVideoPost(instanceKey, to, instancesInstanceKeySendVideoPostRequest, caption)
+> ModelAPIResponse instancesInstanceKeySendVideoPost(instanceKey, to, instancesInstanceKeySendVideoPostRequest, caption)
 
 Send raw video.
 
@@ -1194,7 +1120,7 @@ public class Example {
     InstancesInstanceKeySendVideoPostRequest instancesInstanceKeySendVideoPostRequest = new InstancesInstanceKeySendVideoPostRequest(); // InstancesInstanceKeySendVideoPostRequest | 
     String caption = "caption_example"; // String | Attached caption
     try {
-      MainAPIResponse result = apiInstance.instancesInstanceKeySendVideoPost(instanceKey, to, instancesInstanceKeySendVideoPostRequest, caption);
+      ModelAPIResponse result = apiInstance.instancesInstanceKeySendVideoPost(instanceKey, to, instancesInstanceKeySendVideoPostRequest, caption);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#instancesInstanceKeySendVideoPost");
@@ -1218,7 +1144,7 @@ public class Example {
 
 ### Return type
 
-[**MainAPIResponse**](MainAPIResponse.md)
+[**ModelAPIResponse**](ModelAPIResponse.md)
 
 ### Authorization
 

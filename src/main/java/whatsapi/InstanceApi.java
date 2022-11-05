@@ -27,8 +27,8 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
-import models.MainAPIResponse;
-import models.StructsWebhookPayload;
+import models.ModelAPIResponse;
+import models.WebhookPayload;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -148,7 +148,7 @@ public class InstanceApi {
      * Creates a new instance key.
      * This endpoint is used to create a new WhatsApp Web instance.
      * @param instanceKey Insert instance key if you want to provide custom key (optional)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -160,8 +160,8 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesCreateGet(String instanceKey) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesCreateGetWithHttpInfo(instanceKey);
+    public ModelAPIResponse instancesCreateGet(String instanceKey) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesCreateGetWithHttpInfo(instanceKey);
         return localVarResp.getData();
     }
 
@@ -169,7 +169,7 @@ public class InstanceApi {
      * Creates a new instance key.
      * This endpoint is used to create a new WhatsApp Web instance.
      * @param instanceKey Insert instance key if you want to provide custom key (optional)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -181,9 +181,9 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesCreateGetWithHttpInfo(String instanceKey) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesCreateGetWithHttpInfo(String instanceKey) throws ApiException {
         okhttp3.Call localVarCall = instancesCreateGetValidateBeforeCall(instanceKey, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -204,10 +204,10 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesCreateGetAsync(String instanceKey, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesCreateGetAsync(String instanceKey, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesCreateGetValidateBeforeCall(instanceKey, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -287,7 +287,7 @@ public class InstanceApi {
      * Get contacts.
      * Fetches the list of contacts in the instance.
      * @param instanceKey Instance key (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -299,8 +299,8 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyContactsGet(String instanceKey) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyContactsGetWithHttpInfo(instanceKey);
+    public ModelAPIResponse instancesInstanceKeyContactsGet(String instanceKey) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyContactsGetWithHttpInfo(instanceKey);
         return localVarResp.getData();
     }
 
@@ -308,7 +308,7 @@ public class InstanceApi {
      * Get contacts.
      * Fetches the list of contacts in the instance.
      * @param instanceKey Instance key (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -320,9 +320,9 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyContactsGetWithHttpInfo(String instanceKey) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyContactsGetWithHttpInfo(String instanceKey) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyContactsGetValidateBeforeCall(instanceKey, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -343,10 +343,10 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyContactsGetAsync(String instanceKey, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyContactsGetAsync(String instanceKey, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyContactsGetValidateBeforeCall(instanceKey, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -426,7 +426,7 @@ public class InstanceApi {
      * Delete Instance.
      * Deletes the instance with the provided key.
      * @param instanceKey Instance key (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -438,8 +438,8 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyDeleteDelete(String instanceKey) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyDeleteDeleteWithHttpInfo(instanceKey);
+    public ModelAPIResponse instancesInstanceKeyDeleteDelete(String instanceKey) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyDeleteDeleteWithHttpInfo(instanceKey);
         return localVarResp.getData();
     }
 
@@ -447,7 +447,7 @@ public class InstanceApi {
      * Delete Instance.
      * Deletes the instance with the provided key.
      * @param instanceKey Instance key (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -459,9 +459,9 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyDeleteDeleteWithHttpInfo(String instanceKey) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyDeleteDeleteWithHttpInfo(String instanceKey) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyDeleteDeleteValidateBeforeCall(instanceKey, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -482,10 +482,10 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyDeleteDeleteAsync(String instanceKey, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyDeleteDeleteAsync(String instanceKey, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyDeleteDeleteValidateBeforeCall(instanceKey, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -565,7 +565,7 @@ public class InstanceApi {
      * Get Instance.
      * Returns the instance data of single instance with connection status.
      * @param instanceKey Instance key (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -577,8 +577,8 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGet(String instanceKey) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGetWithHttpInfo(instanceKey);
+    public ModelAPIResponse instancesInstanceKeyGet(String instanceKey) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGetWithHttpInfo(instanceKey);
         return localVarResp.getData();
     }
 
@@ -586,7 +586,7 @@ public class InstanceApi {
      * Get Instance.
      * Returns the instance data of single instance with connection status.
      * @param instanceKey Instance key (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -598,9 +598,9 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGetWithHttpInfo(String instanceKey) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGetWithHttpInfo(String instanceKey) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGetValidateBeforeCall(instanceKey, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -621,10 +621,10 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGetAsync(String instanceKey, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGetAsync(String instanceKey, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGetValidateBeforeCall(instanceKey, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -704,7 +704,7 @@ public class InstanceApi {
      * Logout Instance.
      * Logouts of the instance with the provided key.
      * @param instanceKey Instance key (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -716,8 +716,8 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyLogoutDelete(String instanceKey) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyLogoutDeleteWithHttpInfo(instanceKey);
+    public ModelAPIResponse instancesInstanceKeyLogoutDelete(String instanceKey) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyLogoutDeleteWithHttpInfo(instanceKey);
         return localVarResp.getData();
     }
 
@@ -725,7 +725,7 @@ public class InstanceApi {
      * Logout Instance.
      * Logouts of the instance with the provided key.
      * @param instanceKey Instance key (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -737,9 +737,9 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyLogoutDeleteWithHttpInfo(String instanceKey) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyLogoutDeleteWithHttpInfo(String instanceKey) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyLogoutDeleteValidateBeforeCall(instanceKey, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -760,10 +760,10 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyLogoutDeleteAsync(String instanceKey, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyLogoutDeleteAsync(String instanceKey, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyLogoutDeleteValidateBeforeCall(instanceKey, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -843,7 +843,7 @@ public class InstanceApi {
      * Get QrCode.
      * Returns the qrcode in the base64 format.
      * @param instanceKey Instance key (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -855,8 +855,8 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyQrcodeGet(String instanceKey) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyQrcodeGetWithHttpInfo(instanceKey);
+    public ModelAPIResponse instancesInstanceKeyQrcodeGet(String instanceKey) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyQrcodeGetWithHttpInfo(instanceKey);
         return localVarResp.getData();
     }
 
@@ -864,7 +864,7 @@ public class InstanceApi {
      * Get QrCode.
      * Returns the qrcode in the base64 format.
      * @param instanceKey Instance key (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -876,9 +876,9 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyQrcodeGetWithHttpInfo(String instanceKey) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyQrcodeGetWithHttpInfo(String instanceKey) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyQrcodeGetValidateBeforeCall(instanceKey, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -899,10 +899,10 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyQrcodeGetAsync(String instanceKey, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyQrcodeGetAsync(String instanceKey, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyQrcodeGetValidateBeforeCall(instanceKey, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -923,7 +923,7 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyWebhookPutCall(String instanceKey, StructsWebhookPayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyWebhookPutCall(String instanceKey, WebhookPayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -970,7 +970,7 @@ public class InstanceApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeyWebhookPutValidateBeforeCall(String instanceKey, StructsWebhookPayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call instancesInstanceKeyWebhookPutValidateBeforeCall(String instanceKey, WebhookPayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
             throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeyWebhookPut(Async)");
@@ -990,7 +990,7 @@ public class InstanceApi {
      * Changes the webhook url of an instance.
      * @param instanceKey Instance key (required)
      * @param data Message data (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1002,8 +1002,8 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyWebhookPut(String instanceKey, StructsWebhookPayload data) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyWebhookPutWithHttpInfo(instanceKey, data);
+    public ModelAPIResponse instancesInstanceKeyWebhookPut(String instanceKey, WebhookPayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyWebhookPutWithHttpInfo(instanceKey, data);
         return localVarResp.getData();
     }
 
@@ -1012,7 +1012,7 @@ public class InstanceApi {
      * Changes the webhook url of an instance.
      * @param instanceKey Instance key (required)
      * @param data Message data (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1024,9 +1024,9 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyWebhookPutWithHttpInfo(String instanceKey, StructsWebhookPayload data) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyWebhookPutWithHttpInfo(String instanceKey, WebhookPayload data) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyWebhookPutValidateBeforeCall(instanceKey, data, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1048,10 +1048,10 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyWebhookPutAsync(String instanceKey, StructsWebhookPayload data, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyWebhookPutAsync(String instanceKey, WebhookPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyWebhookPutValidateBeforeCall(instanceKey, data, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1123,7 +1123,7 @@ public class InstanceApi {
     /**
      * Get all instances.
      * Fetches the list of all Instances with login status.
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1135,15 +1135,15 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesListGet() throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesListGetWithHttpInfo();
+    public ModelAPIResponse instancesListGet() throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesListGetWithHttpInfo();
         return localVarResp.getData();
     }
 
     /**
      * Get all instances.
      * Fetches the list of all Instances with login status.
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1155,9 +1155,9 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesListGetWithHttpInfo() throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesListGetWithHttpInfo() throws ApiException {
         okhttp3.Call localVarCall = instancesListGetValidateBeforeCall(null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1177,10 +1177,10 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesListGetAsync(final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesListGetAsync(final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesListGetValidateBeforeCall(_callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

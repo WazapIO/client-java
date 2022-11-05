@@ -27,12 +27,12 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import models.GroupCreatePayload;
+import models.GroupUpdateDescriptionPayload;
+import models.GroupUpdateNamePayload;
+import models.GroupUpdateParticipantsPayload;
 import models.InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest;
-import models.MainAPIResponse;
-import models.StructsGroupCreatePayload;
-import models.StructsGroupUpdateDescriptionPayload;
-import models.StructsGroupUpdateNamePayload;
-import models.StructsGroupUpdateParticipantsPayload;
+import models.ModelAPIResponse;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -154,7 +154,7 @@ public class GroupManagementApi {
      * Get admin groupss.
      * Returns list of all groups in which you are admin.
      * @param instanceKey Instance key (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -166,8 +166,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsAdminGet(String instanceKey) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsAdminGetWithHttpInfo(instanceKey);
+    public ModelAPIResponse instancesInstanceKeyGroupsAdminGet(String instanceKey) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsAdminGetWithHttpInfo(instanceKey);
         return localVarResp.getData();
     }
 
@@ -175,7 +175,7 @@ public class GroupManagementApi {
      * Get admin groupss.
      * Returns list of all groups in which you are admin.
      * @param instanceKey Instance key (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -187,9 +187,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsAdminGetWithHttpInfo(String instanceKey) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsAdminGetWithHttpInfo(String instanceKey) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsAdminGetValidateBeforeCall(instanceKey, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -210,10 +210,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsAdminGetAsync(String instanceKey, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsAdminGetAsync(String instanceKey, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsAdminGetValidateBeforeCall(instanceKey, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -234,7 +234,7 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsCreatePostCall(String instanceKey, StructsGroupCreatePayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsCreatePostCall(String instanceKey, GroupCreatePayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -281,7 +281,7 @@ public class GroupManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeyGroupsCreatePostValidateBeforeCall(String instanceKey, StructsGroupCreatePayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call instancesInstanceKeyGroupsCreatePostValidateBeforeCall(String instanceKey, GroupCreatePayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
             throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeyGroupsCreatePost(Async)");
@@ -301,7 +301,7 @@ public class GroupManagementApi {
      * Creates a group with the participant data. The creator is automatically added to the group.
      * @param instanceKey Instance key (required)
      * @param data Group create payload (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -313,8 +313,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsCreatePost(String instanceKey, StructsGroupCreatePayload data) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsCreatePostWithHttpInfo(instanceKey, data);
+    public ModelAPIResponse instancesInstanceKeyGroupsCreatePost(String instanceKey, GroupCreatePayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsCreatePostWithHttpInfo(instanceKey, data);
         return localVarResp.getData();
     }
 
@@ -323,7 +323,7 @@ public class GroupManagementApi {
      * Creates a group with the participant data. The creator is automatically added to the group.
      * @param instanceKey Instance key (required)
      * @param data Group create payload (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -335,9 +335,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsCreatePostWithHttpInfo(String instanceKey, StructsGroupCreatePayload data) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsCreatePostWithHttpInfo(String instanceKey, GroupCreatePayload data) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsCreatePostValidateBeforeCall(instanceKey, data, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -359,10 +359,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsCreatePostAsync(String instanceKey, StructsGroupCreatePayload data, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsCreatePostAsync(String instanceKey, GroupCreatePayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsCreatePostValidateBeforeCall(instanceKey, data, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -448,7 +448,7 @@ public class GroupManagementApi {
      * Returns list of all groups with participants data. Set include_participants to false to exclude participants data.
      * @param instanceKey Instance key (required)
      * @param includeParticipants Include participants data (optional, default to true)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -460,8 +460,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsGet(String instanceKey, String includeParticipants) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsGetWithHttpInfo(instanceKey, includeParticipants);
+    public ModelAPIResponse instancesInstanceKeyGroupsGet(String instanceKey, String includeParticipants) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsGetWithHttpInfo(instanceKey, includeParticipants);
         return localVarResp.getData();
     }
 
@@ -470,7 +470,7 @@ public class GroupManagementApi {
      * Returns list of all groups with participants data. Set include_participants to false to exclude participants data.
      * @param instanceKey Instance key (required)
      * @param includeParticipants Include participants data (optional, default to true)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -482,9 +482,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsGetWithHttpInfo(String instanceKey, String includeParticipants) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsGetWithHttpInfo(String instanceKey, String includeParticipants) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGetValidateBeforeCall(instanceKey, includeParticipants, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -506,10 +506,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGetAsync(String instanceKey, String includeParticipants, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGetAsync(String instanceKey, String includeParticipants, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGetValidateBeforeCall(instanceKey, includeParticipants, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -605,7 +605,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param announce Announce status (required)
      * @param groupId Group id of the group (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -617,8 +617,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsGroupIdAnnouncePut(String instanceKey, Boolean announce, String groupId) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdAnnouncePutWithHttpInfo(instanceKey, announce, groupId);
+    public ModelAPIResponse instancesInstanceKeyGroupsGroupIdAnnouncePut(String instanceKey, Boolean announce, String groupId) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdAnnouncePutWithHttpInfo(instanceKey, announce, groupId);
         return localVarResp.getData();
     }
 
@@ -628,7 +628,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param announce Announce status (required)
      * @param groupId Group id of the group (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -640,9 +640,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsGroupIdAnnouncePutWithHttpInfo(String instanceKey, Boolean announce, String groupId) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsGroupIdAnnouncePutWithHttpInfo(String instanceKey, Boolean announce, String groupId) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdAnnouncePutValidateBeforeCall(instanceKey, announce, groupId, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -665,10 +665,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdAnnouncePutAsync(String instanceKey, Boolean announce, String groupId, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdAnnouncePutAsync(String instanceKey, Boolean announce, String groupId, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdAnnouncePutValidateBeforeCall(instanceKey, announce, groupId, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -756,7 +756,7 @@ public class GroupManagementApi {
      * Leaves the specified group.
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -768,8 +768,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsGroupIdDelete(String instanceKey, String groupId) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdDeleteWithHttpInfo(instanceKey, groupId);
+    public ModelAPIResponse instancesInstanceKeyGroupsGroupIdDelete(String instanceKey, String groupId) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdDeleteWithHttpInfo(instanceKey, groupId);
         return localVarResp.getData();
     }
 
@@ -778,7 +778,7 @@ public class GroupManagementApi {
      * Leaves the specified group.
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -790,9 +790,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsGroupIdDeleteWithHttpInfo(String instanceKey, String groupId) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsGroupIdDeleteWithHttpInfo(String instanceKey, String groupId) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdDeleteValidateBeforeCall(instanceKey, groupId, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -814,10 +814,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdDeleteAsync(String instanceKey, String groupId, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdDeleteAsync(String instanceKey, String groupId, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdDeleteValidateBeforeCall(instanceKey, groupId, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -839,7 +839,7 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdDescriptionPutCall(String instanceKey, String groupId, StructsGroupUpdateDescriptionPayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdDescriptionPutCall(String instanceKey, String groupId, GroupUpdateDescriptionPayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -887,7 +887,7 @@ public class GroupManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeyGroupsGroupIdDescriptionPutValidateBeforeCall(String instanceKey, String groupId, StructsGroupUpdateDescriptionPayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call instancesInstanceKeyGroupsGroupIdDescriptionPutValidateBeforeCall(String instanceKey, String groupId, GroupUpdateDescriptionPayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
             throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeyGroupsGroupIdDescriptionPut(Async)");
@@ -913,7 +913,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
      * @param data Group description data (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -925,8 +925,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsGroupIdDescriptionPut(String instanceKey, String groupId, StructsGroupUpdateDescriptionPayload data) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdDescriptionPutWithHttpInfo(instanceKey, groupId, data);
+    public ModelAPIResponse instancesInstanceKeyGroupsGroupIdDescriptionPut(String instanceKey, String groupId, GroupUpdateDescriptionPayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdDescriptionPutWithHttpInfo(instanceKey, groupId, data);
         return localVarResp.getData();
     }
 
@@ -936,7 +936,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
      * @param data Group description data (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -948,9 +948,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsGroupIdDescriptionPutWithHttpInfo(String instanceKey, String groupId, StructsGroupUpdateDescriptionPayload data) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsGroupIdDescriptionPutWithHttpInfo(String instanceKey, String groupId, GroupUpdateDescriptionPayload data) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdDescriptionPutValidateBeforeCall(instanceKey, groupId, data, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -973,10 +973,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdDescriptionPutAsync(String instanceKey, String groupId, StructsGroupUpdateDescriptionPayload data, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdDescriptionPutAsync(String instanceKey, String groupId, GroupUpdateDescriptionPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdDescriptionPutValidateBeforeCall(instanceKey, groupId, data, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1064,7 +1064,7 @@ public class GroupManagementApi {
      * Fetches the group data.
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1076,8 +1076,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsGroupIdGet(String instanceKey, String groupId) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdGetWithHttpInfo(instanceKey, groupId);
+    public ModelAPIResponse instancesInstanceKeyGroupsGroupIdGet(String instanceKey, String groupId) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdGetWithHttpInfo(instanceKey, groupId);
         return localVarResp.getData();
     }
 
@@ -1086,7 +1086,7 @@ public class GroupManagementApi {
      * Fetches the group data.
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1098,9 +1098,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsGroupIdGetWithHttpInfo(String instanceKey, String groupId) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsGroupIdGetWithHttpInfo(String instanceKey, String groupId) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdGetValidateBeforeCall(instanceKey, groupId, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1122,10 +1122,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdGetAsync(String instanceKey, String groupId, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdGetAsync(String instanceKey, String groupId, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdGetValidateBeforeCall(instanceKey, groupId, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1213,7 +1213,7 @@ public class GroupManagementApi {
      * Gets the invite code of the group.
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1225,8 +1225,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsGroupIdInviteCodeGet(String instanceKey, String groupId) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdInviteCodeGetWithHttpInfo(instanceKey, groupId);
+    public ModelAPIResponse instancesInstanceKeyGroupsGroupIdInviteCodeGet(String instanceKey, String groupId) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdInviteCodeGetWithHttpInfo(instanceKey, groupId);
         return localVarResp.getData();
     }
 
@@ -1235,7 +1235,7 @@ public class GroupManagementApi {
      * Gets the invite code of the group.
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1247,9 +1247,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsGroupIdInviteCodeGetWithHttpInfo(String instanceKey, String groupId) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsGroupIdInviteCodeGetWithHttpInfo(String instanceKey, String groupId) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdInviteCodeGetValidateBeforeCall(instanceKey, groupId, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1271,10 +1271,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdInviteCodeGetAsync(String instanceKey, String groupId, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdInviteCodeGetAsync(String instanceKey, String groupId, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdInviteCodeGetValidateBeforeCall(instanceKey, groupId, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1370,7 +1370,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param locked Locked status (required)
      * @param groupId Group id of the group (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1382,8 +1382,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsGroupIdLockPut(String instanceKey, Boolean locked, String groupId) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdLockPutWithHttpInfo(instanceKey, locked, groupId);
+    public ModelAPIResponse instancesInstanceKeyGroupsGroupIdLockPut(String instanceKey, Boolean locked, String groupId) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdLockPutWithHttpInfo(instanceKey, locked, groupId);
         return localVarResp.getData();
     }
 
@@ -1393,7 +1393,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param locked Locked status (required)
      * @param groupId Group id of the group (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1405,9 +1405,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsGroupIdLockPutWithHttpInfo(String instanceKey, Boolean locked, String groupId) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsGroupIdLockPutWithHttpInfo(String instanceKey, Boolean locked, String groupId) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdLockPutValidateBeforeCall(instanceKey, locked, groupId, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1430,10 +1430,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdLockPutAsync(String instanceKey, Boolean locked, String groupId, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdLockPutAsync(String instanceKey, Boolean locked, String groupId, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdLockPutValidateBeforeCall(instanceKey, locked, groupId, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1455,7 +1455,7 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdNamePutCall(String instanceKey, String groupId, StructsGroupUpdateNamePayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdNamePutCall(String instanceKey, String groupId, GroupUpdateNamePayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1503,7 +1503,7 @@ public class GroupManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeyGroupsGroupIdNamePutValidateBeforeCall(String instanceKey, String groupId, StructsGroupUpdateNamePayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call instancesInstanceKeyGroupsGroupIdNamePutValidateBeforeCall(String instanceKey, String groupId, GroupUpdateNamePayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
             throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeyGroupsGroupIdNamePut(Async)");
@@ -1529,7 +1529,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
      * @param data Group name data (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1541,8 +1541,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsGroupIdNamePut(String instanceKey, String groupId, StructsGroupUpdateNamePayload data) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdNamePutWithHttpInfo(instanceKey, groupId, data);
+    public ModelAPIResponse instancesInstanceKeyGroupsGroupIdNamePut(String instanceKey, String groupId, GroupUpdateNamePayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdNamePutWithHttpInfo(instanceKey, groupId, data);
         return localVarResp.getData();
     }
 
@@ -1552,7 +1552,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
      * @param data Group name data (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1564,9 +1564,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsGroupIdNamePutWithHttpInfo(String instanceKey, String groupId, StructsGroupUpdateNamePayload data) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsGroupIdNamePutWithHttpInfo(String instanceKey, String groupId, GroupUpdateNamePayload data) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdNamePutValidateBeforeCall(instanceKey, groupId, data, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1589,10 +1589,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdNamePutAsync(String instanceKey, String groupId, StructsGroupUpdateNamePayload data, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdNamePutAsync(String instanceKey, String groupId, GroupUpdateNamePayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdNamePutValidateBeforeCall(instanceKey, groupId, data, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1614,7 +1614,7 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsAddPostCall(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsAddPostCall(String instanceKey, String groupId, GroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1662,7 +1662,7 @@ public class GroupManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsAddPostValidateBeforeCall(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsAddPostValidateBeforeCall(String instanceKey, String groupId, GroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
             throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeyGroupsGroupIdParticipantsAddPost(Async)");
@@ -1688,7 +1688,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
      * @param data Group update payload (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1700,8 +1700,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsAddPost(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdParticipantsAddPostWithHttpInfo(instanceKey, groupId, data);
+    public ModelAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsAddPost(String instanceKey, String groupId, GroupUpdateParticipantsPayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdParticipantsAddPostWithHttpInfo(instanceKey, groupId, data);
         return localVarResp.getData();
     }
 
@@ -1711,7 +1711,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
      * @param data Group update payload (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1723,9 +1723,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsGroupIdParticipantsAddPostWithHttpInfo(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsGroupIdParticipantsAddPostWithHttpInfo(String instanceKey, String groupId, GroupUpdateParticipantsPayload data) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdParticipantsAddPostValidateBeforeCall(instanceKey, groupId, data, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1748,10 +1748,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsAddPostAsync(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsAddPostAsync(String instanceKey, String groupId, GroupUpdateParticipantsPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdParticipantsAddPostValidateBeforeCall(instanceKey, groupId, data, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1773,7 +1773,7 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsDemotePutCall(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsDemotePutCall(String instanceKey, String groupId, GroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1821,7 +1821,7 @@ public class GroupManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsDemotePutValidateBeforeCall(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsDemotePutValidateBeforeCall(String instanceKey, String groupId, GroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
             throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeyGroupsGroupIdParticipantsDemotePut(Async)");
@@ -1847,7 +1847,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
      * @param data Group update payload (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1859,8 +1859,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsDemotePut(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdParticipantsDemotePutWithHttpInfo(instanceKey, groupId, data);
+    public ModelAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsDemotePut(String instanceKey, String groupId, GroupUpdateParticipantsPayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdParticipantsDemotePutWithHttpInfo(instanceKey, groupId, data);
         return localVarResp.getData();
     }
 
@@ -1870,7 +1870,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
      * @param data Group update payload (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1882,9 +1882,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsGroupIdParticipantsDemotePutWithHttpInfo(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsGroupIdParticipantsDemotePutWithHttpInfo(String instanceKey, String groupId, GroupUpdateParticipantsPayload data) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdParticipantsDemotePutValidateBeforeCall(instanceKey, groupId, data, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1907,10 +1907,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsDemotePutAsync(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsDemotePutAsync(String instanceKey, String groupId, GroupUpdateParticipantsPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdParticipantsDemotePutValidateBeforeCall(instanceKey, groupId, data, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -1932,7 +1932,7 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsPromotePutCall(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsPromotePutCall(String instanceKey, String groupId, GroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1980,7 +1980,7 @@ public class GroupManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsPromotePutValidateBeforeCall(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsPromotePutValidateBeforeCall(String instanceKey, String groupId, GroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
             throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeyGroupsGroupIdParticipantsPromotePut(Async)");
@@ -2006,7 +2006,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
      * @param data Group update payload (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2018,8 +2018,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsPromotePut(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdParticipantsPromotePutWithHttpInfo(instanceKey, groupId, data);
+    public ModelAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsPromotePut(String instanceKey, String groupId, GroupUpdateParticipantsPayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdParticipantsPromotePutWithHttpInfo(instanceKey, groupId, data);
         return localVarResp.getData();
     }
 
@@ -2029,7 +2029,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
      * @param data Group update payload (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2041,9 +2041,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsGroupIdParticipantsPromotePutWithHttpInfo(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsGroupIdParticipantsPromotePutWithHttpInfo(String instanceKey, String groupId, GroupUpdateParticipantsPayload data) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdParticipantsPromotePutValidateBeforeCall(instanceKey, groupId, data, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2066,10 +2066,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsPromotePutAsync(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsPromotePutAsync(String instanceKey, String groupId, GroupUpdateParticipantsPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdParticipantsPromotePutValidateBeforeCall(instanceKey, groupId, data, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2091,7 +2091,7 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteCall(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteCall(String instanceKey, String groupId, GroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2139,7 +2139,7 @@ public class GroupManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteValidateBeforeCall(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteValidateBeforeCall(String instanceKey, String groupId, GroupUpdateParticipantsPayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
             throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(Async)");
@@ -2165,7 +2165,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
      * @param data Group update payload (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2177,8 +2177,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteWithHttpInfo(instanceKey, groupId, data);
+    public ModelAPIResponse instancesInstanceKeyGroupsGroupIdParticipantsRemoveDelete(String instanceKey, String groupId, GroupUpdateParticipantsPayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteWithHttpInfo(instanceKey, groupId, data);
         return localVarResp.getData();
     }
 
@@ -2188,7 +2188,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
      * @param data Group update payload (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2200,9 +2200,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteWithHttpInfo(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteWithHttpInfo(String instanceKey, String groupId, GroupUpdateParticipantsPayload data) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteValidateBeforeCall(instanceKey, groupId, data, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2225,10 +2225,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteAsync(String instanceKey, String groupId, StructsGroupUpdateParticipantsPayload data, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteAsync(String instanceKey, String groupId, GroupUpdateParticipantsPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdParticipantsRemoveDeleteValidateBeforeCall(instanceKey, groupId, data, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2324,7 +2324,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
      * @param instancesInstanceKeyGroupsGroupIdProfilePicPutRequest  (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2336,8 +2336,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsGroupIdProfilePicPut(String instanceKey, String groupId, InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest instancesInstanceKeyGroupsGroupIdProfilePicPutRequest) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdProfilePicPutWithHttpInfo(instanceKey, groupId, instancesInstanceKeyGroupsGroupIdProfilePicPutRequest);
+    public ModelAPIResponse instancesInstanceKeyGroupsGroupIdProfilePicPut(String instanceKey, String groupId, InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest instancesInstanceKeyGroupsGroupIdProfilePicPutRequest) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsGroupIdProfilePicPutWithHttpInfo(instanceKey, groupId, instancesInstanceKeyGroupsGroupIdProfilePicPutRequest);
         return localVarResp.getData();
     }
 
@@ -2347,7 +2347,7 @@ public class GroupManagementApi {
      * @param instanceKey Instance key (required)
      * @param groupId Group id of the group (required)
      * @param instancesInstanceKeyGroupsGroupIdProfilePicPutRequest  (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2359,9 +2359,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsGroupIdProfilePicPutWithHttpInfo(String instanceKey, String groupId, InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest instancesInstanceKeyGroupsGroupIdProfilePicPutRequest) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsGroupIdProfilePicPutWithHttpInfo(String instanceKey, String groupId, InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest instancesInstanceKeyGroupsGroupIdProfilePicPutRequest) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdProfilePicPutValidateBeforeCall(instanceKey, groupId, instancesInstanceKeyGroupsGroupIdProfilePicPutRequest, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2384,10 +2384,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsGroupIdProfilePicPutAsync(String instanceKey, String groupId, InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest instancesInstanceKeyGroupsGroupIdProfilePicPutRequest, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsGroupIdProfilePicPutAsync(String instanceKey, String groupId, InstancesInstanceKeyGroupsGroupIdProfilePicPutRequest instancesInstanceKeyGroupsGroupIdProfilePicPutRequest, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsGroupIdProfilePicPutValidateBeforeCall(instanceKey, groupId, instancesInstanceKeyGroupsGroupIdProfilePicPutRequest, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
@@ -2478,7 +2478,7 @@ public class GroupManagementApi {
      * Gets a group info from an invite link. An invite link is a link that can be used to join a group. It is usually in the format https://chat.whatsapp.com/{invitecode}
      * @param instanceKey Instance key (required)
      * @param inviteLink The invite link to check (required)
-     * @return MainAPIResponse
+     * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2490,8 +2490,8 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public MainAPIResponse instancesInstanceKeyGroupsInviteInfoGet(String instanceKey, String inviteLink) throws ApiException {
-        ApiResponse<MainAPIResponse> localVarResp = instancesInstanceKeyGroupsInviteInfoGetWithHttpInfo(instanceKey, inviteLink);
+    public ModelAPIResponse instancesInstanceKeyGroupsInviteInfoGet(String instanceKey, String inviteLink) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyGroupsInviteInfoGetWithHttpInfo(instanceKey, inviteLink);
         return localVarResp.getData();
     }
 
@@ -2500,7 +2500,7 @@ public class GroupManagementApi {
      * Gets a group info from an invite link. An invite link is a link that can be used to join a group. It is usually in the format https://chat.whatsapp.com/{invitecode}
      * @param instanceKey Instance key (required)
      * @param inviteLink The invite link to check (required)
-     * @return ApiResponse&lt;MainAPIResponse&gt;
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -2512,9 +2512,9 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MainAPIResponse> instancesInstanceKeyGroupsInviteInfoGetWithHttpInfo(String instanceKey, String inviteLink) throws ApiException {
+    public ApiResponse<ModelAPIResponse> instancesInstanceKeyGroupsInviteInfoGetWithHttpInfo(String instanceKey, String inviteLink) throws ApiException {
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsInviteInfoGetValidateBeforeCall(instanceKey, inviteLink, null);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -2536,10 +2536,10 @@ public class GroupManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyGroupsInviteInfoGetAsync(String instanceKey, String inviteLink, final ApiCallback<MainAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call instancesInstanceKeyGroupsInviteInfoGetAsync(String instanceKey, String inviteLink, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = instancesInstanceKeyGroupsInviteInfoGetValidateBeforeCall(instanceKey, inviteLink, _callback);
-        Type localVarReturnType = new TypeToken<MainAPIResponse>(){}.getType();
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
