@@ -75,7 +75,7 @@ public class MiscellaneousApi {
     }
 
     /**
-     * Build call for instancesInstanceKeyMiscProfilePicGet
+     * Build call for getProfilePic
      * @param instanceKey Instance key (required)
      * @param jid JID (required)
      * @param _callback Callback for upload/download progress
@@ -91,7 +91,7 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyMiscProfilePicGetCall(String instanceKey, String jid, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getProfilePicCall(String instanceKey, String jid, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -141,18 +141,18 @@ public class MiscellaneousApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeyMiscProfilePicGetValidateBeforeCall(String instanceKey, String jid, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getProfilePicValidateBeforeCall(String instanceKey, String jid, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeyMiscProfilePicGet(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling getProfilePic(Async)");
         }
 
         // verify the required parameter 'jid' is set
         if (jid == null) {
-            throw new ApiException("Missing the required parameter 'jid' when calling instancesInstanceKeyMiscProfilePicGet(Async)");
+            throw new ApiException("Missing the required parameter 'jid' when calling getProfilePic(Async)");
         }
 
-        return instancesInstanceKeyMiscProfilePicGetCall(instanceKey, jid, _callback);
+        return getProfilePicCall(instanceKey, jid, _callback);
 
     }
 
@@ -173,8 +173,8 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeyMiscProfilePicGet(String instanceKey, String jid) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyMiscProfilePicGetWithHttpInfo(instanceKey, jid);
+    public ModelAPIResponse getProfilePic(String instanceKey, String jid) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = getProfilePicWithHttpInfo(instanceKey, jid);
         return localVarResp.getData();
     }
 
@@ -195,8 +195,8 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeyMiscProfilePicGetWithHttpInfo(String instanceKey, String jid) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeyMiscProfilePicGetValidateBeforeCall(instanceKey, jid, null);
+    public ApiResponse<ModelAPIResponse> getProfilePicWithHttpInfo(String instanceKey, String jid) throws ApiException {
+        okhttp3.Call localVarCall = getProfilePicValidateBeforeCall(instanceKey, jid, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -219,15 +219,15 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyMiscProfilePicGetAsync(String instanceKey, String jid, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call getProfilePicAsync(String instanceKey, String jid, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeyMiscProfilePicGetValidateBeforeCall(instanceKey, jid, _callback);
+        okhttp3.Call localVarCall = getProfilePicValidateBeforeCall(instanceKey, jid, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for instancesInstanceKeyMiscUserInfoPost
+     * Build call for getUsersInfo
      * @param instanceKey Instance key (required)
      * @param data Data (required)
      * @param _callback Callback for upload/download progress
@@ -243,7 +243,7 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyMiscUserInfoPostCall(String instanceKey, UserInfoPayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getUsersInfoCall(String instanceKey, UserInfoPayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -290,18 +290,18 @@ public class MiscellaneousApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeyMiscUserInfoPostValidateBeforeCall(String instanceKey, UserInfoPayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getUsersInfoValidateBeforeCall(String instanceKey, UserInfoPayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeyMiscUserInfoPost(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling getUsersInfo(Async)");
         }
 
         // verify the required parameter 'data' is set
         if (data == null) {
-            throw new ApiException("Missing the required parameter 'data' when calling instancesInstanceKeyMiscUserInfoPost(Async)");
+            throw new ApiException("Missing the required parameter 'data' when calling getUsersInfo(Async)");
         }
 
-        return instancesInstanceKeyMiscUserInfoPostCall(instanceKey, data, _callback);
+        return getUsersInfoCall(instanceKey, data, _callback);
 
     }
 
@@ -322,8 +322,8 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeyMiscUserInfoPost(String instanceKey, UserInfoPayload data) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyMiscUserInfoPostWithHttpInfo(instanceKey, data);
+    public ModelAPIResponse getUsersInfo(String instanceKey, UserInfoPayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = getUsersInfoWithHttpInfo(instanceKey, data);
         return localVarResp.getData();
     }
 
@@ -344,8 +344,8 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeyMiscUserInfoPostWithHttpInfo(String instanceKey, UserInfoPayload data) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeyMiscUserInfoPostValidateBeforeCall(instanceKey, data, null);
+    public ApiResponse<ModelAPIResponse> getUsersInfoWithHttpInfo(String instanceKey, UserInfoPayload data) throws ApiException {
+        okhttp3.Call localVarCall = getUsersInfoValidateBeforeCall(instanceKey, data, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -368,9 +368,9 @@ public class MiscellaneousApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyMiscUserInfoPostAsync(String instanceKey, UserInfoPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call getUsersInfoAsync(String instanceKey, UserInfoPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeyMiscUserInfoPostValidateBeforeCall(instanceKey, data, _callback);
+        okhttp3.Call localVarCall = getUsersInfoValidateBeforeCall(instanceKey, data, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

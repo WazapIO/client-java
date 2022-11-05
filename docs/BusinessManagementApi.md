@@ -4,12 +4,12 @@ All URIs are relative to */api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**instancesInstanceKeyBusinessCatalogGet**](BusinessManagementApi.md#instancesInstanceKeyBusinessCatalogGet) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog. |
+| [**fetchCatlog**](BusinessManagementApi.md#fetchCatlog) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog. |
 
 
-<a name="instancesInstanceKeyBusinessCatalogGet"></a>
-# **instancesInstanceKeyBusinessCatalogGet**
-> ModelAPIResponse instancesInstanceKeyBusinessCatalogGet(instanceKey)
+<a name="fetchCatlog"></a>
+# **fetchCatlog**
+> ModelAPIResponse fetchCatlog(instanceKey)
 
 Fetches the catlog.
 
@@ -39,10 +39,10 @@ public class Example {
     BusinessManagementApi apiInstance = new BusinessManagementApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
     try {
-      ModelAPIResponse result = apiInstance.instancesInstanceKeyBusinessCatalogGet(instanceKey);
+      ModelAPIResponse result = apiInstance.fetchCatlog(instanceKey);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling BusinessManagementApi#instancesInstanceKeyBusinessCatalogGet");
+      System.err.println("Exception when calling BusinessManagementApi#fetchCatlog");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

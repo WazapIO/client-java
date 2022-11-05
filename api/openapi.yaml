@@ -12,6 +12,7 @@ paths:
   /instances/create:
     get:
       description: This endpoint is used to create a new WhatsApp Web instance.
+      operationId: createInstance
       parameters:
       - description: Insert instance key if you want to provide custom key
         in: query
@@ -58,6 +59,7 @@ paths:
   /instances/list:
     get:
       description: Fetches the list of all Instances with login status.
+      operationId: listInstances
       responses:
         "200":
           content:
@@ -98,6 +100,7 @@ paths:
   /instances/{instance_key}/:
     get:
       description: Returns the instance data of single instance with connection status.
+      operationId: getInstance
       parameters:
       - description: Instance key
         in: path
@@ -145,6 +148,7 @@ paths:
   /instances/{instance_key}/business/catalog:
     get:
       description: Gets list of all products registered by you.
+      operationId: fetchCatlog
       parameters:
       - description: Instance key
         in: path
@@ -192,6 +196,7 @@ paths:
   /instances/{instance_key}/contacts:
     get:
       description: Fetches the list of contacts in the instance.
+      operationId: getContacts
       parameters:
       - description: Instance key
         in: path
@@ -239,6 +244,7 @@ paths:
   /instances/{instance_key}/delete:
     delete:
       description: Deletes the instance with the provided key.
+      operationId: deleteInstance
       parameters:
       - description: Instance key
         in: path
@@ -287,6 +293,7 @@ paths:
     get:
       description: Returns list of all groups with participants data. Set include_participants
         to false to exclude participants data.
+      operationId: getAllGroups
       parameters:
       - description: Instance key
         in: path
@@ -343,6 +350,7 @@ paths:
   /instances/{instance_key}/groups/admin:
     get:
       description: Returns list of all groups in which you are admin.
+      operationId: getAdminGroups
       parameters:
       - description: Instance key
         in: path
@@ -383,7 +391,7 @@ paths:
           description: Internal Server Error
       security:
       - ApiKeyAuth: []
-      summary: Get admin groupss.
+      summary: Get admin groups.
       tags:
       - Group Management
       x-accepts: '*/*'
@@ -391,6 +399,7 @@ paths:
     post:
       description: Creates a group with the participant data. The creator is automatically
         added to the group.
+      operationId: createGroup
       parameters:
       - description: Instance key
         in: path
@@ -448,6 +457,7 @@ paths:
     get:
       description: "Gets a group info from an invite link. An invite link is a link\
         \ that can be used to join a group. It is usually in the format https://chat.whatsapp.com/{invitecode}"
+      operationId: getGroupFromInviteLink
       parameters:
       - description: Instance key
         in: path
@@ -501,6 +511,7 @@ paths:
   /instances/{instance_key}/groups/{group_id}:
     get:
       description: Fetches the group data.
+      operationId: getGroup
       parameters:
       - description: Instance key
         in: path
@@ -554,6 +565,7 @@ paths:
   /instances/{instance_key}/groups/{group_id}/:
     delete:
       description: Leaves the specified group.
+      operationId: leaveGroup
       parameters:
       - description: Instance key
         in: path
@@ -607,6 +619,7 @@ paths:
   /instances/{instance_key}/groups/{group_id}/announce:
     put:
       description: Set if non-admins are allowed to send messages in groups
+      operationId: setGroupAnnounce
       parameters:
       - description: Instance key
         in: path
@@ -670,6 +683,7 @@ paths:
   /instances/{instance_key}/groups/{group_id}/description:
     put:
       description: Changes the group description
+      operationId: setGroupDescription
       parameters:
       - description: Instance key
         in: path
@@ -732,6 +746,7 @@ paths:
   /instances/{instance_key}/groups/{group_id}/invite-code:
     get:
       description: Gets the invite code of the group.
+      operationId: getGroupInviteCode
       parameters:
       - description: Instance key
         in: path
@@ -786,6 +801,7 @@ paths:
     put:
       description: Set if non-admins are allowed to change the group dp and other
         stuff
+      operationId: setGroupLocked
       parameters:
       - description: Instance key
         in: path
@@ -849,6 +865,7 @@ paths:
   /instances/{instance_key}/groups/{group_id}/name:
     put:
       description: Changes the group name. The max limit is 22 chars
+      operationId: setGroupName
       parameters:
       - description: Instance key
         in: path
@@ -912,6 +929,7 @@ paths:
     post:
       description: Handles adding participants to a group. You must be admin in the
         group or the query will fail.
+      operationId: addParticipant
       parameters:
       - description: Instance key
         in: path
@@ -975,6 +993,7 @@ paths:
     put:
       description: Demotes admins in groups. You must be admin in the group or the
         query will fail.
+      operationId: demoteParticipant
       parameters:
       - description: Instance key
         in: path
@@ -1038,6 +1057,7 @@ paths:
     put:
       description: Promotes participants to admin. You must be admin in the group
         or the query will fail.
+      operationId: promoteParticipant
       parameters:
       - description: Instance key
         in: path
@@ -1101,6 +1121,7 @@ paths:
     delete:
       description: Handles removing participants from a group. You must be admin in
         the group or the query will fail.
+      operationId: removeParticipant
       parameters:
       - description: Instance key
         in: path
@@ -1164,6 +1185,7 @@ paths:
     put:
       description: Changes the group profile picture. Currently it only seems to accept
         JPEG images only
+      operationId: setGroupPicture
       parameters:
       - description: Instance key
         in: path
@@ -1181,7 +1203,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/_instances__instance_key__groups__group_id__profile_pic_put_request'
+              $ref: '#/components/schemas/setGroupPicture_request'
         required: true
       responses:
         "200":
@@ -1224,6 +1246,7 @@ paths:
   /instances/{instance_key}/logout:
     delete:
       description: Logouts of the instance with the provided key.
+      operationId: logoutInstance
       parameters:
       - description: Instance key
         in: path
@@ -1271,6 +1294,7 @@ paths:
   /instances/{instance_key}/misc/profile-pic:
     get:
       description: Returns the profile pic of the given user.
+      operationId: getProfilePic
       parameters:
       - description: Instance key
         in: path
@@ -1325,6 +1349,7 @@ paths:
     post:
       description: Gets the user info for the given user ids. This does not checks
         if user is registered or not
+      operationId: getUsersInfo
       parameters:
       - description: Instance key
         in: path
@@ -1381,6 +1406,7 @@ paths:
   /instances/{instance_key}/qrcode:
     get:
       description: Returns the qrcode in the base64 format.
+      operationId: getQrCode
       parameters:
       - description: Instance key
         in: path
@@ -1430,6 +1456,7 @@ paths:
       description: |-
         Sends a audio message by uploading to the WhatsApp servers every time.
         This is not recommended for bulk sending.
+      operationId: sendAudio
       parameters:
       - description: Instance key
         in: path
@@ -1452,7 +1479,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/_instances__instance_key__send_audio_post_request'
+              $ref: '#/components/schemas/sendAudio_request'
         required: true
       responses:
         "200":
@@ -1497,6 +1524,7 @@ paths:
       description: |-
         Sends an interactive button message to the given user. This message also has media header with it.
         Make sure that all the button ids are unique
+      operationId: sendButtonWithMedia
       parameters:
       - description: Instance key
         in: path
@@ -1554,6 +1582,7 @@ paths:
     post:
       description: Sends an interactive button message to the given user. Make sure
         that all the button ids are unique
+      operationId: sendButtonMessage
       parameters:
       - description: Instance key
         in: path
@@ -1610,6 +1639,7 @@ paths:
   /instances/{instance_key}/send/contact:
     post:
       description: Sends a contact (vcard) message to the given user.
+      operationId: sendContact
       parameters:
       - description: Instance key
         in: path
@@ -1668,6 +1698,7 @@ paths:
       description: |-
         Sends a document message by uploading to the WhatsApp servers every time.
         This is not recommended for bulk sending.
+      operationId: sendDocument
       parameters:
       - description: Instance key
         in: path
@@ -1690,7 +1721,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/_instances__instance_key__send_document_post_request'
+              $ref: '#/components/schemas/sendDocument_request'
         required: true
       responses:
         "200":
@@ -1735,6 +1766,7 @@ paths:
       description: |-
         Sends a image message by uploading to the WhatsApp servers every time.
         This is not recommended for bulk sending.
+      operationId: sendImage
       parameters:
       - description: Instance key
         in: path
@@ -1757,7 +1789,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/_instances__instance_key__send_image_post_request'
+              $ref: '#/components/schemas/sendImage_request'
         required: true
       responses:
         "200":
@@ -1800,6 +1832,7 @@ paths:
   /instances/{instance_key}/send/list:
     post:
       description: Sends an interactive List message to the given user.
+      operationId: sendListMessage
       parameters:
       - description: Instance key
         in: path
@@ -1858,6 +1891,7 @@ paths:
       description: |-
         Sends a location message to the given user. This is static location and does not update
         Note: The Address and Url fields are optional
+      operationId: sendLocation
       parameters:
       - description: Instance key
         in: path
@@ -1914,6 +1948,7 @@ paths:
   /instances/{instance_key}/send/media:
     post:
       description: Sends a media message to the given user.
+      operationId: sendMediaMessage
       parameters:
       - description: Instance key
         in: path
@@ -1972,6 +2007,7 @@ paths:
       description: |-
         Sends an interactive poll message to the given user.
         The poll message is a new feature that is currently in beta.
+      operationId: sendPollMessage
       parameters:
       - description: Instance key
         in: path
@@ -2030,6 +2066,7 @@ paths:
       description: |-
         Sends an interactive template message to the given user.
         Note: The valid button types are "replyButton", "urlButton", "callButton"
+      operationId: sendTemplate
       parameters:
       - description: Instance key
         in: path
@@ -2088,6 +2125,7 @@ paths:
       description: |-
         Sends an interactive template message with a media header to the given user.
         Note: The valid button types are "replyButton", "urlButton", "callButton"
+      operationId: sendTemplateWithMedia
       parameters:
       - description: Instance key
         in: path
@@ -2144,6 +2182,7 @@ paths:
   /instances/{instance_key}/send/text:
     post:
       description: Sends a text message to the given user.
+      operationId: sendTextMessage
       parameters:
       - description: Instance key
         in: path
@@ -2202,6 +2241,7 @@ paths:
       description: |-
         Uploads media to WhatsApp servers and returns the media keys.
         Store the returned media keys, as you will need them to send media messages
+      operationId: uploadMedia
       parameters:
       - description: Instance key
         in: path
@@ -2224,7 +2264,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/_instances__instance_key__send_upload_post_request'
+              $ref: '#/components/schemas/uploadMedia_request'
         required: true
       responses:
         "200":
@@ -2269,6 +2309,7 @@ paths:
       description: |-
         Sends a video message by uploading to the WhatsApp servers every time.
         This is not recommended for bulk sending.
+      operationId: sendVideo
       parameters:
       - description: Instance key
         in: path
@@ -2291,7 +2332,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/_instances__instance_key__send_video_post_request'
+              $ref: '#/components/schemas/sendVideo_request'
         required: true
       responses:
         "200":
@@ -2334,6 +2375,7 @@ paths:
   /instances/{instance_key}/webhook:
     put:
       description: Changes the webhook url of an instance.
+      operationId: changeWebhookUrl
       parameters:
       - description: Instance key
         in: path
@@ -2873,7 +2915,7 @@ components:
         webhook_url:
           type: string
       type: object
-    _instances__instance_key__groups__group_id__profile_pic_put_request:
+    setGroupPicture_request:
       properties:
         file:
           description: Group picture in JPEG
@@ -2882,7 +2924,7 @@ components:
       required:
       - file
       type: object
-    _instances__instance_key__send_audio_post_request:
+    sendAudio_request:
       properties:
         file:
           description: Audio file
@@ -2891,7 +2933,7 @@ components:
       required:
       - file
       type: object
-    _instances__instance_key__send_document_post_request:
+    sendDocument_request:
       properties:
         file:
           description: Document file
@@ -2900,7 +2942,7 @@ components:
       required:
       - file
       type: object
-    _instances__instance_key__send_image_post_request:
+    sendImage_request:
       properties:
         file:
           description: Image file
@@ -2909,7 +2951,7 @@ components:
       required:
       - file
       type: object
-    _instances__instance_key__send_upload_post_request:
+    uploadMedia_request:
       properties:
         file:
           description: Media file
@@ -2918,7 +2960,7 @@ components:
       required:
       - file
       type: object
-    _instances__instance_key__send_video_post_request:
+    sendVideo_request:
       properties:
         file:
           description: Video file

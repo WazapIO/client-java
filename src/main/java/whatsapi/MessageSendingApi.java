@@ -30,19 +30,19 @@ import java.io.IOException;
 import models.ButtonMessagePayload;
 import models.ButtonMessageWithMediaPayload;
 import models.ContactMessagePayload;
-import models.InstancesInstanceKeySendAudioPostRequest;
-import models.InstancesInstanceKeySendDocumentPostRequest;
-import models.InstancesInstanceKeySendImagePostRequest;
-import models.InstancesInstanceKeySendUploadPostRequest;
-import models.InstancesInstanceKeySendVideoPostRequest;
 import models.ListMessagePayload;
 import models.LocationMessagePayload;
 import models.ModelAPIResponse;
 import models.PollMessagePayload;
+import models.SendAudioRequest;
+import models.SendDocumentRequest;
+import models.SendImageRequest;
 import models.SendMediaPayload;
+import models.SendVideoRequest;
 import models.TemplateButtonPayload;
 import models.TemplateButtonWithMediaPayload;
 import models.TextMessage;
+import models.UploadMediaRequest;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -89,10 +89,10 @@ public class MessageSendingApi {
     }
 
     /**
-     * Build call for instancesInstanceKeySendAudioPost
+     * Build call for sendAudio
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendAudioPostRequest  (required)
+     * @param sendAudioRequest  (required)
      * @param caption Attached caption (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -107,7 +107,7 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendAudioPostCall(String instanceKey, String to, InstancesInstanceKeySendAudioPostRequest instancesInstanceKeySendAudioPostRequest, String caption, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendAudioCall(String instanceKey, String to, SendAudioRequest sendAudioRequest, String caption, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -121,7 +121,7 @@ public class MessageSendingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = instancesInstanceKeySendAudioPostRequest;
+        Object localVarPostBody = sendAudioRequest;
 
         // create path and map variables
         String localVarPath = "/instances/{instance_key}/send/audio"
@@ -162,23 +162,23 @@ public class MessageSendingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendAudioPostValidateBeforeCall(String instanceKey, String to, InstancesInstanceKeySendAudioPostRequest instancesInstanceKeySendAudioPostRequest, String caption, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendAudioValidateBeforeCall(String instanceKey, String to, SendAudioRequest sendAudioRequest, String caption, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendAudioPost(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendAudio(Async)");
         }
 
         // verify the required parameter 'to' is set
         if (to == null) {
-            throw new ApiException("Missing the required parameter 'to' when calling instancesInstanceKeySendAudioPost(Async)");
+            throw new ApiException("Missing the required parameter 'to' when calling sendAudio(Async)");
         }
 
-        // verify the required parameter 'instancesInstanceKeySendAudioPostRequest' is set
-        if (instancesInstanceKeySendAudioPostRequest == null) {
-            throw new ApiException("Missing the required parameter 'instancesInstanceKeySendAudioPostRequest' when calling instancesInstanceKeySendAudioPost(Async)");
+        // verify the required parameter 'sendAudioRequest' is set
+        if (sendAudioRequest == null) {
+            throw new ApiException("Missing the required parameter 'sendAudioRequest' when calling sendAudio(Async)");
         }
 
-        return instancesInstanceKeySendAudioPostCall(instanceKey, to, instancesInstanceKeySendAudioPostRequest, caption, _callback);
+        return sendAudioCall(instanceKey, to, sendAudioRequest, caption, _callback);
 
     }
 
@@ -187,7 +187,7 @@ public class MessageSendingApi {
      * Sends a audio message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendAudioPostRequest  (required)
+     * @param sendAudioRequest  (required)
      * @param caption Attached caption (optional)
      * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -201,8 +201,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeySendAudioPost(String instanceKey, String to, InstancesInstanceKeySendAudioPostRequest instancesInstanceKeySendAudioPostRequest, String caption) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendAudioPostWithHttpInfo(instanceKey, to, instancesInstanceKeySendAudioPostRequest, caption);
+    public ModelAPIResponse sendAudio(String instanceKey, String to, SendAudioRequest sendAudioRequest, String caption) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendAudioWithHttpInfo(instanceKey, to, sendAudioRequest, caption);
         return localVarResp.getData();
     }
 
@@ -211,7 +211,7 @@ public class MessageSendingApi {
      * Sends a audio message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendAudioPostRequest  (required)
+     * @param sendAudioRequest  (required)
      * @param caption Attached caption (optional)
      * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -225,8 +225,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendAudioPostWithHttpInfo(String instanceKey, String to, InstancesInstanceKeySendAudioPostRequest instancesInstanceKeySendAudioPostRequest, String caption) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendAudioPostValidateBeforeCall(instanceKey, to, instancesInstanceKeySendAudioPostRequest, caption, null);
+    public ApiResponse<ModelAPIResponse> sendAudioWithHttpInfo(String instanceKey, String to, SendAudioRequest sendAudioRequest, String caption) throws ApiException {
+        okhttp3.Call localVarCall = sendAudioValidateBeforeCall(instanceKey, to, sendAudioRequest, caption, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -236,7 +236,7 @@ public class MessageSendingApi {
      * Sends a audio message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendAudioPostRequest  (required)
+     * @param sendAudioRequest  (required)
      * @param caption Attached caption (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -251,15 +251,15 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendAudioPostAsync(String instanceKey, String to, InstancesInstanceKeySendAudioPostRequest instancesInstanceKeySendAudioPostRequest, String caption, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call sendAudioAsync(String instanceKey, String to, SendAudioRequest sendAudioRequest, String caption, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeySendAudioPostValidateBeforeCall(instanceKey, to, instancesInstanceKeySendAudioPostRequest, caption, _callback);
+        okhttp3.Call localVarCall = sendAudioValidateBeforeCall(instanceKey, to, sendAudioRequest, caption, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for instancesInstanceKeySendButtonMediaPost
+     * Build call for sendButtonMessage
      * @param instanceKey Instance key (required)
      * @param data Message data (required)
      * @param _callback Callback for upload/download progress
@@ -275,156 +275,7 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendButtonMediaPostCall(String instanceKey, ButtonMessageWithMediaPayload data, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = data;
-
-        // create path and map variables
-        String localVarPath = "/instances/{instance_key}/send/button-media"
-            .replace("{" + "instance_key" + "}", localVarApiClient.escapeString(instanceKey.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "*/*"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendButtonMediaPostValidateBeforeCall(String instanceKey, ButtonMessageWithMediaPayload data, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'instanceKey' is set
-        if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendButtonMediaPost(Async)");
-        }
-
-        // verify the required parameter 'data' is set
-        if (data == null) {
-            throw new ApiException("Missing the required parameter 'data' when calling instancesInstanceKeySendButtonMediaPost(Async)");
-        }
-
-        return instancesInstanceKeySendButtonMediaPostCall(instanceKey, data, _callback);
-
-    }
-
-    /**
-     * Send a button message with a media header.
-     * Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
-     * @param instanceKey Instance key (required)
-     * @param data Message data (required)
-     * @return ModelAPIResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ModelAPIResponse instancesInstanceKeySendButtonMediaPost(String instanceKey, ButtonMessageWithMediaPayload data) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendButtonMediaPostWithHttpInfo(instanceKey, data);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Send a button message with a media header.
-     * Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
-     * @param instanceKey Instance key (required)
-     * @param data Message data (required)
-     * @return ApiResponse&lt;ModelAPIResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendButtonMediaPostWithHttpInfo(String instanceKey, ButtonMessageWithMediaPayload data) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendButtonMediaPostValidateBeforeCall(instanceKey, data, null);
-        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Send a button message with a media header. (asynchronously)
-     * Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
-     * @param instanceKey Instance key (required)
-     * @param data Message data (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call instancesInstanceKeySendButtonMediaPostAsync(String instanceKey, ButtonMessageWithMediaPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = instancesInstanceKeySendButtonMediaPostValidateBeforeCall(instanceKey, data, _callback);
-        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for instancesInstanceKeySendButtonsPost
-     * @param instanceKey Instance key (required)
-     * @param data Message data (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call instancesInstanceKeySendButtonsPostCall(String instanceKey, ButtonMessagePayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendButtonMessageCall(String instanceKey, ButtonMessagePayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -471,18 +322,18 @@ public class MessageSendingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendButtonsPostValidateBeforeCall(String instanceKey, ButtonMessagePayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendButtonMessageValidateBeforeCall(String instanceKey, ButtonMessagePayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendButtonsPost(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendButtonMessage(Async)");
         }
 
         // verify the required parameter 'data' is set
         if (data == null) {
-            throw new ApiException("Missing the required parameter 'data' when calling instancesInstanceKeySendButtonsPost(Async)");
+            throw new ApiException("Missing the required parameter 'data' when calling sendButtonMessage(Async)");
         }
 
-        return instancesInstanceKeySendButtonsPostCall(instanceKey, data, _callback);
+        return sendButtonMessageCall(instanceKey, data, _callback);
 
     }
 
@@ -503,8 +354,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeySendButtonsPost(String instanceKey, ButtonMessagePayload data) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendButtonsPostWithHttpInfo(instanceKey, data);
+    public ModelAPIResponse sendButtonMessage(String instanceKey, ButtonMessagePayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendButtonMessageWithHttpInfo(instanceKey, data);
         return localVarResp.getData();
     }
 
@@ -525,8 +376,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendButtonsPostWithHttpInfo(String instanceKey, ButtonMessagePayload data) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendButtonsPostValidateBeforeCall(instanceKey, data, null);
+    public ApiResponse<ModelAPIResponse> sendButtonMessageWithHttpInfo(String instanceKey, ButtonMessagePayload data) throws ApiException {
+        okhttp3.Call localVarCall = sendButtonMessageValidateBeforeCall(instanceKey, data, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -549,15 +400,15 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendButtonsPostAsync(String instanceKey, ButtonMessagePayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call sendButtonMessageAsync(String instanceKey, ButtonMessagePayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeySendButtonsPostValidateBeforeCall(instanceKey, data, _callback);
+        okhttp3.Call localVarCall = sendButtonMessageValidateBeforeCall(instanceKey, data, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for instancesInstanceKeySendContactPost
+     * Build call for sendButtonWithMedia
      * @param instanceKey Instance key (required)
      * @param data Message data (required)
      * @param _callback Callback for upload/download progress
@@ -573,7 +424,156 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendContactPostCall(String instanceKey, ContactMessagePayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendButtonWithMediaCall(String instanceKey, ButtonMessageWithMediaPayload data, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/instances/{instance_key}/send/button-media"
+            .replace("{" + "instance_key" + "}", localVarApiClient.escapeString(instanceKey.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call sendButtonWithMediaValidateBeforeCall(String instanceKey, ButtonMessageWithMediaPayload data, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'instanceKey' is set
+        if (instanceKey == null) {
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendButtonWithMedia(Async)");
+        }
+
+        // verify the required parameter 'data' is set
+        if (data == null) {
+            throw new ApiException("Missing the required parameter 'data' when calling sendButtonWithMedia(Async)");
+        }
+
+        return sendButtonWithMediaCall(instanceKey, data, _callback);
+
+    }
+
+    /**
+     * Send a button message with a media header.
+     * Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
+     * @param instanceKey Instance key (required)
+     * @param data Message data (required)
+     * @return ModelAPIResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ModelAPIResponse sendButtonWithMedia(String instanceKey, ButtonMessageWithMediaPayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendButtonWithMediaWithHttpInfo(instanceKey, data);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Send a button message with a media header.
+     * Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
+     * @param instanceKey Instance key (required)
+     * @param data Message data (required)
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ModelAPIResponse> sendButtonWithMediaWithHttpInfo(String instanceKey, ButtonMessageWithMediaPayload data) throws ApiException {
+        okhttp3.Call localVarCall = sendButtonWithMediaValidateBeforeCall(instanceKey, data, null);
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Send a button message with a media header. (asynchronously)
+     * Sends an interactive button message to the given user. This message also has media header with it. Make sure that all the button ids are unique
+     * @param instanceKey Instance key (required)
+     * @param data Message data (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call sendButtonWithMediaAsync(String instanceKey, ButtonMessageWithMediaPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = sendButtonWithMediaValidateBeforeCall(instanceKey, data, _callback);
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for sendContact
+     * @param instanceKey Instance key (required)
+     * @param data Message data (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call sendContactCall(String instanceKey, ContactMessagePayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -620,18 +620,18 @@ public class MessageSendingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendContactPostValidateBeforeCall(String instanceKey, ContactMessagePayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendContactValidateBeforeCall(String instanceKey, ContactMessagePayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendContactPost(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendContact(Async)");
         }
 
         // verify the required parameter 'data' is set
         if (data == null) {
-            throw new ApiException("Missing the required parameter 'data' when calling instancesInstanceKeySendContactPost(Async)");
+            throw new ApiException("Missing the required parameter 'data' when calling sendContact(Async)");
         }
 
-        return instancesInstanceKeySendContactPostCall(instanceKey, data, _callback);
+        return sendContactCall(instanceKey, data, _callback);
 
     }
 
@@ -652,8 +652,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeySendContactPost(String instanceKey, ContactMessagePayload data) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendContactPostWithHttpInfo(instanceKey, data);
+    public ModelAPIResponse sendContact(String instanceKey, ContactMessagePayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendContactWithHttpInfo(instanceKey, data);
         return localVarResp.getData();
     }
 
@@ -674,8 +674,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendContactPostWithHttpInfo(String instanceKey, ContactMessagePayload data) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendContactPostValidateBeforeCall(instanceKey, data, null);
+    public ApiResponse<ModelAPIResponse> sendContactWithHttpInfo(String instanceKey, ContactMessagePayload data) throws ApiException {
+        okhttp3.Call localVarCall = sendContactValidateBeforeCall(instanceKey, data, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -698,18 +698,18 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendContactPostAsync(String instanceKey, ContactMessagePayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call sendContactAsync(String instanceKey, ContactMessagePayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeySendContactPostValidateBeforeCall(instanceKey, data, _callback);
+        okhttp3.Call localVarCall = sendContactValidateBeforeCall(instanceKey, data, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for instancesInstanceKeySendDocumentPost
+     * Build call for sendDocument
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendDocumentPostRequest  (required)
+     * @param sendDocumentRequest  (required)
      * @param caption Attached caption (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -724,7 +724,7 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendDocumentPostCall(String instanceKey, String to, InstancesInstanceKeySendDocumentPostRequest instancesInstanceKeySendDocumentPostRequest, String caption, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendDocumentCall(String instanceKey, String to, SendDocumentRequest sendDocumentRequest, String caption, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -738,7 +738,7 @@ public class MessageSendingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = instancesInstanceKeySendDocumentPostRequest;
+        Object localVarPostBody = sendDocumentRequest;
 
         // create path and map variables
         String localVarPath = "/instances/{instance_key}/send/document"
@@ -779,23 +779,23 @@ public class MessageSendingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendDocumentPostValidateBeforeCall(String instanceKey, String to, InstancesInstanceKeySendDocumentPostRequest instancesInstanceKeySendDocumentPostRequest, String caption, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendDocumentValidateBeforeCall(String instanceKey, String to, SendDocumentRequest sendDocumentRequest, String caption, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendDocumentPost(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendDocument(Async)");
         }
 
         // verify the required parameter 'to' is set
         if (to == null) {
-            throw new ApiException("Missing the required parameter 'to' when calling instancesInstanceKeySendDocumentPost(Async)");
+            throw new ApiException("Missing the required parameter 'to' when calling sendDocument(Async)");
         }
 
-        // verify the required parameter 'instancesInstanceKeySendDocumentPostRequest' is set
-        if (instancesInstanceKeySendDocumentPostRequest == null) {
-            throw new ApiException("Missing the required parameter 'instancesInstanceKeySendDocumentPostRequest' when calling instancesInstanceKeySendDocumentPost(Async)");
+        // verify the required parameter 'sendDocumentRequest' is set
+        if (sendDocumentRequest == null) {
+            throw new ApiException("Missing the required parameter 'sendDocumentRequest' when calling sendDocument(Async)");
         }
 
-        return instancesInstanceKeySendDocumentPostCall(instanceKey, to, instancesInstanceKeySendDocumentPostRequest, caption, _callback);
+        return sendDocumentCall(instanceKey, to, sendDocumentRequest, caption, _callback);
 
     }
 
@@ -804,7 +804,7 @@ public class MessageSendingApi {
      * Sends a document message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendDocumentPostRequest  (required)
+     * @param sendDocumentRequest  (required)
      * @param caption Attached caption (optional)
      * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -818,8 +818,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeySendDocumentPost(String instanceKey, String to, InstancesInstanceKeySendDocumentPostRequest instancesInstanceKeySendDocumentPostRequest, String caption) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendDocumentPostWithHttpInfo(instanceKey, to, instancesInstanceKeySendDocumentPostRequest, caption);
+    public ModelAPIResponse sendDocument(String instanceKey, String to, SendDocumentRequest sendDocumentRequest, String caption) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendDocumentWithHttpInfo(instanceKey, to, sendDocumentRequest, caption);
         return localVarResp.getData();
     }
 
@@ -828,7 +828,7 @@ public class MessageSendingApi {
      * Sends a document message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendDocumentPostRequest  (required)
+     * @param sendDocumentRequest  (required)
      * @param caption Attached caption (optional)
      * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -842,8 +842,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendDocumentPostWithHttpInfo(String instanceKey, String to, InstancesInstanceKeySendDocumentPostRequest instancesInstanceKeySendDocumentPostRequest, String caption) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendDocumentPostValidateBeforeCall(instanceKey, to, instancesInstanceKeySendDocumentPostRequest, caption, null);
+    public ApiResponse<ModelAPIResponse> sendDocumentWithHttpInfo(String instanceKey, String to, SendDocumentRequest sendDocumentRequest, String caption) throws ApiException {
+        okhttp3.Call localVarCall = sendDocumentValidateBeforeCall(instanceKey, to, sendDocumentRequest, caption, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -853,7 +853,7 @@ public class MessageSendingApi {
      * Sends a document message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendDocumentPostRequest  (required)
+     * @param sendDocumentRequest  (required)
      * @param caption Attached caption (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -868,18 +868,18 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendDocumentPostAsync(String instanceKey, String to, InstancesInstanceKeySendDocumentPostRequest instancesInstanceKeySendDocumentPostRequest, String caption, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call sendDocumentAsync(String instanceKey, String to, SendDocumentRequest sendDocumentRequest, String caption, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeySendDocumentPostValidateBeforeCall(instanceKey, to, instancesInstanceKeySendDocumentPostRequest, caption, _callback);
+        okhttp3.Call localVarCall = sendDocumentValidateBeforeCall(instanceKey, to, sendDocumentRequest, caption, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for instancesInstanceKeySendImagePost
+     * Build call for sendImage
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendImagePostRequest  (required)
+     * @param sendImageRequest  (required)
      * @param caption Attached caption (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -894,7 +894,7 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendImagePostCall(String instanceKey, String to, InstancesInstanceKeySendImagePostRequest instancesInstanceKeySendImagePostRequest, String caption, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendImageCall(String instanceKey, String to, SendImageRequest sendImageRequest, String caption, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -908,7 +908,7 @@ public class MessageSendingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = instancesInstanceKeySendImagePostRequest;
+        Object localVarPostBody = sendImageRequest;
 
         // create path and map variables
         String localVarPath = "/instances/{instance_key}/send/image"
@@ -949,23 +949,23 @@ public class MessageSendingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendImagePostValidateBeforeCall(String instanceKey, String to, InstancesInstanceKeySendImagePostRequest instancesInstanceKeySendImagePostRequest, String caption, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendImageValidateBeforeCall(String instanceKey, String to, SendImageRequest sendImageRequest, String caption, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendImagePost(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendImage(Async)");
         }
 
         // verify the required parameter 'to' is set
         if (to == null) {
-            throw new ApiException("Missing the required parameter 'to' when calling instancesInstanceKeySendImagePost(Async)");
+            throw new ApiException("Missing the required parameter 'to' when calling sendImage(Async)");
         }
 
-        // verify the required parameter 'instancesInstanceKeySendImagePostRequest' is set
-        if (instancesInstanceKeySendImagePostRequest == null) {
-            throw new ApiException("Missing the required parameter 'instancesInstanceKeySendImagePostRequest' when calling instancesInstanceKeySendImagePost(Async)");
+        // verify the required parameter 'sendImageRequest' is set
+        if (sendImageRequest == null) {
+            throw new ApiException("Missing the required parameter 'sendImageRequest' when calling sendImage(Async)");
         }
 
-        return instancesInstanceKeySendImagePostCall(instanceKey, to, instancesInstanceKeySendImagePostRequest, caption, _callback);
+        return sendImageCall(instanceKey, to, sendImageRequest, caption, _callback);
 
     }
 
@@ -974,7 +974,7 @@ public class MessageSendingApi {
      * Sends a image message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendImagePostRequest  (required)
+     * @param sendImageRequest  (required)
      * @param caption Attached caption (optional)
      * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -988,8 +988,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeySendImagePost(String instanceKey, String to, InstancesInstanceKeySendImagePostRequest instancesInstanceKeySendImagePostRequest, String caption) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendImagePostWithHttpInfo(instanceKey, to, instancesInstanceKeySendImagePostRequest, caption);
+    public ModelAPIResponse sendImage(String instanceKey, String to, SendImageRequest sendImageRequest, String caption) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendImageWithHttpInfo(instanceKey, to, sendImageRequest, caption);
         return localVarResp.getData();
     }
 
@@ -998,7 +998,7 @@ public class MessageSendingApi {
      * Sends a image message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendImagePostRequest  (required)
+     * @param sendImageRequest  (required)
      * @param caption Attached caption (optional)
      * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1012,8 +1012,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendImagePostWithHttpInfo(String instanceKey, String to, InstancesInstanceKeySendImagePostRequest instancesInstanceKeySendImagePostRequest, String caption) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendImagePostValidateBeforeCall(instanceKey, to, instancesInstanceKeySendImagePostRequest, caption, null);
+    public ApiResponse<ModelAPIResponse> sendImageWithHttpInfo(String instanceKey, String to, SendImageRequest sendImageRequest, String caption) throws ApiException {
+        okhttp3.Call localVarCall = sendImageValidateBeforeCall(instanceKey, to, sendImageRequest, caption, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1023,7 +1023,7 @@ public class MessageSendingApi {
      * Sends a image message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendImagePostRequest  (required)
+     * @param sendImageRequest  (required)
      * @param caption Attached caption (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1038,15 +1038,15 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendImagePostAsync(String instanceKey, String to, InstancesInstanceKeySendImagePostRequest instancesInstanceKeySendImagePostRequest, String caption, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call sendImageAsync(String instanceKey, String to, SendImageRequest sendImageRequest, String caption, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeySendImagePostValidateBeforeCall(instanceKey, to, instancesInstanceKeySendImagePostRequest, caption, _callback);
+        okhttp3.Call localVarCall = sendImageValidateBeforeCall(instanceKey, to, sendImageRequest, caption, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for instancesInstanceKeySendListPost
+     * Build call for sendListMessage
      * @param instanceKey Instance key (required)
      * @param data Message data (required)
      * @param _callback Callback for upload/download progress
@@ -1062,7 +1062,7 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendListPostCall(String instanceKey, ListMessagePayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendListMessageCall(String instanceKey, ListMessagePayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1109,18 +1109,18 @@ public class MessageSendingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendListPostValidateBeforeCall(String instanceKey, ListMessagePayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendListMessageValidateBeforeCall(String instanceKey, ListMessagePayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendListPost(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendListMessage(Async)");
         }
 
         // verify the required parameter 'data' is set
         if (data == null) {
-            throw new ApiException("Missing the required parameter 'data' when calling instancesInstanceKeySendListPost(Async)");
+            throw new ApiException("Missing the required parameter 'data' when calling sendListMessage(Async)");
         }
 
-        return instancesInstanceKeySendListPostCall(instanceKey, data, _callback);
+        return sendListMessageCall(instanceKey, data, _callback);
 
     }
 
@@ -1141,8 +1141,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeySendListPost(String instanceKey, ListMessagePayload data) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendListPostWithHttpInfo(instanceKey, data);
+    public ModelAPIResponse sendListMessage(String instanceKey, ListMessagePayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendListMessageWithHttpInfo(instanceKey, data);
         return localVarResp.getData();
     }
 
@@ -1163,8 +1163,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendListPostWithHttpInfo(String instanceKey, ListMessagePayload data) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendListPostValidateBeforeCall(instanceKey, data, null);
+    public ApiResponse<ModelAPIResponse> sendListMessageWithHttpInfo(String instanceKey, ListMessagePayload data) throws ApiException {
+        okhttp3.Call localVarCall = sendListMessageValidateBeforeCall(instanceKey, data, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1187,15 +1187,15 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendListPostAsync(String instanceKey, ListMessagePayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call sendListMessageAsync(String instanceKey, ListMessagePayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeySendListPostValidateBeforeCall(instanceKey, data, _callback);
+        okhttp3.Call localVarCall = sendListMessageValidateBeforeCall(instanceKey, data, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for instancesInstanceKeySendLocationPost
+     * Build call for sendLocation
      * @param instanceKey Instance key (required)
      * @param data Message data (required)
      * @param _callback Callback for upload/download progress
@@ -1211,7 +1211,7 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendLocationPostCall(String instanceKey, LocationMessagePayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendLocationCall(String instanceKey, LocationMessagePayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1258,18 +1258,18 @@ public class MessageSendingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendLocationPostValidateBeforeCall(String instanceKey, LocationMessagePayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendLocationValidateBeforeCall(String instanceKey, LocationMessagePayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendLocationPost(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendLocation(Async)");
         }
 
         // verify the required parameter 'data' is set
         if (data == null) {
-            throw new ApiException("Missing the required parameter 'data' when calling instancesInstanceKeySendLocationPost(Async)");
+            throw new ApiException("Missing the required parameter 'data' when calling sendLocation(Async)");
         }
 
-        return instancesInstanceKeySendLocationPostCall(instanceKey, data, _callback);
+        return sendLocationCall(instanceKey, data, _callback);
 
     }
 
@@ -1290,8 +1290,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeySendLocationPost(String instanceKey, LocationMessagePayload data) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendLocationPostWithHttpInfo(instanceKey, data);
+    public ModelAPIResponse sendLocation(String instanceKey, LocationMessagePayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendLocationWithHttpInfo(instanceKey, data);
         return localVarResp.getData();
     }
 
@@ -1312,8 +1312,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendLocationPostWithHttpInfo(String instanceKey, LocationMessagePayload data) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendLocationPostValidateBeforeCall(instanceKey, data, null);
+    public ApiResponse<ModelAPIResponse> sendLocationWithHttpInfo(String instanceKey, LocationMessagePayload data) throws ApiException {
+        okhttp3.Call localVarCall = sendLocationValidateBeforeCall(instanceKey, data, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1336,15 +1336,15 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendLocationPostAsync(String instanceKey, LocationMessagePayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call sendLocationAsync(String instanceKey, LocationMessagePayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeySendLocationPostValidateBeforeCall(instanceKey, data, _callback);
+        okhttp3.Call localVarCall = sendLocationValidateBeforeCall(instanceKey, data, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for instancesInstanceKeySendMediaPost
+     * Build call for sendMediaMessage
      * @param instanceKey Instance key (required)
      * @param data Message data (required)
      * @param _callback Callback for upload/download progress
@@ -1360,7 +1360,7 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendMediaPostCall(String instanceKey, SendMediaPayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendMediaMessageCall(String instanceKey, SendMediaPayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1407,18 +1407,18 @@ public class MessageSendingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendMediaPostValidateBeforeCall(String instanceKey, SendMediaPayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendMediaMessageValidateBeforeCall(String instanceKey, SendMediaPayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendMediaPost(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendMediaMessage(Async)");
         }
 
         // verify the required parameter 'data' is set
         if (data == null) {
-            throw new ApiException("Missing the required parameter 'data' when calling instancesInstanceKeySendMediaPost(Async)");
+            throw new ApiException("Missing the required parameter 'data' when calling sendMediaMessage(Async)");
         }
 
-        return instancesInstanceKeySendMediaPostCall(instanceKey, data, _callback);
+        return sendMediaMessageCall(instanceKey, data, _callback);
 
     }
 
@@ -1439,8 +1439,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeySendMediaPost(String instanceKey, SendMediaPayload data) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendMediaPostWithHttpInfo(instanceKey, data);
+    public ModelAPIResponse sendMediaMessage(String instanceKey, SendMediaPayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendMediaMessageWithHttpInfo(instanceKey, data);
         return localVarResp.getData();
     }
 
@@ -1461,8 +1461,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendMediaPostWithHttpInfo(String instanceKey, SendMediaPayload data) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendMediaPostValidateBeforeCall(instanceKey, data, null);
+    public ApiResponse<ModelAPIResponse> sendMediaMessageWithHttpInfo(String instanceKey, SendMediaPayload data) throws ApiException {
+        okhttp3.Call localVarCall = sendMediaMessageValidateBeforeCall(instanceKey, data, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1485,15 +1485,15 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendMediaPostAsync(String instanceKey, SendMediaPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call sendMediaMessageAsync(String instanceKey, SendMediaPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeySendMediaPostValidateBeforeCall(instanceKey, data, _callback);
+        okhttp3.Call localVarCall = sendMediaMessageValidateBeforeCall(instanceKey, data, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for instancesInstanceKeySendPollPost
+     * Build call for sendPollMessage
      * @param instanceKey Instance key (required)
      * @param data Message data (required)
      * @param _callback Callback for upload/download progress
@@ -1509,7 +1509,7 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendPollPostCall(String instanceKey, PollMessagePayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendPollMessageCall(String instanceKey, PollMessagePayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1556,18 +1556,18 @@ public class MessageSendingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendPollPostValidateBeforeCall(String instanceKey, PollMessagePayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendPollMessageValidateBeforeCall(String instanceKey, PollMessagePayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendPollPost(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendPollMessage(Async)");
         }
 
         // verify the required parameter 'data' is set
         if (data == null) {
-            throw new ApiException("Missing the required parameter 'data' when calling instancesInstanceKeySendPollPost(Async)");
+            throw new ApiException("Missing the required parameter 'data' when calling sendPollMessage(Async)");
         }
 
-        return instancesInstanceKeySendPollPostCall(instanceKey, data, _callback);
+        return sendPollMessageCall(instanceKey, data, _callback);
 
     }
 
@@ -1588,8 +1588,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeySendPollPost(String instanceKey, PollMessagePayload data) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendPollPostWithHttpInfo(instanceKey, data);
+    public ModelAPIResponse sendPollMessage(String instanceKey, PollMessagePayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendPollMessageWithHttpInfo(instanceKey, data);
         return localVarResp.getData();
     }
 
@@ -1610,8 +1610,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendPollPostWithHttpInfo(String instanceKey, PollMessagePayload data) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendPollPostValidateBeforeCall(instanceKey, data, null);
+    public ApiResponse<ModelAPIResponse> sendPollMessageWithHttpInfo(String instanceKey, PollMessagePayload data) throws ApiException {
+        okhttp3.Call localVarCall = sendPollMessageValidateBeforeCall(instanceKey, data, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1634,15 +1634,15 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendPollPostAsync(String instanceKey, PollMessagePayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call sendPollMessageAsync(String instanceKey, PollMessagePayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeySendPollPostValidateBeforeCall(instanceKey, data, _callback);
+        okhttp3.Call localVarCall = sendPollMessageValidateBeforeCall(instanceKey, data, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for instancesInstanceKeySendTemplateMediaPost
+     * Build call for sendTemplate
      * @param instanceKey Instance key (required)
      * @param data Message data (required)
      * @param _callback Callback for upload/download progress
@@ -1658,156 +1658,7 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendTemplateMediaPostCall(String instanceKey, TemplateButtonWithMediaPayload data, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = data;
-
-        // create path and map variables
-        String localVarPath = "/instances/{instance_key}/send/template-media"
-            .replace("{" + "instance_key" + "}", localVarApiClient.escapeString(instanceKey.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        final String[] localVarAccepts = {
-            "*/*"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendTemplateMediaPostValidateBeforeCall(String instanceKey, TemplateButtonWithMediaPayload data, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'instanceKey' is set
-        if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendTemplateMediaPost(Async)");
-        }
-
-        // verify the required parameter 'data' is set
-        if (data == null) {
-            throw new ApiException("Missing the required parameter 'data' when calling instancesInstanceKeySendTemplateMediaPost(Async)");
-        }
-
-        return instancesInstanceKeySendTemplateMediaPostCall(instanceKey, data, _callback);
-
-    }
-
-    /**
-     * Send a template message with media.
-     * Sends an interactive template message with a media header to the given user. Note: The valid button types are \&quot;replyButton\&quot;, \&quot;urlButton\&quot;, \&quot;callButton\&quot;
-     * @param instanceKey Instance key (required)
-     * @param data Message data (required)
-     * @return ModelAPIResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ModelAPIResponse instancesInstanceKeySendTemplateMediaPost(String instanceKey, TemplateButtonWithMediaPayload data) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendTemplateMediaPostWithHttpInfo(instanceKey, data);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Send a template message with media.
-     * Sends an interactive template message with a media header to the given user. Note: The valid button types are \&quot;replyButton\&quot;, \&quot;urlButton\&quot;, \&quot;callButton\&quot;
-     * @param instanceKey Instance key (required)
-     * @param data Message data (required)
-     * @return ApiResponse&lt;ModelAPIResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendTemplateMediaPostWithHttpInfo(String instanceKey, TemplateButtonWithMediaPayload data) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendTemplateMediaPostValidateBeforeCall(instanceKey, data, null);
-        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Send a template message with media. (asynchronously)
-     * Sends an interactive template message with a media header to the given user. Note: The valid button types are \&quot;replyButton\&quot;, \&quot;urlButton\&quot;, \&quot;callButton\&quot;
-     * @param instanceKey Instance key (required)
-     * @param data Message data (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call instancesInstanceKeySendTemplateMediaPostAsync(String instanceKey, TemplateButtonWithMediaPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = instancesInstanceKeySendTemplateMediaPostValidateBeforeCall(instanceKey, data, _callback);
-        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for instancesInstanceKeySendTemplatePost
-     * @param instanceKey Instance key (required)
-     * @param data Message data (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call instancesInstanceKeySendTemplatePostCall(String instanceKey, TemplateButtonPayload data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendTemplateCall(String instanceKey, TemplateButtonPayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1854,18 +1705,18 @@ public class MessageSendingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendTemplatePostValidateBeforeCall(String instanceKey, TemplateButtonPayload data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendTemplateValidateBeforeCall(String instanceKey, TemplateButtonPayload data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendTemplatePost(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendTemplate(Async)");
         }
 
         // verify the required parameter 'data' is set
         if (data == null) {
-            throw new ApiException("Missing the required parameter 'data' when calling instancesInstanceKeySendTemplatePost(Async)");
+            throw new ApiException("Missing the required parameter 'data' when calling sendTemplate(Async)");
         }
 
-        return instancesInstanceKeySendTemplatePostCall(instanceKey, data, _callback);
+        return sendTemplateCall(instanceKey, data, _callback);
 
     }
 
@@ -1886,8 +1737,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeySendTemplatePost(String instanceKey, TemplateButtonPayload data) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendTemplatePostWithHttpInfo(instanceKey, data);
+    public ModelAPIResponse sendTemplate(String instanceKey, TemplateButtonPayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendTemplateWithHttpInfo(instanceKey, data);
         return localVarResp.getData();
     }
 
@@ -1908,8 +1759,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendTemplatePostWithHttpInfo(String instanceKey, TemplateButtonPayload data) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendTemplatePostValidateBeforeCall(instanceKey, data, null);
+    public ApiResponse<ModelAPIResponse> sendTemplateWithHttpInfo(String instanceKey, TemplateButtonPayload data) throws ApiException {
+        okhttp3.Call localVarCall = sendTemplateValidateBeforeCall(instanceKey, data, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1932,15 +1783,15 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendTemplatePostAsync(String instanceKey, TemplateButtonPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call sendTemplateAsync(String instanceKey, TemplateButtonPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeySendTemplatePostValidateBeforeCall(instanceKey, data, _callback);
+        okhttp3.Call localVarCall = sendTemplateValidateBeforeCall(instanceKey, data, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for instancesInstanceKeySendTextPost
+     * Build call for sendTemplateWithMedia
      * @param instanceKey Instance key (required)
      * @param data Message data (required)
      * @param _callback Callback for upload/download progress
@@ -1956,7 +1807,156 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendTextPostCall(String instanceKey, TextMessage data, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendTemplateWithMediaCall(String instanceKey, TemplateButtonWithMediaPayload data, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/instances/{instance_key}/send/template-media"
+            .replace("{" + "instance_key" + "}", localVarApiClient.escapeString(instanceKey.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call sendTemplateWithMediaValidateBeforeCall(String instanceKey, TemplateButtonWithMediaPayload data, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'instanceKey' is set
+        if (instanceKey == null) {
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendTemplateWithMedia(Async)");
+        }
+
+        // verify the required parameter 'data' is set
+        if (data == null) {
+            throw new ApiException("Missing the required parameter 'data' when calling sendTemplateWithMedia(Async)");
+        }
+
+        return sendTemplateWithMediaCall(instanceKey, data, _callback);
+
+    }
+
+    /**
+     * Send a template message with media.
+     * Sends an interactive template message with a media header to the given user. Note: The valid button types are \&quot;replyButton\&quot;, \&quot;urlButton\&quot;, \&quot;callButton\&quot;
+     * @param instanceKey Instance key (required)
+     * @param data Message data (required)
+     * @return ModelAPIResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ModelAPIResponse sendTemplateWithMedia(String instanceKey, TemplateButtonWithMediaPayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendTemplateWithMediaWithHttpInfo(instanceKey, data);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Send a template message with media.
+     * Sends an interactive template message with a media header to the given user. Note: The valid button types are \&quot;replyButton\&quot;, \&quot;urlButton\&quot;, \&quot;callButton\&quot;
+     * @param instanceKey Instance key (required)
+     * @param data Message data (required)
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ModelAPIResponse> sendTemplateWithMediaWithHttpInfo(String instanceKey, TemplateButtonWithMediaPayload data) throws ApiException {
+        okhttp3.Call localVarCall = sendTemplateWithMediaValidateBeforeCall(instanceKey, data, null);
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Send a template message with media. (asynchronously)
+     * Sends an interactive template message with a media header to the given user. Note: The valid button types are \&quot;replyButton\&quot;, \&quot;urlButton\&quot;, \&quot;callButton\&quot;
+     * @param instanceKey Instance key (required)
+     * @param data Message data (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call sendTemplateWithMediaAsync(String instanceKey, TemplateButtonWithMediaPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = sendTemplateWithMediaValidateBeforeCall(instanceKey, data, _callback);
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for sendTextMessage
+     * @param instanceKey Instance key (required)
+     * @param data Message data (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call sendTextMessageCall(String instanceKey, TextMessage data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2003,18 +2003,18 @@ public class MessageSendingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendTextPostValidateBeforeCall(String instanceKey, TextMessage data, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendTextMessageValidateBeforeCall(String instanceKey, TextMessage data, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendTextPost(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendTextMessage(Async)");
         }
 
         // verify the required parameter 'data' is set
         if (data == null) {
-            throw new ApiException("Missing the required parameter 'data' when calling instancesInstanceKeySendTextPost(Async)");
+            throw new ApiException("Missing the required parameter 'data' when calling sendTextMessage(Async)");
         }
 
-        return instancesInstanceKeySendTextPostCall(instanceKey, data, _callback);
+        return sendTextMessageCall(instanceKey, data, _callback);
 
     }
 
@@ -2035,8 +2035,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeySendTextPost(String instanceKey, TextMessage data) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendTextPostWithHttpInfo(instanceKey, data);
+    public ModelAPIResponse sendTextMessage(String instanceKey, TextMessage data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendTextMessageWithHttpInfo(instanceKey, data);
         return localVarResp.getData();
     }
 
@@ -2057,8 +2057,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendTextPostWithHttpInfo(String instanceKey, TextMessage data) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendTextPostValidateBeforeCall(instanceKey, data, null);
+    public ApiResponse<ModelAPIResponse> sendTextMessageWithHttpInfo(String instanceKey, TextMessage data) throws ApiException {
+        okhttp3.Call localVarCall = sendTextMessageValidateBeforeCall(instanceKey, data, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2081,180 +2081,18 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendTextPostAsync(String instanceKey, TextMessage data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call sendTextMessageAsync(String instanceKey, TextMessage data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeySendTextPostValidateBeforeCall(instanceKey, data, _callback);
+        okhttp3.Call localVarCall = sendTextMessageValidateBeforeCall(instanceKey, data, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
-     * Build call for instancesInstanceKeySendUploadPost
-     * @param instanceKey Instance key (required)
-     * @param type Media type (required)
-     * @param instancesInstanceKeySendUploadPostRequest  (required)
-     * @param _callback Callback for upload/download progress
-     * @return Call to execute
-     * @throws ApiException If fail to serialize the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call instancesInstanceKeySendUploadPostCall(String instanceKey, String type, InstancesInstanceKeySendUploadPostRequest instancesInstanceKeySendUploadPostRequest, final ApiCallback _callback) throws ApiException {
-        String basePath = null;
-        // Operation Servers
-        String[] localBasePaths = new String[] {  };
-
-        // Determine Base Path to Use
-        if (localCustomBaseUrl != null){
-            basePath = localCustomBaseUrl;
-        } else if ( localBasePaths.length > 0 ) {
-            basePath = localBasePaths[localHostIndex];
-        } else {
-            basePath = null;
-        }
-
-        Object localVarPostBody = instancesInstanceKeySendUploadPostRequest;
-
-        // create path and map variables
-        String localVarPath = "/instances/{instance_key}/send/upload"
-            .replace("{" + "instance_key" + "}", localVarApiClient.escapeString(instanceKey.toString()));
-
-        List<Pair> localVarQueryParams = new ArrayList<Pair>();
-        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
-        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
-        Map<String, String> localVarCookieParams = new HashMap<String, String>();
-        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
-
-        if (type != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
-        }
-
-        final String[] localVarAccepts = {
-            "*/*"
-        };
-        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
-        if (localVarAccept != null) {
-            localVarHeaderParams.put("Accept", localVarAccept);
-        }
-
-        final String[] localVarContentTypes = {
-            "application/json"
-        };
-        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
-        if (localVarContentType != null) {
-            localVarHeaderParams.put("Content-Type", localVarContentType);
-        }
-
-        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
-    }
-
-    @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendUploadPostValidateBeforeCall(String instanceKey, String type, InstancesInstanceKeySendUploadPostRequest instancesInstanceKeySendUploadPostRequest, final ApiCallback _callback) throws ApiException {
-        // verify the required parameter 'instanceKey' is set
-        if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendUploadPost(Async)");
-        }
-
-        // verify the required parameter 'type' is set
-        if (type == null) {
-            throw new ApiException("Missing the required parameter 'type' when calling instancesInstanceKeySendUploadPost(Async)");
-        }
-
-        // verify the required parameter 'instancesInstanceKeySendUploadPostRequest' is set
-        if (instancesInstanceKeySendUploadPostRequest == null) {
-            throw new ApiException("Missing the required parameter 'instancesInstanceKeySendUploadPostRequest' when calling instancesInstanceKeySendUploadPost(Async)");
-        }
-
-        return instancesInstanceKeySendUploadPostCall(instanceKey, type, instancesInstanceKeySendUploadPostRequest, _callback);
-
-    }
-
-    /**
-     * Upload media.
-     * Uploads media to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
-     * @param instanceKey Instance key (required)
-     * @param type Media type (required)
-     * @param instancesInstanceKeySendUploadPostRequest  (required)
-     * @return ModelAPIResponse
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ModelAPIResponse instancesInstanceKeySendUploadPost(String instanceKey, String type, InstancesInstanceKeySendUploadPostRequest instancesInstanceKeySendUploadPostRequest) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendUploadPostWithHttpInfo(instanceKey, type, instancesInstanceKeySendUploadPostRequest);
-        return localVarResp.getData();
-    }
-
-    /**
-     * Upload media.
-     * Uploads media to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
-     * @param instanceKey Instance key (required)
-     * @param type Media type (required)
-     * @param instancesInstanceKeySendUploadPostRequest  (required)
-     * @return ApiResponse&lt;ModelAPIResponse&gt;
-     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendUploadPostWithHttpInfo(String instanceKey, String type, InstancesInstanceKeySendUploadPostRequest instancesInstanceKeySendUploadPostRequest) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendUploadPostValidateBeforeCall(instanceKey, type, instancesInstanceKeySendUploadPostRequest, null);
-        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
-        return localVarApiClient.execute(localVarCall, localVarReturnType);
-    }
-
-    /**
-     * Upload media. (asynchronously)
-     * Uploads media to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
-     * @param instanceKey Instance key (required)
-     * @param type Media type (required)
-     * @param instancesInstanceKeySendUploadPostRequest  (required)
-     * @param _callback The callback to be executed when the API call finishes
-     * @return The request call
-     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
-     * @http.response.details
-     <table summary="Response Details" border="1">
-        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
-        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
-        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
-     </table>
-     */
-    public okhttp3.Call instancesInstanceKeySendUploadPostAsync(String instanceKey, String type, InstancesInstanceKeySendUploadPostRequest instancesInstanceKeySendUploadPostRequest, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
-
-        okhttp3.Call localVarCall = instancesInstanceKeySendUploadPostValidateBeforeCall(instanceKey, type, instancesInstanceKeySendUploadPostRequest, _callback);
-        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
-        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
-        return localVarCall;
-    }
-    /**
-     * Build call for instancesInstanceKeySendVideoPost
+     * Build call for sendVideo
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendVideoPostRequest  (required)
+     * @param sendVideoRequest  (required)
      * @param caption Attached caption (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -2269,7 +2107,7 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendVideoPostCall(String instanceKey, String to, InstancesInstanceKeySendVideoPostRequest instancesInstanceKeySendVideoPostRequest, String caption, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendVideoCall(String instanceKey, String to, SendVideoRequest sendVideoRequest, String caption, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2283,7 +2121,7 @@ public class MessageSendingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = instancesInstanceKeySendVideoPostRequest;
+        Object localVarPostBody = sendVideoRequest;
 
         // create path and map variables
         String localVarPath = "/instances/{instance_key}/send/video"
@@ -2324,23 +2162,23 @@ public class MessageSendingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeySendVideoPostValidateBeforeCall(String instanceKey, String to, InstancesInstanceKeySendVideoPostRequest instancesInstanceKeySendVideoPostRequest, String caption, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendVideoValidateBeforeCall(String instanceKey, String to, SendVideoRequest sendVideoRequest, String caption, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeySendVideoPost(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendVideo(Async)");
         }
 
         // verify the required parameter 'to' is set
         if (to == null) {
-            throw new ApiException("Missing the required parameter 'to' when calling instancesInstanceKeySendVideoPost(Async)");
+            throw new ApiException("Missing the required parameter 'to' when calling sendVideo(Async)");
         }
 
-        // verify the required parameter 'instancesInstanceKeySendVideoPostRequest' is set
-        if (instancesInstanceKeySendVideoPostRequest == null) {
-            throw new ApiException("Missing the required parameter 'instancesInstanceKeySendVideoPostRequest' when calling instancesInstanceKeySendVideoPost(Async)");
+        // verify the required parameter 'sendVideoRequest' is set
+        if (sendVideoRequest == null) {
+            throw new ApiException("Missing the required parameter 'sendVideoRequest' when calling sendVideo(Async)");
         }
 
-        return instancesInstanceKeySendVideoPostCall(instanceKey, to, instancesInstanceKeySendVideoPostRequest, caption, _callback);
+        return sendVideoCall(instanceKey, to, sendVideoRequest, caption, _callback);
 
     }
 
@@ -2349,7 +2187,7 @@ public class MessageSendingApi {
      * Sends a video message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendVideoPostRequest  (required)
+     * @param sendVideoRequest  (required)
      * @param caption Attached caption (optional)
      * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2363,8 +2201,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeySendVideoPost(String instanceKey, String to, InstancesInstanceKeySendVideoPostRequest instancesInstanceKeySendVideoPostRequest, String caption) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeySendVideoPostWithHttpInfo(instanceKey, to, instancesInstanceKeySendVideoPostRequest, caption);
+    public ModelAPIResponse sendVideo(String instanceKey, String to, SendVideoRequest sendVideoRequest, String caption) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendVideoWithHttpInfo(instanceKey, to, sendVideoRequest, caption);
         return localVarResp.getData();
     }
 
@@ -2373,7 +2211,7 @@ public class MessageSendingApi {
      * Sends a video message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendVideoPostRequest  (required)
+     * @param sendVideoRequest  (required)
      * @param caption Attached caption (optional)
      * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -2387,8 +2225,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeySendVideoPostWithHttpInfo(String instanceKey, String to, InstancesInstanceKeySendVideoPostRequest instancesInstanceKeySendVideoPostRequest, String caption) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeySendVideoPostValidateBeforeCall(instanceKey, to, instancesInstanceKeySendVideoPostRequest, caption, null);
+    public ApiResponse<ModelAPIResponse> sendVideoWithHttpInfo(String instanceKey, String to, SendVideoRequest sendVideoRequest, String caption) throws ApiException {
+        okhttp3.Call localVarCall = sendVideoValidateBeforeCall(instanceKey, to, sendVideoRequest, caption, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2398,7 +2236,7 @@ public class MessageSendingApi {
      * Sends a video message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param instancesInstanceKeySendVideoPostRequest  (required)
+     * @param sendVideoRequest  (required)
      * @param caption Attached caption (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -2413,9 +2251,171 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeySendVideoPostAsync(String instanceKey, String to, InstancesInstanceKeySendVideoPostRequest instancesInstanceKeySendVideoPostRequest, String caption, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call sendVideoAsync(String instanceKey, String to, SendVideoRequest sendVideoRequest, String caption, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeySendVideoPostValidateBeforeCall(instanceKey, to, instancesInstanceKeySendVideoPostRequest, caption, _callback);
+        okhttp3.Call localVarCall = sendVideoValidateBeforeCall(instanceKey, to, sendVideoRequest, caption, _callback);
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for uploadMedia
+     * @param instanceKey Instance key (required)
+     * @param type Media type (required)
+     * @param uploadMediaRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call uploadMediaCall(String instanceKey, String type, UploadMediaRequest uploadMediaRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = uploadMediaRequest;
+
+        // create path and map variables
+        String localVarPath = "/instances/{instance_key}/send/upload"
+            .replace("{" + "instance_key" + "}", localVarApiClient.escapeString(instanceKey.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call uploadMediaValidateBeforeCall(String instanceKey, String type, UploadMediaRequest uploadMediaRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'instanceKey' is set
+        if (instanceKey == null) {
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling uploadMedia(Async)");
+        }
+
+        // verify the required parameter 'type' is set
+        if (type == null) {
+            throw new ApiException("Missing the required parameter 'type' when calling uploadMedia(Async)");
+        }
+
+        // verify the required parameter 'uploadMediaRequest' is set
+        if (uploadMediaRequest == null) {
+            throw new ApiException("Missing the required parameter 'uploadMediaRequest' when calling uploadMedia(Async)");
+        }
+
+        return uploadMediaCall(instanceKey, type, uploadMediaRequest, _callback);
+
+    }
+
+    /**
+     * Upload media.
+     * Uploads media to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
+     * @param instanceKey Instance key (required)
+     * @param type Media type (required)
+     * @param uploadMediaRequest  (required)
+     * @return ModelAPIResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ModelAPIResponse uploadMedia(String instanceKey, String type, UploadMediaRequest uploadMediaRequest) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = uploadMediaWithHttpInfo(instanceKey, type, uploadMediaRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Upload media.
+     * Uploads media to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
+     * @param instanceKey Instance key (required)
+     * @param type Media type (required)
+     * @param uploadMediaRequest  (required)
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ModelAPIResponse> uploadMediaWithHttpInfo(String instanceKey, String type, UploadMediaRequest uploadMediaRequest) throws ApiException {
+        okhttp3.Call localVarCall = uploadMediaValidateBeforeCall(instanceKey, type, uploadMediaRequest, null);
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Upload media. (asynchronously)
+     * Uploads media to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
+     * @param instanceKey Instance key (required)
+     * @param type Media type (required)
+     * @param uploadMediaRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call uploadMediaAsync(String instanceKey, String type, UploadMediaRequest uploadMediaRequest, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = uploadMediaValidateBeforeCall(instanceKey, type, uploadMediaRequest, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

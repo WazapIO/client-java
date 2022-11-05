@@ -4,13 +4,13 @@ All URIs are relative to */api*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
-| [**instancesInstanceKeyMiscProfilePicGet**](MiscellaneousApi.md#instancesInstanceKeyMiscProfilePicGet) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic. |
-| [**instancesInstanceKeyMiscUserInfoPost**](MiscellaneousApi.md#instancesInstanceKeyMiscUserInfoPost) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info. |
+| [**getProfilePic**](MiscellaneousApi.md#getProfilePic) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic. |
+| [**getUsersInfo**](MiscellaneousApi.md#getUsersInfo) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info. |
 
 
-<a name="instancesInstanceKeyMiscProfilePicGet"></a>
-# **instancesInstanceKeyMiscProfilePicGet**
-> ModelAPIResponse instancesInstanceKeyMiscProfilePicGet(instanceKey, jid)
+<a name="getProfilePic"></a>
+# **getProfilePic**
+> ModelAPIResponse getProfilePic(instanceKey, jid)
 
 Get profile pic.
 
@@ -41,10 +41,10 @@ public class Example {
     String instanceKey = "instanceKey_example"; // String | Instance key
     String jid = "jid_example"; // String | JID
     try {
-      ModelAPIResponse result = apiInstance.instancesInstanceKeyMiscProfilePicGet(instanceKey, jid);
+      ModelAPIResponse result = apiInstance.getProfilePic(instanceKey, jid);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling MiscellaneousApi#instancesInstanceKeyMiscProfilePicGet");
+      System.err.println("Exception when calling MiscellaneousApi#getProfilePic");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());
@@ -83,9 +83,9 @@ public class Example {
 | **404** | Instance not found |  -  |
 | **500** | Internal Server Error |  -  |
 
-<a name="instancesInstanceKeyMiscUserInfoPost"></a>
-# **instancesInstanceKeyMiscUserInfoPost**
-> ModelAPIResponse instancesInstanceKeyMiscUserInfoPost(instanceKey, data)
+<a name="getUsersInfo"></a>
+# **getUsersInfo**
+> ModelAPIResponse getUsersInfo(instanceKey, data)
 
 Fetches the users info.
 
@@ -116,10 +116,10 @@ public class Example {
     String instanceKey = "instanceKey_example"; // String | Instance key
     UserInfoPayload data = new UserInfoPayload(); // UserInfoPayload | Data
     try {
-      ModelAPIResponse result = apiInstance.instancesInstanceKeyMiscUserInfoPost(instanceKey, data);
+      ModelAPIResponse result = apiInstance.getUsersInfo(instanceKey, data);
       System.out.println(result);
     } catch (ApiException e) {
-      System.err.println("Exception when calling MiscellaneousApi#instancesInstanceKeyMiscUserInfoPost");
+      System.err.println("Exception when calling MiscellaneousApi#getUsersInfo");
       System.err.println("Status code: " + e.getCode());
       System.err.println("Reason: " + e.getResponseBody());
       System.err.println("Response headers: " + e.getResponseHeaders());

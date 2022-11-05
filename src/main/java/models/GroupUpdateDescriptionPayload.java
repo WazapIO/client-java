@@ -48,7 +48,7 @@ import WhatsAPI.JSON;
 /**
  * GroupUpdateDescriptionPayload
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-05T18:11:35.787596300+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-05T21:22:35.263494200+05:30[Asia/Calcutta]")
 public class GroupUpdateDescriptionPayload {
   public static final String SERIALIZED_NAME_DESCRIPTION = "description";
   @SerializedName(SERIALIZED_NAME_DESCRIPTION)

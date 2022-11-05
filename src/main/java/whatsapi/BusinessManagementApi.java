@@ -74,7 +74,7 @@ public class BusinessManagementApi {
     }
 
     /**
-     * Build call for instancesInstanceKeyBusinessCatalogGet
+     * Build call for fetchCatlog
      * @param instanceKey Instance key (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -89,7 +89,7 @@ public class BusinessManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyBusinessCatalogGetCall(String instanceKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call fetchCatlogCall(String instanceKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -135,13 +135,13 @@ public class BusinessManagementApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call instancesInstanceKeyBusinessCatalogGetValidateBeforeCall(String instanceKey, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call fetchCatlogValidateBeforeCall(String instanceKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
-            throw new ApiException("Missing the required parameter 'instanceKey' when calling instancesInstanceKeyBusinessCatalogGet(Async)");
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling fetchCatlog(Async)");
         }
 
-        return instancesInstanceKeyBusinessCatalogGetCall(instanceKey, _callback);
+        return fetchCatlogCall(instanceKey, _callback);
 
     }
 
@@ -161,8 +161,8 @@ public class BusinessManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse instancesInstanceKeyBusinessCatalogGet(String instanceKey) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = instancesInstanceKeyBusinessCatalogGetWithHttpInfo(instanceKey);
+    public ModelAPIResponse fetchCatlog(String instanceKey) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = fetchCatlogWithHttpInfo(instanceKey);
         return localVarResp.getData();
     }
 
@@ -182,8 +182,8 @@ public class BusinessManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> instancesInstanceKeyBusinessCatalogGetWithHttpInfo(String instanceKey) throws ApiException {
-        okhttp3.Call localVarCall = instancesInstanceKeyBusinessCatalogGetValidateBeforeCall(instanceKey, null);
+    public ApiResponse<ModelAPIResponse> fetchCatlogWithHttpInfo(String instanceKey) throws ApiException {
+        okhttp3.Call localVarCall = fetchCatlogValidateBeforeCall(instanceKey, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -205,9 +205,9 @@ public class BusinessManagementApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call instancesInstanceKeyBusinessCatalogGetAsync(String instanceKey, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call fetchCatlogAsync(String instanceKey, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = instancesInstanceKeyBusinessCatalogGetValidateBeforeCall(instanceKey, _callback);
+        okhttp3.Call localVarCall = fetchCatlogValidateBeforeCall(instanceKey, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
