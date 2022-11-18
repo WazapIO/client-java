@@ -30,18 +30,19 @@ import java.io.IOException;
 import models.ButtonMessagePayload;
 import models.ButtonMessageWithMediaPayload;
 import models.ContactMessagePayload;
+import models.GroupInviteMessagePayload;
 import models.ListMessagePayload;
 import models.LocationMessagePayload;
 import models.ModelAPIResponse;
 import models.PollMessagePayload;
 import models.SendAudioRequest;
 import models.SendDocumentRequest;
-import models.SendImageRequest;
 import models.SendMediaPayload;
 import models.SendVideoRequest;
 import models.TemplateButtonPayload;
 import models.TemplateButtonWithMediaPayload;
 import models.TextMessage;
+import models.UpdateProfilePicRequest;
 import models.UploadMediaRequest;
 
 import java.lang.reflect.Type;
@@ -876,10 +877,159 @@ public class MessageSendingApi {
         return localVarCall;
     }
     /**
+     * Build call for sendGroupInvite
+     * @param instanceKey Instance key (required)
+     * @param data Message data (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call sendGroupInviteCall(String instanceKey, GroupInviteMessagePayload data, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/instances/{instance_key}/send/group-invite"
+            .replace("{" + "instance_key" + "}", localVarApiClient.escapeString(instanceKey.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call sendGroupInviteValidateBeforeCall(String instanceKey, GroupInviteMessagePayload data, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'instanceKey' is set
+        if (instanceKey == null) {
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling sendGroupInvite(Async)");
+        }
+
+        // verify the required parameter 'data' is set
+        if (data == null) {
+            throw new ApiException("Missing the required parameter 'data' when calling sendGroupInvite(Async)");
+        }
+
+        return sendGroupInviteCall(instanceKey, data, _callback);
+
+    }
+
+    /**
+     * Send a group invite message
+     * Sends a group invite message to the specified number. Don&#39;t include \&quot;https://chat.whatsapp.com/\&quot; in the invite code.
+     * @param instanceKey Instance key (required)
+     * @param data Message data (required)
+     * @return ModelAPIResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ModelAPIResponse sendGroupInvite(String instanceKey, GroupInviteMessagePayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendGroupInviteWithHttpInfo(instanceKey, data);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Send a group invite message
+     * Sends a group invite message to the specified number. Don&#39;t include \&quot;https://chat.whatsapp.com/\&quot; in the invite code.
+     * @param instanceKey Instance key (required)
+     * @param data Message data (required)
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ModelAPIResponse> sendGroupInviteWithHttpInfo(String instanceKey, GroupInviteMessagePayload data) throws ApiException {
+        okhttp3.Call localVarCall = sendGroupInviteValidateBeforeCall(instanceKey, data, null);
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Send a group invite message (asynchronously)
+     * Sends a group invite message to the specified number. Don&#39;t include \&quot;https://chat.whatsapp.com/\&quot; in the invite code.
+     * @param instanceKey Instance key (required)
+     * @param data Message data (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call sendGroupInviteAsync(String instanceKey, GroupInviteMessagePayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = sendGroupInviteValidateBeforeCall(instanceKey, data, _callback);
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for sendImage
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param sendImageRequest  (required)
+     * @param updateProfilePicRequest  (required)
      * @param caption Attached caption (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -894,7 +1044,7 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sendImageCall(String instanceKey, String to, SendImageRequest sendImageRequest, String caption, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call sendImageCall(String instanceKey, String to, UpdateProfilePicRequest updateProfilePicRequest, String caption, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -908,7 +1058,7 @@ public class MessageSendingApi {
             basePath = null;
         }
 
-        Object localVarPostBody = sendImageRequest;
+        Object localVarPostBody = updateProfilePicRequest;
 
         // create path and map variables
         String localVarPath = "/instances/{instance_key}/send/image"
@@ -949,7 +1099,7 @@ public class MessageSendingApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call sendImageValidateBeforeCall(String instanceKey, String to, SendImageRequest sendImageRequest, String caption, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call sendImageValidateBeforeCall(String instanceKey, String to, UpdateProfilePicRequest updateProfilePicRequest, String caption, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'instanceKey' is set
         if (instanceKey == null) {
             throw new ApiException("Missing the required parameter 'instanceKey' when calling sendImage(Async)");
@@ -960,12 +1110,12 @@ public class MessageSendingApi {
             throw new ApiException("Missing the required parameter 'to' when calling sendImage(Async)");
         }
 
-        // verify the required parameter 'sendImageRequest' is set
-        if (sendImageRequest == null) {
-            throw new ApiException("Missing the required parameter 'sendImageRequest' when calling sendImage(Async)");
+        // verify the required parameter 'updateProfilePicRequest' is set
+        if (updateProfilePicRequest == null) {
+            throw new ApiException("Missing the required parameter 'updateProfilePicRequest' when calling sendImage(Async)");
         }
 
-        return sendImageCall(instanceKey, to, sendImageRequest, caption, _callback);
+        return sendImageCall(instanceKey, to, updateProfilePicRequest, caption, _callback);
 
     }
 
@@ -974,7 +1124,7 @@ public class MessageSendingApi {
      * Sends a image message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param sendImageRequest  (required)
+     * @param updateProfilePicRequest  (required)
      * @param caption Attached caption (optional)
      * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -988,8 +1138,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse sendImage(String instanceKey, String to, SendImageRequest sendImageRequest, String caption) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = sendImageWithHttpInfo(instanceKey, to, sendImageRequest, caption);
+    public ModelAPIResponse sendImage(String instanceKey, String to, UpdateProfilePicRequest updateProfilePicRequest, String caption) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = sendImageWithHttpInfo(instanceKey, to, updateProfilePicRequest, caption);
         return localVarResp.getData();
     }
 
@@ -998,7 +1148,7 @@ public class MessageSendingApi {
      * Sends a image message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param sendImageRequest  (required)
+     * @param updateProfilePicRequest  (required)
      * @param caption Attached caption (optional)
      * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1012,8 +1162,8 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> sendImageWithHttpInfo(String instanceKey, String to, SendImageRequest sendImageRequest, String caption) throws ApiException {
-        okhttp3.Call localVarCall = sendImageValidateBeforeCall(instanceKey, to, sendImageRequest, caption, null);
+    public ApiResponse<ModelAPIResponse> sendImageWithHttpInfo(String instanceKey, String to, UpdateProfilePicRequest updateProfilePicRequest, String caption) throws ApiException {
+        okhttp3.Call localVarCall = sendImageValidateBeforeCall(instanceKey, to, updateProfilePicRequest, caption, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1023,7 +1173,7 @@ public class MessageSendingApi {
      * Sends a image message by uploading to the WhatsApp servers every time. This is not recommended for bulk sending.
      * @param instanceKey Instance key (required)
      * @param to The recipient&#39;s number (required)
-     * @param sendImageRequest  (required)
+     * @param updateProfilePicRequest  (required)
      * @param caption Attached caption (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1038,9 +1188,9 @@ public class MessageSendingApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call sendImageAsync(String instanceKey, String to, SendImageRequest sendImageRequest, String caption, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call sendImageAsync(String instanceKey, String to, UpdateProfilePicRequest updateProfilePicRequest, String caption, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = sendImageValidateBeforeCall(instanceKey, to, sendImageRequest, caption, _callback);
+        okhttp3.Call localVarCall = sendImageValidateBeforeCall(instanceKey, to, updateProfilePicRequest, caption, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

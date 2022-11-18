@@ -5,6 +5,7 @@ All URIs are relative to */api*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**fetchCatlog**](BusinessManagementApi.md#fetchCatlog) | **GET** /instances/{instance_key}/business/catalog | Fetches the catlog. |
+| [**sendPaymentRequest**](BusinessManagementApi.md#sendPaymentRequest) | **POST** /instances/{instance_key}/business/payment-request | Send a payment request. |
 
 
 <a name="fetchCatlog"></a>
@@ -69,6 +70,81 @@ public class Example {
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: */*
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Instance not found |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a name="sendPaymentRequest"></a>
+# **sendPaymentRequest**
+> ModelAPIResponse sendPaymentRequest(instanceKey, data)
+
+Send a payment request.
+
+Sends an payment request to a user. Feature is still in beta.
+
+### Example
+```java
+// Import classes:
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.BusinessManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    BusinessManagementApi apiInstance = new BusinessManagementApi(defaultClient);
+    String instanceKey = "instanceKey_example"; // String | Instance key
+    PaymentRequestPayload data = new PaymentRequestPayload(); // PaymentRequestPayload | Data
+    try {
+      ModelAPIResponse result = apiInstance.sendPaymentRequest(instanceKey, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling BusinessManagementApi#sendPaymentRequest");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **instanceKey** | **String**| Instance key | |
+| **data** | [**PaymentRequestPayload**](PaymentRequestPayload.md)| Data | |
+
+### Return type
+
+[**ModelAPIResponse**](ModelAPIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 ### HTTP response details

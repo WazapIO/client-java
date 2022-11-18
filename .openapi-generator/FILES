@@ -12,6 +12,7 @@ docs/ContactMessagePayload.md
 docs/ContactMessagePayloadVcard.md
 docs/FileUpload.md
 docs/GroupCreatePayload.md
+docs/GroupInviteMessagePayload.md
 docs/GroupManagementApi.md
 docs/GroupUpdateDescriptionPayload.md
 docs/GroupUpdateNamePayload.md
@@ -25,11 +26,11 @@ docs/LocationMessagePayloadLocation.md
 docs/MessageSendingApi.md
 docs/MiscellaneousApi.md
 docs/ModelAPIResponse.md
+docs/PaymentRequestPayload.md
 docs/PollMessagePayload.md
 docs/ReplyButton.md
 docs/SendAudioRequest.md
 docs/SendDocumentRequest.md
-docs/SendImageRequest.md
 docs/SendMediaPayload.md
 docs/SendVideoRequest.md
 docs/SetGroupPictureRequest.md
@@ -37,6 +38,7 @@ docs/TemplateButton.md
 docs/TemplateButtonPayload.md
 docs/TemplateButtonWithMediaPayload.md
 docs/TextMessage.md
+docs/UpdateProfilePicRequest.md
 docs/UploadMediaRequest.md
 docs/UserInfoPayload.md
 docs/WebhookPayload.md
@@ -73,6 +75,7 @@ src/main/java/models/ContactMessagePayload.java
 src/main/java/models/ContactMessagePayloadVcard.java
 src/main/java/models/FileUpload.java
 src/main/java/models/GroupCreatePayload.java
+src/main/java/models/GroupInviteMessagePayload.java
 src/main/java/models/GroupUpdateDescriptionPayload.java
 src/main/java/models/GroupUpdateNamePayload.java
 src/main/java/models/GroupUpdateParticipantsPayload.java
@@ -82,11 +85,11 @@ src/main/java/models/ListSection.java
 src/main/java/models/LocationMessagePayload.java
 src/main/java/models/LocationMessagePayloadLocation.java
 src/main/java/models/ModelAPIResponse.java
+src/main/java/models/PaymentRequestPayload.java
 src/main/java/models/PollMessagePayload.java
 src/main/java/models/ReplyButton.java
 src/main/java/models/SendAudioRequest.java
 src/main/java/models/SendDocumentRequest.java
-src/main/java/models/SendImageRequest.java
 src/main/java/models/SendMediaPayload.java
 src/main/java/models/SendVideoRequest.java
 src/main/java/models/SetGroupPictureRequest.java
@@ -94,6 +97,7 @@ src/main/java/models/TemplateButton.java
 src/main/java/models/TemplateButtonPayload.java
 src/main/java/models/TemplateButtonWithMediaPayload.java
 src/main/java/models/TextMessage.java
+src/main/java/models/UpdateProfilePicRequest.java
 src/main/java/models/UploadMediaRequest.java
 src/main/java/models/UserInfoPayload.java
 src/main/java/models/WebhookPayload.java
@@ -102,9 +106,6 @@ src/main/java/whatsapi/GroupManagementApi.java
 src/main/java/whatsapi/InstanceApi.java
 src/main/java/whatsapi/MessageSendingApi.java
 src/main/java/whatsapi/MiscellaneousApi.java
-src/test/java/models/SendAudioRequestTest.java
-src/test/java/models/SendDocumentRequestTest.java
-src/test/java/models/SendImageRequestTest.java
-src/test/java/models/SendVideoRequestTest.java
-src/test/java/models/SetGroupPictureRequestTest.java
-src/test/java/models/UploadMediaRequestTest.java
+src/test/java/models/GroupInviteMessagePayloadTest.java
+src/test/java/models/PaymentRequestPayloadTest.java
+src/test/java/models/UpdateProfilePicRequestTest.java

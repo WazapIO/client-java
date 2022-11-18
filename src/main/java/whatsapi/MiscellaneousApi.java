@@ -27,7 +27,9 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import models.FileUpload;
 import models.ModelAPIResponse;
+import models.UpdateProfilePicRequest;
 import models.UserInfoPayload;
 
 import java.lang.reflect.Type;
@@ -74,6 +76,176 @@ public class MiscellaneousApi {
         this.localCustomBaseUrl = customBaseUrl;
     }
 
+    /**
+     * Build call for downloadMedia
+     * @param instanceKey Instance key (required)
+     * @param fileType File type (required)
+     * @param data Media data (required)
+     * @param responseType Response type (file, base64) (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call downloadMediaCall(String instanceKey, String fileType, FileUpload data, String responseType, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = data;
+
+        // create path and map variables
+        String localVarPath = "/instances/{instance_key}/misc/download"
+            .replace("{" + "instance_key" + "}", localVarApiClient.escapeString(instanceKey.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (fileType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("file_type", fileType));
+        }
+
+        if (responseType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("response_type", responseType));
+        }
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call downloadMediaValidateBeforeCall(String instanceKey, String fileType, FileUpload data, String responseType, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'instanceKey' is set
+        if (instanceKey == null) {
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling downloadMedia(Async)");
+        }
+
+        // verify the required parameter 'fileType' is set
+        if (fileType == null) {
+            throw new ApiException("Missing the required parameter 'fileType' when calling downloadMedia(Async)");
+        }
+
+        // verify the required parameter 'data' is set
+        if (data == null) {
+            throw new ApiException("Missing the required parameter 'data' when calling downloadMedia(Async)");
+        }
+
+        return downloadMediaCall(instanceKey, fileType, data, responseType, _callback);
+
+    }
+
+    /**
+     * Download media
+     * Downloads the media from the given media keys.
+     * @param instanceKey Instance key (required)
+     * @param fileType File type (required)
+     * @param data Media data (required)
+     * @param responseType Response type (file, base64) (optional)
+     * @return ModelAPIResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ModelAPIResponse downloadMedia(String instanceKey, String fileType, FileUpload data, String responseType) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = downloadMediaWithHttpInfo(instanceKey, fileType, data, responseType);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Download media
+     * Downloads the media from the given media keys.
+     * @param instanceKey Instance key (required)
+     * @param fileType File type (required)
+     * @param data Media data (required)
+     * @param responseType Response type (file, base64) (optional)
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ModelAPIResponse> downloadMediaWithHttpInfo(String instanceKey, String fileType, FileUpload data, String responseType) throws ApiException {
+        okhttp3.Call localVarCall = downloadMediaValidateBeforeCall(instanceKey, fileType, data, responseType, null);
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Download media (asynchronously)
+     * Downloads the media from the given media keys.
+     * @param instanceKey Instance key (required)
+     * @param fileType File type (required)
+     * @param data Media data (required)
+     * @param responseType Response type (file, base64) (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call downloadMediaAsync(String instanceKey, String fileType, FileUpload data, String responseType, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = downloadMediaValidateBeforeCall(instanceKey, fileType, data, responseType, _callback);
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
     /**
      * Build call for getProfilePic
      * @param instanceKey Instance key (required)
@@ -371,6 +543,320 @@ public class MiscellaneousApi {
     public okhttp3.Call getUsersInfoAsync(String instanceKey, UserInfoPayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getUsersInfoValidateBeforeCall(instanceKey, data, _callback);
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for setChatPresence
+     * @param instanceKey Instance key (required)
+     * @param jid JID (required)
+     * @param presence Presence (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setChatPresenceCall(String instanceKey, String jid, String presence, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/instances/{instance_key}/misc/chat-presence"
+            .replace("{" + "instance_key" + "}", localVarApiClient.escapeString(instanceKey.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (jid != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("jid", jid));
+        }
+
+        if (presence != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("presence", presence));
+        }
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call setChatPresenceValidateBeforeCall(String instanceKey, String jid, String presence, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'instanceKey' is set
+        if (instanceKey == null) {
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling setChatPresence(Async)");
+        }
+
+        // verify the required parameter 'jid' is set
+        if (jid == null) {
+            throw new ApiException("Missing the required parameter 'jid' when calling setChatPresence(Async)");
+        }
+
+        // verify the required parameter 'presence' is set
+        if (presence == null) {
+            throw new ApiException("Missing the required parameter 'presence' when calling setChatPresence(Async)");
+        }
+
+        return setChatPresenceCall(instanceKey, jid, presence, _callback);
+
+    }
+
+    /**
+     * Set chat presence
+     * Sets the presence of the given chat. (Typing, Recording, Paused) Options: typing, recording, paused
+     * @param instanceKey Instance key (required)
+     * @param jid JID (required)
+     * @param presence Presence (required)
+     * @return ModelAPIResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ModelAPIResponse setChatPresence(String instanceKey, String jid, String presence) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = setChatPresenceWithHttpInfo(instanceKey, jid, presence);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Set chat presence
+     * Sets the presence of the given chat. (Typing, Recording, Paused) Options: typing, recording, paused
+     * @param instanceKey Instance key (required)
+     * @param jid JID (required)
+     * @param presence Presence (required)
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ModelAPIResponse> setChatPresenceWithHttpInfo(String instanceKey, String jid, String presence) throws ApiException {
+        okhttp3.Call localVarCall = setChatPresenceValidateBeforeCall(instanceKey, jid, presence, null);
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Set chat presence (asynchronously)
+     * Sets the presence of the given chat. (Typing, Recording, Paused) Options: typing, recording, paused
+     * @param instanceKey Instance key (required)
+     * @param jid JID (required)
+     * @param presence Presence (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call setChatPresenceAsync(String instanceKey, String jid, String presence, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = setChatPresenceValidateBeforeCall(instanceKey, jid, presence, _callback);
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for updateProfilePic
+     * @param instanceKey Instance key (required)
+     * @param updateProfilePicRequest  (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateProfilePicCall(String instanceKey, UpdateProfilePicRequest updateProfilePicRequest, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = updateProfilePicRequest;
+
+        // create path and map variables
+        String localVarPath = "/instances/{instance_key}/misc/profile-pic"
+            .replace("{" + "instance_key" + "}", localVarApiClient.escapeString(instanceKey.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "*/*"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+            "application/json"
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
+        return localVarApiClient.buildCall(basePath, localVarPath, "PUT", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call updateProfilePicValidateBeforeCall(String instanceKey, UpdateProfilePicRequest updateProfilePicRequest, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'instanceKey' is set
+        if (instanceKey == null) {
+            throw new ApiException("Missing the required parameter 'instanceKey' when calling updateProfilePic(Async)");
+        }
+
+        // verify the required parameter 'updateProfilePicRequest' is set
+        if (updateProfilePicRequest == null) {
+            throw new ApiException("Missing the required parameter 'updateProfilePicRequest' when calling updateProfilePic(Async)");
+        }
+
+        return updateProfilePicCall(instanceKey, updateProfilePicRequest, _callback);
+
+    }
+
+    /**
+     * Update profile picture
+     * Changes the profile pic of the current logged in user.
+     * @param instanceKey Instance key (required)
+     * @param updateProfilePicRequest  (required)
+     * @return ModelAPIResponse
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ModelAPIResponse updateProfilePic(String instanceKey, UpdateProfilePicRequest updateProfilePicRequest) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = updateProfilePicWithHttpInfo(instanceKey, updateProfilePicRequest);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Update profile picture
+     * Changes the profile pic of the current logged in user.
+     * @param instanceKey Instance key (required)
+     * @param updateProfilePicRequest  (required)
+     * @return ApiResponse&lt;ModelAPIResponse&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ModelAPIResponse> updateProfilePicWithHttpInfo(String instanceKey, UpdateProfilePicRequest updateProfilePicRequest) throws ApiException {
+        okhttp3.Call localVarCall = updateProfilePicValidateBeforeCall(instanceKey, updateProfilePicRequest, null);
+        Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Update profile picture (asynchronously)
+     * Changes the profile pic of the current logged in user.
+     * @param instanceKey Instance key (required)
+     * @param updateProfilePicRequest  (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Success </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad Request </td><td>  -  </td></tr>
+        <tr><td> 401 </td><td> Unauthorized </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Instance not found </td><td>  -  </td></tr>
+        <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call updateProfilePicAsync(String instanceKey, UpdateProfilePicRequest updateProfilePicRequest, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = updateProfilePicValidateBeforeCall(instanceKey, updateProfilePicRequest, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

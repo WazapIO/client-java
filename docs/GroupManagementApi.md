@@ -9,9 +9,11 @@ All URIs are relative to */api*
 | [**demoteParticipant**](GroupManagementApi.md#demoteParticipant) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/demote | Demote participant. |
 | [**getAdminGroups**](GroupManagementApi.md#getAdminGroups) | **GET** /instances/{instance_key}/groups/admin | Get admin groups. |
 | [**getAllGroups**](GroupManagementApi.md#getAllGroups) | **GET** /instances/{instance_key}/groups/ | Get all groups. |
+| [**getAllParticipants**](GroupManagementApi.md#getAllParticipants) | **GET** /instances/{instance_key}/groups/{group_id}/participants | Get all participants. |
 | [**getGroup**](GroupManagementApi.md#getGroup) | **GET** /instances/{instance_key}/groups/{group_id} | Get group. |
 | [**getGroupFromInviteLink**](GroupManagementApi.md#getGroupFromInviteLink) | **GET** /instances/{instance_key}/groups/invite-info | Get group from invite link. |
 | [**getGroupInviteCode**](GroupManagementApi.md#getGroupInviteCode) | **GET** /instances/{instance_key}/groups/{group_id}/invite-code | Get group invite code. |
+| [**joinGroupWithLink**](GroupManagementApi.md#joinGroupWithLink) | **GET** /instances/{instance_key}/groups/join | Join group with invite code. |
 | [**leaveGroup**](GroupManagementApi.md#leaveGroup) | **DELETE** /instances/{instance_key}/groups/{group_id}/ | Leaves the group. |
 | [**promoteParticipant**](GroupManagementApi.md#promoteParticipant) | **PUT** /instances/{instance_key}/groups/{group_id}/participants/promote | Promote participant. |
 | [**removeParticipant**](GroupManagementApi.md#removeParticipant) | **DELETE** /instances/{instance_key}/groups/{group_id}/participants/remove | Remove participant. |
@@ -399,6 +401,81 @@ public class Example {
 | **404** | Instance not found |  -  |
 | **500** | Internal Server Error |  -  |
 
+<a name="getAllParticipants"></a>
+# **getAllParticipants**
+> ModelAPIResponse getAllParticipants(instanceKey, groupId)
+
+Get all participants.
+
+Returns all participants of the group.
+
+### Example
+```java
+// Import classes:
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    GroupManagementApi apiInstance = new GroupManagementApi(defaultClient);
+    String instanceKey = "instanceKey_example"; // String | Instance key
+    String groupId = "groupId_example"; // String | Group id of the group
+    try {
+      ModelAPIResponse result = apiInstance.getAllParticipants(instanceKey, groupId);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling GroupManagementApi#getAllParticipants");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **instanceKey** | **String**| Instance key | |
+| **groupId** | **String**| Group id of the group | |
+
+### Return type
+
+[**ModelAPIResponse**](ModelAPIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Instance not found |  -  |
+| **500** | Internal Server Error |  -  |
+
 <a name="getGroup"></a>
 # **getGroup**
 > ModelAPIResponse getGroup(instanceKey, groupId)
@@ -601,6 +678,81 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
 | **groupId** | **String**| Group id of the group | |
+
+### Return type
+
+[**ModelAPIResponse**](ModelAPIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Instance not found |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a name="joinGroupWithLink"></a>
+# **joinGroupWithLink**
+> ModelAPIResponse joinGroupWithLink(instanceKey, inviteCode)
+
+Join group with invite code.
+
+Joins a group with group invite link. An invite link is a link that can be used to join a group. It is usually in the format https://chat.whatsapp.com/{invitecode} You have to put invite_code in the url of the request. The invite code is the part after https://chat.whatsapp.com/ For example, if the invite link is https://chat.whatsapp.com/dsfsf34r3d3dsds, then the invite code is &#x60;dsfsf34r3d3dsds“
+
+### Example
+```java
+// Import classes:
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.GroupManagementApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    GroupManagementApi apiInstance = new GroupManagementApi(defaultClient);
+    String instanceKey = "instanceKey_example"; // String | Instance key
+    String inviteCode = "inviteCode_example"; // String | The invite code of group you want to join
+    try {
+      ModelAPIResponse result = apiInstance.joinGroupWithLink(instanceKey, inviteCode);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling GroupManagementApi#joinGroupWithLink");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **instanceKey** | **String**| Instance key | |
+| **inviteCode** | **String**| The invite code of group you want to join | |
 
 ### Return type
 

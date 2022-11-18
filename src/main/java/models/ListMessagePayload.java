@@ -51,7 +51,7 @@ import WhatsAPI.JSON;
 /**
  * ListMessagePayload
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-05T21:22:35.263494200+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-18T21:16:08.870513900+05:30[Asia/Calcutta]")
 public class ListMessagePayload {
   public static final String SERIALIZED_NAME_BUTTON_TEXT = "button_text";
   @SerializedName(SERIALIZED_NAME_BUTTON_TEXT)

@@ -99,6 +99,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new models.ContactMessagePayloadVcard.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.FileUpload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.GroupCreatePayload.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new models.GroupInviteMessagePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.GroupUpdateDescriptionPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.GroupUpdateNamePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.GroupUpdateParticipantsPayload.CustomTypeAdapterFactory());
@@ -108,11 +109,11 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new models.LocationMessagePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.LocationMessagePayloadLocation.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.ModelAPIResponse.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new models.PaymentRequestPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.PollMessagePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.ReplyButton.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.SendAudioRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.SendDocumentRequest.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new models.SendImageRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.SendMediaPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.SendVideoRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.SetGroupPictureRequest.CustomTypeAdapterFactory());
@@ -120,6 +121,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new models.TemplateButtonPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.TemplateButtonWithMediaPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.TextMessage.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new models.UpdateProfilePicRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.UploadMediaRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.UserInfoPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.WebhookPayload.CustomTypeAdapterFactory());

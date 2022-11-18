@@ -22,6 +22,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.io.File;
 import java.io.IOException;
 
 import com.google.gson.Gson;
@@ -46,37 +47,37 @@ import java.util.Set;
 import WhatsAPI.JSON;
 
 /**
- * GroupUpdateDescriptionPayload
+ * UpdateProfilePicRequest
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-18T21:16:08.870513900+05:30[Asia/Calcutta]")
-public class GroupUpdateDescriptionPayload {
-  public static final String SERIALIZED_NAME_DESCRIPTION = "description";
-  @SerializedName(SERIALIZED_NAME_DESCRIPTION)
-  private String description;
+public class UpdateProfilePicRequest {
+  public static final String SERIALIZED_NAME_FILE = "file";
+  @SerializedName(SERIALIZED_NAME_FILE)
+  private File _file;
 
-  public GroupUpdateDescriptionPayload() {
+  public UpdateProfilePicRequest() {
   }
 
-  public GroupUpdateDescriptionPayload description(String description) {
+  public UpdateProfilePicRequest _file(File _file) {
     
-    this.description = description;
+    this._file = _file;
     return this;
   }
 
    /**
-   * Get description
-   * @return description
+   * Image file
+   * @return _file
   **/
-  @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @javax.annotation.Nonnull
+  @ApiModelProperty(required = true, value = "Image file")
 
-  public String getDescription() {
-    return description;
+  public File getFile() {
+    return _file;
   }
 
 
-  public void setDescription(String description) {
-    this.description = description;
+  public void setFile(File _file) {
+    this._file = _file;
   }
 
 
@@ -89,20 +90,20 @@ public class GroupUpdateDescriptionPayload {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    GroupUpdateDescriptionPayload groupUpdateDescriptionPayload = (GroupUpdateDescriptionPayload) o;
-    return Objects.equals(this.description, groupUpdateDescriptionPayload.description);
+    UpdateProfilePicRequest updateProfilePicRequest = (UpdateProfilePicRequest) o;
+    return Objects.equals(this._file, updateProfilePicRequest._file);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(description);
+    return Objects.hash(_file);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class GroupUpdateDescriptionPayload {\n");
-    sb.append("    description: ").append(toIndentedString(description)).append("\n");
+    sb.append("class UpdateProfilePicRequest {\n");
+    sb.append("    _file: ").append(toIndentedString(_file)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -125,34 +126,39 @@ public class GroupUpdateDescriptionPayload {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("description");
+    openapiFields.add("file");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
+    openapiRequiredFields.add("file");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to GroupUpdateDescriptionPayload
+  * @throws IOException if the JSON Object is invalid with respect to UpdateProfilePicRequest
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!GroupUpdateDescriptionPayload.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in GroupUpdateDescriptionPayload is not found in the empty JSON string", GroupUpdateDescriptionPayload.openapiRequiredFields.toString()));
+        if (!UpdateProfilePicRequest.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in UpdateProfilePicRequest is not found in the empty JSON string", UpdateProfilePicRequest.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!GroupUpdateDescriptionPayload.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `GroupUpdateDescriptionPayload` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!UpdateProfilePicRequest.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UpdateProfilePicRequest` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
-      if ((jsonObj.get("description") != null && !jsonObj.get("description").isJsonNull()) && !jsonObj.get("description").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `description` to be a primitive type in the JSON string but got `%s`", jsonObj.get("description").toString()));
+
+      // check to make sure all required properties/fields are present in the JSON string
+      for (String requiredField : UpdateProfilePicRequest.openapiRequiredFields) {
+        if (jsonObj.get(requiredField) == null) {
+          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
+        }
       }
   }
 
@@ -160,22 +166,22 @@ public class GroupUpdateDescriptionPayload {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!GroupUpdateDescriptionPayload.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'GroupUpdateDescriptionPayload' and its subtypes
+       if (!UpdateProfilePicRequest.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UpdateProfilePicRequest' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<GroupUpdateDescriptionPayload> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(GroupUpdateDescriptionPayload.class));
+       final TypeAdapter<UpdateProfilePicRequest> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UpdateProfilePicRequest.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<GroupUpdateDescriptionPayload>() {
+       return (TypeAdapter<T>) new TypeAdapter<UpdateProfilePicRequest>() {
            @Override
-           public void write(JsonWriter out, GroupUpdateDescriptionPayload value) throws IOException {
+           public void write(JsonWriter out, UpdateProfilePicRequest value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public GroupUpdateDescriptionPayload read(JsonReader in) throws IOException {
+           public UpdateProfilePicRequest read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -186,18 +192,18 @@ public class GroupUpdateDescriptionPayload {
   }
 
  /**
-  * Create an instance of GroupUpdateDescriptionPayload given an JSON string
+  * Create an instance of UpdateProfilePicRequest given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of GroupUpdateDescriptionPayload
-  * @throws IOException if the JSON string is invalid with respect to GroupUpdateDescriptionPayload
+  * @return An instance of UpdateProfilePicRequest
+  * @throws IOException if the JSON string is invalid with respect to UpdateProfilePicRequest
   */
-  public static GroupUpdateDescriptionPayload fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, GroupUpdateDescriptionPayload.class);
+  public static UpdateProfilePicRequest fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UpdateProfilePicRequest.class);
   }
 
  /**
-  * Convert an instance of GroupUpdateDescriptionPayload to an JSON string
+  * Convert an instance of UpdateProfilePicRequest to an JSON string
   *
   * @return JSON string
   */

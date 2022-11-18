@@ -9,6 +9,7 @@ All URIs are relative to */api*
 | [**sendButtonWithMedia**](MessageSendingApi.md#sendButtonWithMedia) | **POST** /instances/{instance_key}/send/button-media | Send a button message with a media header. |
 | [**sendContact**](MessageSendingApi.md#sendContact) | **POST** /instances/{instance_key}/send/contact | Send a contact message. |
 | [**sendDocument**](MessageSendingApi.md#sendDocument) | **POST** /instances/{instance_key}/send/document | Send raw document. |
+| [**sendGroupInvite**](MessageSendingApi.md#sendGroupInvite) | **POST** /instances/{instance_key}/send/group-invite | Send a group invite message |
 | [**sendImage**](MessageSendingApi.md#sendImage) | **POST** /instances/{instance_key}/send/image | Send raw image. |
 | [**sendListMessage**](MessageSendingApi.md#sendListMessage) | **POST** /instances/{instance_key}/send/list | Send a List message. |
 | [**sendLocation**](MessageSendingApi.md#sendLocation) | **POST** /instances/{instance_key}/send/location | Send a location message. |
@@ -404,9 +405,84 @@ public class Example {
 | **404** | Instance not found |  -  |
 | **500** | Internal Server Error |  -  |
 
+<a name="sendGroupInvite"></a>
+# **sendGroupInvite**
+> ModelAPIResponse sendGroupInvite(instanceKey, data)
+
+Send a group invite message
+
+Sends a group invite message to the specified number. Don&#39;t include \&quot;https://chat.whatsapp.com/\&quot; in the invite code.
+
+### Example
+```java
+// Import classes:
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    MessageSendingApi apiInstance = new MessageSendingApi(defaultClient);
+    String instanceKey = "instanceKey_example"; // String | Instance key
+    GroupInviteMessagePayload data = new GroupInviteMessagePayload(); // GroupInviteMessagePayload | Message data
+    try {
+      ModelAPIResponse result = apiInstance.sendGroupInvite(instanceKey, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MessageSendingApi#sendGroupInvite");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **instanceKey** | **String**| Instance key | |
+| **data** | [**GroupInviteMessagePayload**](GroupInviteMessagePayload.md)| Message data | |
+
+### Return type
+
+[**ModelAPIResponse**](ModelAPIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Instance not found |  -  |
+| **500** | Internal Server Error |  -  |
+
 <a name="sendImage"></a>
 # **sendImage**
-> ModelAPIResponse sendImage(instanceKey, to, sendImageRequest, caption)
+> ModelAPIResponse sendImage(instanceKey, to, updateProfilePicRequest, caption)
 
 Send raw image.
 
@@ -436,10 +512,10 @@ public class Example {
     MessageSendingApi apiInstance = new MessageSendingApi(defaultClient);
     String instanceKey = "instanceKey_example"; // String | Instance key
     String to = "to_example"; // String | The recipient's number
-    SendImageRequest sendImageRequest = new SendImageRequest(); // SendImageRequest | 
+    UpdateProfilePicRequest updateProfilePicRequest = new UpdateProfilePicRequest(); // UpdateProfilePicRequest | 
     String caption = "caption_example"; // String | Attached caption
     try {
-      ModelAPIResponse result = apiInstance.sendImage(instanceKey, to, sendImageRequest, caption);
+      ModelAPIResponse result = apiInstance.sendImage(instanceKey, to, updateProfilePicRequest, caption);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling MessageSendingApi#sendImage");
@@ -458,7 +534,7 @@ public class Example {
 |------------- | ------------- | ------------- | -------------|
 | **instanceKey** | **String**| Instance key | |
 | **to** | **String**| The recipient&#39;s number | |
-| **sendImageRequest** | [**SendImageRequest**](SendImageRequest.md)|  | |
+| **updateProfilePicRequest** | [**UpdateProfilePicRequest**](UpdateProfilePicRequest.md)|  | |
 | **caption** | **String**| Attached caption | [optional] |
 
 ### Return type
