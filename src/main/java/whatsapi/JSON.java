@@ -123,6 +123,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new models.TextMessage.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.UpdateProfilePicRequest.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.UploadMediaRequest.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new models.UrlMediaUploadPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.UserInfoPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.WebhookPayload.CustomTypeAdapterFactory());
         gson = gsonBuilder.create();

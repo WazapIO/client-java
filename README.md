@@ -2,7 +2,7 @@
 
 WhatsAPI Go
 - API version: 2.0
-  - Build date: 2022-11-18T21:16:08.870513900+05:30[Asia/Calcutta]
+  - Build date: 2022-11-30T00:00:29.105468200+05:30[Asia/Calcutta]
 
 The V2 of WhatsAPI Go
 
@@ -165,6 +165,7 @@ Class | Method | HTTP request | Description
 *MessageSendingApi* | [**sendTextMessage**](docs/MessageSendingApi.md#sendTextMessage) | **POST** /instances/{instance_key}/send/text | Send a text message.
 *MessageSendingApi* | [**sendVideo**](docs/MessageSendingApi.md#sendVideo) | **POST** /instances/{instance_key}/send/video | Send raw video.
 *MessageSendingApi* | [**uploadMedia**](docs/MessageSendingApi.md#uploadMedia) | **POST** /instances/{instance_key}/send/upload | Upload media.
+*MessageSendingApi* | [**uploadMediaFromUrl**](docs/MessageSendingApi.md#uploadMediaFromUrl) | **POST** /instances/{instance_key}/send/upload-url | Upload media from url.
 *MiscellaneousApi* | [**downloadMedia**](docs/MiscellaneousApi.md#downloadMedia) | **POST** /instances/{instance_key}/misc/download | Download media
 *MiscellaneousApi* | [**getProfilePic**](docs/MiscellaneousApi.md#getProfilePic) | **GET** /instances/{instance_key}/misc/profile-pic | Get profile pic.
 *MiscellaneousApi* | [**getUsersInfo**](docs/MiscellaneousApi.md#getUsersInfo) | **POST** /instances/{instance_key}/misc/user-info | Fetches the users info.
@@ -204,6 +205,7 @@ Class | Method | HTTP request | Description
  - [TextMessage](docs/TextMessage.md)
  - [UpdateProfilePicRequest](docs/UpdateProfilePicRequest.md)
  - [UploadMediaRequest](docs/UploadMediaRequest.md)
+ - [UrlMediaUploadPayload](docs/UrlMediaUploadPayload.md)
  - [UserInfoPayload](docs/UserInfoPayload.md)
  - [WebhookPayload](docs/WebhookPayload.md)
 

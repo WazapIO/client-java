@@ -51,7 +51,7 @@ import WhatsAPI.JSON;
 /**
  * ListSection
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-18T21:16:08.870513900+05:30[Asia/Calcutta]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-30T00:00:29.105468200+05:30[Asia/Calcutta]")
 public class ListSection {
   public static final String SERIALIZED_NAME_ROWS = "rows";
   @SerializedName(SERIALIZED_NAME_ROWS)

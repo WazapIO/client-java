@@ -20,6 +20,7 @@ All URIs are relative to */api*
 | [**sendTextMessage**](MessageSendingApi.md#sendTextMessage) | **POST** /instances/{instance_key}/send/text | Send a text message. |
 | [**sendVideo**](MessageSendingApi.md#sendVideo) | **POST** /instances/{instance_key}/send/video | Send raw video. |
 | [**uploadMedia**](MessageSendingApi.md#uploadMedia) | **POST** /instances/{instance_key}/send/upload | Upload media. |
+| [**uploadMediaFromUrl**](MessageSendingApi.md#uploadMediaFromUrl) | **POST** /instances/{instance_key}/send/upload-url | Upload media from url. |
 
 
 <a name="sendAudio"></a>
@@ -1217,6 +1218,83 @@ public class Example {
 | **instanceKey** | **String**| Instance key | |
 | **type** | **String**| Media type | [enum: image, video, audio, document] |
 | **uploadMediaRequest** | [**UploadMediaRequest**](UploadMediaRequest.md)|  | |
+
+### Return type
+
+[**ModelAPIResponse**](ModelAPIResponse.md)
+
+### Authorization
+
+[ApiKeyAuth](../README.md#ApiKeyAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+| **400** | Bad Request |  -  |
+| **401** | Unauthorized |  -  |
+| **404** | Instance not found |  -  |
+| **500** | Internal Server Error |  -  |
+
+<a name="uploadMediaFromUrl"></a>
+# **uploadMediaFromUrl**
+> ModelAPIResponse uploadMediaFromUrl(instanceKey, type, data)
+
+Upload media from url.
+
+Uploads media from a url to WhatsApp servers and returns the media keys. Store the returned media keys, as you will need them to send media messages
+
+### Example
+```java
+// Import classes:
+import WhatsAPI.ApiClient;
+import WhatsAPI.ApiException;
+import WhatsAPI.Configuration;
+import WhatsAPI.auth.*;
+import WhatsAPI.models.*;
+import whatsapi.MessageSendingApi;
+
+public class Example {
+  public static void main(String[] args) {
+    ApiClient defaultClient = Configuration.getDefaultApiClient();
+    defaultClient.setBasePath("/api");
+    
+    // Configure API key authorization: ApiKeyAuth
+    ApiKeyAuth ApiKeyAuth = (ApiKeyAuth) defaultClient.getAuthentication("ApiKeyAuth");
+    ApiKeyAuth.setApiKey("YOUR API KEY");
+    // Uncomment the following line to set a prefix for the API key, e.g. "Token" (defaults to null)
+    //ApiKeyAuth.setApiKeyPrefix("Token");
+
+    MessageSendingApi apiInstance = new MessageSendingApi(defaultClient);
+    String instanceKey = "instanceKey_example"; // String | Instance key
+    String type = "image"; // String | Media type
+    UrlMediaUploadPayload data = new UrlMediaUploadPayload(); // UrlMediaUploadPayload | Media data
+    try {
+      ModelAPIResponse result = apiInstance.uploadMediaFromUrl(instanceKey, type, data);
+      System.out.println(result);
+    } catch (ApiException e) {
+      System.err.println("Exception when calling MessageSendingApi#uploadMediaFromUrl");
+      System.err.println("Status code: " + e.getCode());
+      System.err.println("Reason: " + e.getResponseBody());
+      System.err.println("Response headers: " + e.getResponseHeaders());
+      e.printStackTrace();
+    }
+  }
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+|------------- | ------------- | ------------- | -------------|
+| **instanceKey** | **String**| Instance key | |
+| **type** | **String**| Media type | [enum: image, video, audio, document] |
+| **data** | [**UrlMediaUploadPayload**](UrlMediaUploadPayload.md)| Media data | |
 
 ### Return type
 

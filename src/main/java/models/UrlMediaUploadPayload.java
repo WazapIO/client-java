@@ -23,7 +23,6 @@ import com.google.gson.stream.JsonWriter;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.IOException;
-import models.LocationMessagePayloadLocation;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -47,72 +46,18 @@ import java.util.Set;
 import WhatsAPI.JSON;
 
 /**
- * LocationMessagePayload
+ * UrlMediaUploadPayload
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-30T00:00:29.105468200+05:30[Asia/Calcutta]")
-public class LocationMessagePayload {
-  public static final String SERIALIZED_NAME_LOCATION = "location";
-  @SerializedName(SERIALIZED_NAME_LOCATION)
-  private LocationMessagePayloadLocation location;
-
-  public static final String SERIALIZED_NAME_TO = "to";
-  @SerializedName(SERIALIZED_NAME_TO)
-  private String to;
-
+public class UrlMediaUploadPayload {
   public static final String SERIALIZED_NAME_URL = "url";
   @SerializedName(SERIALIZED_NAME_URL)
   private String url;
 
-  public LocationMessagePayload() {
+  public UrlMediaUploadPayload() {
   }
 
-  public LocationMessagePayload location(LocationMessagePayloadLocation location) {
-    
-    this.location = location;
-    return this;
-  }
-
-   /**
-   * Get location
-   * @return location
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public LocationMessagePayloadLocation getLocation() {
-    return location;
-  }
-
-
-  public void setLocation(LocationMessagePayloadLocation location) {
-    this.location = location;
-  }
-
-
-  public LocationMessagePayload to(String to) {
-    
-    this.to = to;
-    return this;
-  }
-
-   /**
-   * Get to
-   * @return to
-  **/
-  @javax.annotation.Nonnull
-  @ApiModelProperty(required = true, value = "")
-
-  public String getTo() {
-    return to;
-  }
-
-
-  public void setTo(String to) {
-    this.to = to;
-  }
-
-
-  public LocationMessagePayload url(String url) {
+  public UrlMediaUploadPayload url(String url) {
     
     this.url = url;
     return this;
@@ -144,23 +89,19 @@ public class LocationMessagePayload {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    LocationMessagePayload locationMessagePayload = (LocationMessagePayload) o;
-    return Objects.equals(this.location, locationMessagePayload.location) &&
-        Objects.equals(this.to, locationMessagePayload.to) &&
-        Objects.equals(this.url, locationMessagePayload.url);
+    UrlMediaUploadPayload urlMediaUploadPayload = (UrlMediaUploadPayload) o;
+    return Objects.equals(this.url, urlMediaUploadPayload.url);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(location, to, url);
+    return Objects.hash(url);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class LocationMessagePayload {\n");
-    sb.append("    location: ").append(toIndentedString(location)).append("\n");
-    sb.append("    to: ").append(toIndentedString(to)).append("\n");
+    sb.append("class UrlMediaUploadPayload {\n");
     sb.append("    url: ").append(toIndentedString(url)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -184,47 +125,31 @@ public class LocationMessagePayload {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
-    openapiFields.add("location");
-    openapiFields.add("to");
     openapiFields.add("url");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
-    openapiRequiredFields.add("location");
-    openapiRequiredFields.add("to");
   }
 
  /**
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to LocationMessagePayload
+  * @throws IOException if the JSON Object is invalid with respect to UrlMediaUploadPayload
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!LocationMessagePayload.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in LocationMessagePayload is not found in the empty JSON string", LocationMessagePayload.openapiRequiredFields.toString()));
+        if (!UrlMediaUploadPayload.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in UrlMediaUploadPayload is not found in the empty JSON string", UrlMediaUploadPayload.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!LocationMessagePayload.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `LocationMessagePayload` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!UrlMediaUploadPayload.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `UrlMediaUploadPayload` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
-      }
-
-      // check to make sure all required properties/fields are present in the JSON string
-      for (String requiredField : LocationMessagePayload.openapiRequiredFields) {
-        if (jsonObj.get(requiredField) == null) {
-          throw new IllegalArgumentException(String.format("The required field `%s` is not found in the JSON string: %s", requiredField, jsonObj.toString()));
-        }
-      }
-      // validate the required field `location`
-      LocationMessagePayloadLocation.validateJsonObject(jsonObj.getAsJsonObject("location"));
-      if (!jsonObj.get("to").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `to` to be a primitive type in the JSON string but got `%s`", jsonObj.get("to").toString()));
       }
       if ((jsonObj.get("url") != null && !jsonObj.get("url").isJsonNull()) && !jsonObj.get("url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("url").toString()));
@@ -235,22 +160,22 @@ public class LocationMessagePayload {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!LocationMessagePayload.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'LocationMessagePayload' and its subtypes
+       if (!UrlMediaUploadPayload.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'UrlMediaUploadPayload' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<LocationMessagePayload> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(LocationMessagePayload.class));
+       final TypeAdapter<UrlMediaUploadPayload> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(UrlMediaUploadPayload.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<LocationMessagePayload>() {
+       return (TypeAdapter<T>) new TypeAdapter<UrlMediaUploadPayload>() {
            @Override
-           public void write(JsonWriter out, LocationMessagePayload value) throws IOException {
+           public void write(JsonWriter out, UrlMediaUploadPayload value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public LocationMessagePayload read(JsonReader in) throws IOException {
+           public UrlMediaUploadPayload read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -261,18 +186,18 @@ public class LocationMessagePayload {
   }
 
  /**
-  * Create an instance of LocationMessagePayload given an JSON string
+  * Create an instance of UrlMediaUploadPayload given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of LocationMessagePayload
-  * @throws IOException if the JSON string is invalid with respect to LocationMessagePayload
+  * @return An instance of UrlMediaUploadPayload
+  * @throws IOException if the JSON string is invalid with respect to UrlMediaUploadPayload
   */
-  public static LocationMessagePayload fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, LocationMessagePayload.class);
+  public static UrlMediaUploadPayload fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, UrlMediaUploadPayload.class);
   }
 
  /**
-  * Convert an instance of LocationMessagePayload to an JSON string
+  * Convert an instance of UrlMediaUploadPayload to an JSON string
   *
   * @return JSON string
   */

@@ -40,6 +40,7 @@ docs/TemplateButtonWithMediaPayload.md
 docs/TextMessage.md
 docs/UpdateProfilePicRequest.md
 docs/UploadMediaRequest.md
+docs/UrlMediaUploadPayload.md
 docs/UserInfoPayload.md
 docs/WebhookPayload.md
 git_push.sh
@@ -99,6 +100,7 @@ src/main/java/models/TemplateButtonWithMediaPayload.java
 src/main/java/models/TextMessage.java
 src/main/java/models/UpdateProfilePicRequest.java
 src/main/java/models/UploadMediaRequest.java
+src/main/java/models/UrlMediaUploadPayload.java
 src/main/java/models/UserInfoPayload.java
 src/main/java/models/WebhookPayload.java
 src/main/java/whatsapi/BusinessManagementApi.java
@@ -106,6 +108,4 @@ src/main/java/whatsapi/GroupManagementApi.java
 src/main/java/whatsapi/InstanceApi.java
 src/main/java/whatsapi/MessageSendingApi.java
 src/main/java/whatsapi/MiscellaneousApi.java
-src/test/java/models/GroupInviteMessagePayloadTest.java
-src/test/java/models/PaymentRequestPayloadTest.java
-src/test/java/models/UpdateProfilePicRequestTest.java
+src/test/java/models/UrlMediaUploadPayloadTest.java

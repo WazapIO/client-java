@@ -2720,6 +2720,76 @@ paths:
       - Message Sending
       x-content-type: application/json
       x-accepts: '*/*'
+  /instances/{instance_key}/send/upload-url:
+    post:
+      description: |-
+        Uploads media from a url to WhatsApp servers and returns the media keys.
+        Store the returned media keys, as you will need them to send media messages
+      operationId: uploadMediaFromUrl
+      parameters:
+      - description: Instance key
+        in: path
+        name: instance_key
+        required: true
+        schema:
+          type: string
+      - description: Media type
+        in: query
+        name: type
+        required: true
+        schema:
+          enum:
+          - image
+          - video
+          - audio
+          - document
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UrlMediaUploadPayload'
+        description: Media data
+        required: true
+      responses:
+        "200":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/APIResponse'
+          description: Success
+        "400":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/APIResponse'
+          description: Bad Request
+        "401":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/APIResponse'
+          description: Unauthorized
+        "404":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/APIResponse'
+          description: Instance not found
+        "500":
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/APIResponse'
+          description: Internal Server Error
+      security:
+      - ApiKeyAuth: []
+      summary: Upload media from url.
+      tags:
+      - Message Sending
+      x-codegen-request-body-name: data
+      x-content-type: application/json
+      x-accepts: '*/*'
   /instances/{instance_key}/send/video:
     post:
       description: |-
@@ -3342,6 +3412,13 @@ components:
       required:
       - text
       - to
+      type: object
+    UrlMediaUploadPayload:
+      example:
+        url: url
+      properties:
+        url:
+          type: string
       type: object
     UserInfoPayload:
       example:
