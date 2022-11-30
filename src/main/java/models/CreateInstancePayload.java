@@ -46,18 +46,45 @@ import java.util.Set;
 import WhatsAPI.JSON;
 
 /**
- * WebhookPayload
+ * CreateInstancePayload
  */
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2022-11-30T17:55:55.962510800+05:30[Asia/Calcutta]")
-public class WebhookPayload {
+public class CreateInstancePayload {
+  public static final String SERIALIZED_NAME_INSTANCE_KEY = "instance_key";
+  @SerializedName(SERIALIZED_NAME_INSTANCE_KEY)
+  private String instanceKey;
+
   public static final String SERIALIZED_NAME_WEBHOOK_URL = "webhook_url";
   @SerializedName(SERIALIZED_NAME_WEBHOOK_URL)
   private String webhookUrl;
 
-  public WebhookPayload() {
+  public CreateInstancePayload() {
   }
 
-  public WebhookPayload webhookUrl(String webhookUrl) {
+  public CreateInstancePayload instanceKey(String instanceKey) {
+    
+    this.instanceKey = instanceKey;
+    return this;
+  }
+
+   /**
+   * Get instanceKey
+   * @return instanceKey
+  **/
+  @javax.annotation.Nullable
+  @ApiModelProperty(example = "", value = "")
+
+  public String getInstanceKey() {
+    return instanceKey;
+  }
+
+
+  public void setInstanceKey(String instanceKey) {
+    this.instanceKey = instanceKey;
+  }
+
+
+  public CreateInstancePayload webhookUrl(String webhookUrl) {
     
     this.webhookUrl = webhookUrl;
     return this;
@@ -68,7 +95,7 @@ public class WebhookPayload {
    * @return webhookUrl
   **/
   @javax.annotation.Nullable
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "", value = "")
 
   public String getWebhookUrl() {
     return webhookUrl;
@@ -89,19 +116,21 @@ public class WebhookPayload {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    WebhookPayload webhookPayload = (WebhookPayload) o;
-    return Objects.equals(this.webhookUrl, webhookPayload.webhookUrl);
+    CreateInstancePayload createInstancePayload = (CreateInstancePayload) o;
+    return Objects.equals(this.instanceKey, createInstancePayload.instanceKey) &&
+        Objects.equals(this.webhookUrl, createInstancePayload.webhookUrl);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(webhookUrl);
+    return Objects.hash(instanceKey, webhookUrl);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class WebhookPayload {\n");
+    sb.append("class CreateInstancePayload {\n");
+    sb.append("    instanceKey: ").append(toIndentedString(instanceKey)).append("\n");
     sb.append("    webhookUrl: ").append(toIndentedString(webhookUrl)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -125,6 +154,7 @@ public class WebhookPayload {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("instance_key");
     openapiFields.add("webhook_url");
 
     // a set of required properties/fields (JSON key names)
@@ -135,21 +165,24 @@ public class WebhookPayload {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to WebhookPayload
+  * @throws IOException if the JSON Object is invalid with respect to CreateInstancePayload
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!WebhookPayload.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in WebhookPayload is not found in the empty JSON string", WebhookPayload.openapiRequiredFields.toString()));
+        if (!CreateInstancePayload.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in CreateInstancePayload is not found in the empty JSON string", CreateInstancePayload.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!WebhookPayload.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `WebhookPayload` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!CreateInstancePayload.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `CreateInstancePayload` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
+      }
+      if ((jsonObj.get("instance_key") != null && !jsonObj.get("instance_key").isJsonNull()) && !jsonObj.get("instance_key").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `instance_key` to be a primitive type in the JSON string but got `%s`", jsonObj.get("instance_key").toString()));
       }
       if ((jsonObj.get("webhook_url") != null && !jsonObj.get("webhook_url").isJsonNull()) && !jsonObj.get("webhook_url").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `webhook_url` to be a primitive type in the JSON string but got `%s`", jsonObj.get("webhook_url").toString()));
@@ -160,22 +193,22 @@ public class WebhookPayload {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!WebhookPayload.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'WebhookPayload' and its subtypes
+       if (!CreateInstancePayload.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'CreateInstancePayload' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<WebhookPayload> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(WebhookPayload.class));
+       final TypeAdapter<CreateInstancePayload> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(CreateInstancePayload.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<WebhookPayload>() {
+       return (TypeAdapter<T>) new TypeAdapter<CreateInstancePayload>() {
            @Override
-           public void write(JsonWriter out, WebhookPayload value) throws IOException {
+           public void write(JsonWriter out, CreateInstancePayload value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public WebhookPayload read(JsonReader in) throws IOException {
+           public CreateInstancePayload read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -186,18 +219,18 @@ public class WebhookPayload {
   }
 
  /**
-  * Create an instance of WebhookPayload given an JSON string
+  * Create an instance of CreateInstancePayload given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of WebhookPayload
-  * @throws IOException if the JSON string is invalid with respect to WebhookPayload
+  * @return An instance of CreateInstancePayload
+  * @throws IOException if the JSON string is invalid with respect to CreateInstancePayload
   */
-  public static WebhookPayload fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, WebhookPayload.class);
+  public static CreateInstancePayload fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, CreateInstancePayload.class);
   }
 
  /**
-  * Convert an instance of WebhookPayload to an JSON string
+  * Convert an instance of CreateInstancePayload to an JSON string
   *
   * @return JSON string
   */

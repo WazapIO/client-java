@@ -5,7 +5,7 @@ All URIs are relative to */api*
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
 | [**changeWebhookUrl**](InstanceApi.md#changeWebhookUrl) | **PUT** /instances/{instance_key}/webhook | Change Webhook url. |
-| [**createInstance**](InstanceApi.md#createInstance) | **GET** /instances/create | Creates a new instance key. |
+| [**createInstance**](InstanceApi.md#createInstance) | **POST** /instances/create | Creates a new instance key. |
 | [**deleteInstance**](InstanceApi.md#deleteInstance) | **DELETE** /instances/{instance_key}/delete | Delete Instance. |
 | [**getContacts**](InstanceApi.md#getContacts) | **GET** /instances/{instance_key}/contacts | Get contacts. |
 | [**getInstance**](InstanceApi.md#getInstance) | **GET** /instances/{instance_key}/ | Get Instance. |
@@ -91,7 +91,7 @@ public class Example {
 
 <a name="createInstance"></a>
 # **createInstance**
-> ModelAPIResponse createInstance(instanceKey)
+> ModelAPIResponse createInstance(data)
 
 Creates a new instance key.
 
@@ -119,9 +119,9 @@ public class Example {
     //ApiKeyAuth.setApiKeyPrefix("Token");
 
     InstanceApi apiInstance = new InstanceApi(defaultClient);
-    String instanceKey = "instanceKey_example"; // String | Insert instance key if you want to provide custom key
+    CreateInstancePayload data = new CreateInstancePayload(); // CreateInstancePayload | Instance data
     try {
-      ModelAPIResponse result = apiInstance.createInstance(instanceKey);
+      ModelAPIResponse result = apiInstance.createInstance(data);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling InstanceApi#createInstance");
@@ -138,7 +138,7 @@ public class Example {
 
 | Name | Type | Description  | Notes |
 |------------- | ------------- | ------------- | -------------|
-| **instanceKey** | **String**| Insert instance key if you want to provide custom key | [optional] |
+| **data** | [**CreateInstancePayload**](CreateInstancePayload.md)| Instance data | |
 
 ### Return type
 
@@ -150,7 +150,7 @@ public class Example {
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: */*
 
 ### HTTP response details

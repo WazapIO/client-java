@@ -27,6 +27,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 
 
+import models.CreateInstancePayload;
 import models.ModelAPIResponse;
 import models.WebhookPayload;
 
@@ -225,7 +226,7 @@ public class InstanceApi {
     }
     /**
      * Build call for createInstance
-     * @param instanceKey Insert instance key if you want to provide custom key (optional)
+     * @param data Instance data (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -239,7 +240,7 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createInstanceCall(String instanceKey, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call createInstanceCall(CreateInstancePayload data, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -253,7 +254,7 @@ public class InstanceApi {
             basePath = null;
         }
 
-        Object localVarPostBody = null;
+        Object localVarPostBody = data;
 
         // create path and map variables
         String localVarPath = "/instances/create";
@@ -264,10 +265,6 @@ public class InstanceApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
-        if (instanceKey != null) {
-            localVarQueryParams.addAll(localVarApiClient.parameterToPair("instance_key", instanceKey));
-        }
-
         final String[] localVarAccepts = {
             "*/*"
         };
@@ -277,6 +274,7 @@ public class InstanceApi {
         }
 
         final String[] localVarContentTypes = {
+            "application/json"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -284,19 +282,24 @@ public class InstanceApi {
         }
 
         String[] localVarAuthNames = new String[] { "ApiKeyAuth" };
-        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call createInstanceValidateBeforeCall(String instanceKey, final ApiCallback _callback) throws ApiException {
-        return createInstanceCall(instanceKey, _callback);
+    private okhttp3.Call createInstanceValidateBeforeCall(CreateInstancePayload data, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'data' is set
+        if (data == null) {
+            throw new ApiException("Missing the required parameter 'data' when calling createInstance(Async)");
+        }
+
+        return createInstanceCall(data, _callback);
 
     }
 
     /**
      * Creates a new instance key.
      * This endpoint is used to create a new WhatsApp Web instance.
-     * @param instanceKey Insert instance key if you want to provide custom key (optional)
+     * @param data Instance data (required)
      * @return ModelAPIResponse
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -309,15 +312,15 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ModelAPIResponse createInstance(String instanceKey) throws ApiException {
-        ApiResponse<ModelAPIResponse> localVarResp = createInstanceWithHttpInfo(instanceKey);
+    public ModelAPIResponse createInstance(CreateInstancePayload data) throws ApiException {
+        ApiResponse<ModelAPIResponse> localVarResp = createInstanceWithHttpInfo(data);
         return localVarResp.getData();
     }
 
     /**
      * Creates a new instance key.
      * This endpoint is used to create a new WhatsApp Web instance.
-     * @param instanceKey Insert instance key if you want to provide custom key (optional)
+     * @param data Instance data (required)
      * @return ApiResponse&lt;ModelAPIResponse&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -330,8 +333,8 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ModelAPIResponse> createInstanceWithHttpInfo(String instanceKey) throws ApiException {
-        okhttp3.Call localVarCall = createInstanceValidateBeforeCall(instanceKey, null);
+    public ApiResponse<ModelAPIResponse> createInstanceWithHttpInfo(CreateInstancePayload data) throws ApiException {
+        okhttp3.Call localVarCall = createInstanceValidateBeforeCall(data, null);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -339,7 +342,7 @@ public class InstanceApi {
     /**
      * Creates a new instance key. (asynchronously)
      * This endpoint is used to create a new WhatsApp Web instance.
-     * @param instanceKey Insert instance key if you want to provide custom key (optional)
+     * @param data Instance data (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -353,9 +356,9 @@ public class InstanceApi {
         <tr><td> 500 </td><td> Internal Server Error </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call createInstanceAsync(String instanceKey, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
+    public okhttp3.Call createInstanceAsync(CreateInstancePayload data, final ApiCallback<ModelAPIResponse> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = createInstanceValidateBeforeCall(instanceKey, _callback);
+        okhttp3.Call localVarCall = createInstanceValidateBeforeCall(data, _callback);
         Type localVarReturnType = new TypeToken<ModelAPIResponse>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

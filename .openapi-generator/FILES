@@ -10,6 +10,7 @@ docs/ButtonMessagePayload.md
 docs/ButtonMessageWithMediaPayload.md
 docs/ContactMessagePayload.md
 docs/ContactMessagePayloadVcard.md
+docs/CreateInstancePayload.md
 docs/FileUpload.md
 docs/GroupCreatePayload.md
 docs/GroupInviteMessagePayload.md
@@ -74,6 +75,7 @@ src/main/java/models/ButtonMessagePayload.java
 src/main/java/models/ButtonMessageWithMediaPayload.java
 src/main/java/models/ContactMessagePayload.java
 src/main/java/models/ContactMessagePayloadVcard.java
+src/main/java/models/CreateInstancePayload.java
 src/main/java/models/FileUpload.java
 src/main/java/models/GroupCreatePayload.java
 src/main/java/models/GroupInviteMessagePayload.java
@@ -108,4 +110,4 @@ src/main/java/whatsapi/GroupManagementApi.java
 src/main/java/whatsapi/InstanceApi.java
 src/main/java/whatsapi/MessageSendingApi.java
 src/main/java/whatsapi/MiscellaneousApi.java
-src/test/java/models/UrlMediaUploadPayloadTest.java
+src/test/java/models/CreateInstancePayloadTest.java

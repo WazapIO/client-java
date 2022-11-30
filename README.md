@@ -2,7 +2,7 @@
 
 WhatsAPI Go
 - API version: 2.0
-  - Build date: 2022-11-30T00:00:29.105468200+05:30[Asia/Calcutta]
+  - Build date: 2022-11-30T17:55:55.962510800+05:30[Asia/Calcutta]
 
 The V2 of WhatsAPI Go
 
@@ -142,7 +142,7 @@ Class | Method | HTTP request | Description
 *GroupManagementApi* | [**setGroupName**](docs/GroupManagementApi.md#setGroupName) | **PUT** /instances/{instance_key}/groups/{group_id}/name | Set group name.
 *GroupManagementApi* | [**setGroupPicture**](docs/GroupManagementApi.md#setGroupPicture) | **PUT** /instances/{instance_key}/groups/{group_id}/profile-pic | Set group picture.
 *InstanceApi* | [**changeWebhookUrl**](docs/InstanceApi.md#changeWebhookUrl) | **PUT** /instances/{instance_key}/webhook | Change Webhook url.
-*InstanceApi* | [**createInstance**](docs/InstanceApi.md#createInstance) | **GET** /instances/create | Creates a new instance key.
+*InstanceApi* | [**createInstance**](docs/InstanceApi.md#createInstance) | **POST** /instances/create | Creates a new instance key.
 *InstanceApi* | [**deleteInstance**](docs/InstanceApi.md#deleteInstance) | **DELETE** /instances/{instance_key}/delete | Delete Instance.
 *InstanceApi* | [**getContacts**](docs/InstanceApi.md#getContacts) | **GET** /instances/{instance_key}/contacts | Get contacts.
 *InstanceApi* | [**getInstance**](docs/InstanceApi.md#getInstance) | **GET** /instances/{instance_key}/ | Get Instance.
@@ -179,6 +179,7 @@ Class | Method | HTTP request | Description
  - [ButtonMessageWithMediaPayload](docs/ButtonMessageWithMediaPayload.md)
  - [ContactMessagePayload](docs/ContactMessagePayload.md)
  - [ContactMessagePayloadVcard](docs/ContactMessagePayloadVcard.md)
+ - [CreateInstancePayload](docs/CreateInstancePayload.md)
  - [FileUpload](docs/FileUpload.md)
  - [GroupCreatePayload](docs/GroupCreatePayload.md)
  - [GroupInviteMessagePayload](docs/GroupInviteMessagePayload.md)

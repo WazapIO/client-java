@@ -97,6 +97,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new models.ButtonMessageWithMediaPayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.ContactMessagePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.ContactMessagePayloadVcard.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new models.CreateInstancePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.FileUpload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.GroupCreatePayload.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new models.GroupInviteMessagePayload.CustomTypeAdapterFactory());
